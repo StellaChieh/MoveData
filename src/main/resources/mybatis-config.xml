@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<!-- 吃jdbc設定檔 此行要放在configuration file最上方 -->
+	<!-- properties不放在jar裡 -->
+	<properties url="file:./config/jdbc.properties" />
+	
+	<!-- properties放在jar裡 -->
+	<!--
+	<properties resource="config/jdbc.properties" />
+	 -->
+	
+	<!-- config 設定內容 -->
+	<settings>
+		<!-- 關閉快取 -->
+		<setting name="cacheEnabled" value="false" />
+		<!-- 關閉LazyLoading -->
+		<setting name="aggressiveLazyLoading" value="false" />
+		<setting name="logImpl" value="LOG4J2" />  
+		<!-- Sets the number of seconds the driver will wait for a response from the database. -->
+		<setting name="defaultStatementTimeout" value="900" />
+	</settings>
+
+	<!-- 設定所使用的 javaBean(掃package) -->
+	<!--
+	<typeAliases>
+		<package name="tw.com.cwb.cmt.movedata.model" />
+	</typeAliases>
+	-->
+
+	<!-- 設定連線資訊 -->
+	<environments default="development">
+		<environment id="read">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver.read}" />
+				<property name="url" value="${jdbc.url.read}" />
+				<property name="username" value="${jdbc.username.read}" />
+				<property name="password" value="${jdbc.password.read}" />
+				<property name="driver.encoding" value="UTF8" />
+				<property name="poolMaximumActiveConnections" value="4" />
+				<property name="poolMaximumIdleConnections" value="5" />
+				<property name="poolTimeToWait" value="20000" /> <!-- 20 secs -->
+				<property name="poolMaximumLocalBadConnectionTolerance" value="3" />
+				<property name="poolPingQuery" value="SELECT 1" />
+				<property name="poolPingEnabled" value="true" />
+				<property name="poolPingConnectionsNotUsedFor" value="0" />
+			</dataSource>
+		</environment>
+		<environment id="write">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver.write}" />
+				<property name="url" value="${jdbc.url.write}" />
+				<property name="username" value="${jdbc.username.write}" />
+				<property name="password" value="${jdbc.password.write}" />
+				<property name="driver.encoding" value="UTF8" />
+				<property name="poolMaximumActiveConnections" value="4" />
+				<property name="poolMaximumIdleConnections" value="5" />
+				<property name="poolTimeToWait" value="20000" /> <!-- 20 secs -->
+				<property name="poolMaximumLocalBadConnectionTolerance" value="3" />
+				<property name="poolPingQuery" value="SELECT 1" />
+				<property name="poolPingEnabled" value="true" />
+				<property name="poolPingConnectionsNotUsedFor" value="3000" />
+			</dataSource>
+		</environment>
+	</environments>
+
+
+	<!-- 設定所使用的SQL mapper 的xml檔 -->
+	<mappers>
+		<!-- xml放在jar裡 -->
+		<!--  
+		<mapper resource="mapper/CwbMnMapper.xml" />
+		<mapper resource="mapper/CwbDyMapper.xml" />
+		<mapper resource="mapper/CwbHrMapper.xml" />
+		-->
+		
+		<!-- xml不放在jar裡 -->
+		<!--
+		<mapper url= "file:./config/CwbMnMapper.xml" />
+		<mapper url= "file:./config/CwbDyMapper.xml" />
+		<mapper url= "file:./config/CwbHrMapper.xml" />
+		-->
+		<mapper url= "file:./config/HrMapper.xml" />
+		<mapper url= "file:./config/DyMapper.xml" />
+		<mapper url= "file:./config/MnMapper.xml" />
+		
+		
+		<!-- 嘗試使用但mybatis無法把dao interface 和dao binding 
+			<mapper package = "mapper"/> 
+		-->
+	</mappers>
+
+</configuration>

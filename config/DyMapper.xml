@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tw.com.cwb.cmt.movedata.dao.DyMapper">
+	
+	<sql id="columns">
+	    Stno, ObsTime, StnPres, SeaPres, StnPresMax, StnPresMaxTime, StnPresMin, StnPresMinTime, 
+	    Tx, Tw, TxRange, TxMaxAbs, TxMaxAbsTime, TxMinAbs, TxMinAbsTime, Td, TdMax, TdMaxTime, 
+	    TdMin, TdMinTime, VprPres, VprPresMax, VprPresMaxTime, VprPresMin, VprPresMinTime, 
+	    RH, RHMax, RHMaxTime, RHMin, RHMinTime, WS, WD, WindRun, WSMax, WDMax, WMaxTime, 
+	    WSGust, WDGust, WGustTime, Precp, PrecpHour, PrecpMax10, PrecpMax10Time, PrecpHrMax, 
+	    PrecpHrMaxTime, SunShine, SunShineRate, GloblRad, GloblRadHrMax, GloblRadHrMaxTime, 
+	    VisbMean, CAmtMean, SnowDeep, StatS, StatG, StatE, StatP1, StatP2, StatF1, StatF2, 
+	    StatF3, StatO1, StatO2, StatL1, StatL2, Evap20in, Evap20out, EvapA, TxGrassMin, TxSoil0cm, 
+	    TxSoil5cm, TxSoil10cm, TxSoil20cm, TxSoil30cm, TxSoil50cm, TxSoil100cm, TxSoil200cm, 
+	    TxSoil300cm, TxSoil500cm, WS_1, WS_2, WS_3, WS_4, WS_5, WS_6, WS_7, WS_8, WS_9, WS_10, 
+	    WS_11, WS_12, WS_13, WS_14, WS_15, WS_16, WS_17, WS_18, WS_19, WS_20, WS_21, WS_22, 
+	    WS_23, WS_24, WS_25, WS_26, WS_27, WS_28, WS_29, WS_30, WS_31, WS_32, WS_33, WS_34, 
+	    WS_35, WS_36, WS_V, WS_C, WD_1, WD_2, WD_3, WD_4, WD_5, WD_6, WD_7, WD_8, WD_9, WD_10, 
+	    WD_11, WD_12, WD_13, WD_14, WD_15, WD_16, WD_17, WD_18, WD_19, WD_20, WD_21, WD_22, 
+	    WD_23, WD_24, WD_25, WD_26, WD_27, WD_28, WD_29, WD_30, WD_31, WD_32, WD_33, WD_34, 
+	    WD_35, WD_36, WD_V, WD_C, TB, HCStat, MCStat, LCStat, LCAmt, SeaPresMax, SeaPresMaxTime, 
+	    SeaPresMin, SeaPresMinTime, RecUpdTime, WeatherCondition, SunShineJ, uvi, uviTime
+	</sql>
+
+  <sql id="values">
+  	#{Stno,jdbcType=CHAR}
+  	, #{ObsTime,jdbcType=TIMESTAMP}
+  	, #{StnPres,jdbcType=DECIMAL}
+  	, #{SeaPres,jdbcType=DECIMAL}
+  	, #{StnPresMax,jdbcType=DECIMAL}
+  	, #{StnPresMaxTime,jdbcType=TIMESTAMP}
+  	, #{StnPresMin,jdbcType=DECIMAL}
+  	, #{StnPresMinTime,jdbcType=TIMESTAMP}
+  	, #{Tx,jdbcType=DECIMAL}
+  	, #{Tw,jdbcType=DECIMAL}
+  	, #{TxRange,jdbcType=DECIMAL}
+  	, #{TxMaxAbs,jdbcType=DECIMAL}
+  	, #{TxMaxAbsTime,jdbcType=TIMESTAMP}
+  	, #{TxMinAbs,jdbcType=DECIMAL}
+  	, #{TxMinAbsTime,jdbcType=TIMESTAMP}
+  	, #{Td,jdbcType=DECIMAL}
+  	, #{TdMax,jdbcType=DECIMAL}
+  	, #{TdMaxTime,jdbcType=TIMESTAMP}
+  	, #{TdMin,jdbcType=DECIMAL}
+  	, #{TdMinTime,jdbcType=TIMESTAMP}
+  	, #{VprPres,jdbcType=DECIMAL}
+  	, #{VprPresMax,jdbcType=DECIMAL}
+  	, #{VprPresMaxTime,jdbcType=TIMESTAMP}
+  	, #{VprPresMin,jdbcType=DECIMAL}
+  	, #{VprPresMinTime,jdbcType=TIMESTAMP}
+  	, #{RH,jdbcType=SMALLINT}
+  	, #{RHMax,jdbcType=SMALLINT}
+  	, #{RHMaxTime,jdbcType=TIMESTAMP}
+  	, #{RHMin,jdbcType=SMALLINT}
+  	, #{RHMinTime,jdbcType=TIMESTAMP}
+  	, #{WS,jdbcType=DECIMAL}
+  	, #{WD,jdbcType=DECIMAL}
+  	, #{WindRun,jdbcType=DECIMAL}
+  	, #{WSMax,jdbcType=DECIMAL}
+  	, #{WDMax,jdbcType=DECIMAL}
+  	, #{WMaxTime,jdbcType=TIMESTAMP}
+  	, #{WSGust,jdbcType=DECIMAL}
+  	, #{WDGust,jdbcType=DECIMAL}
+  	, #{WGustTime,jdbcType=TIMESTAMP}
+  	, #{Precp,jdbcType=DECIMAL}
+  	, #{PrecpHour,jdbcType=DECIMAL}
+  	, #{PrecpMax10,jdbcType=DECIMAL}
+  	, #{PrecpMax10Time,jdbcType=TIMESTAMP}
+  	, #{PrecpHrMax,jdbcType=DECIMAL}
+  	, #{PrecpHrMaxTime,jdbcType=TIMESTAMP}
+  	, #{SunShine,jdbcType=DECIMAL}
+  	, #{SunShineRate,jdbcType=DECIMAL}
+  	, #{GloblRad,jdbcType=DECIMAL}
+  	, #{GloblRadHrMax,jdbcType=DECIMAL}
+  	, #{GloblRadHrMaxTime,jdbcType=TIMESTAMP}
+  	, #{VisbMean,jdbcType=DECIMAL}
+  	, #{CAmtMean,jdbcType=DECIMAL}
+  	, #{SnowDeep,jdbcType=SMALLINT}
+  	, #{StatS,jdbcType=CHAR}
+  	, #{StatG,jdbcType=CHAR}
+  	, #{StatE,jdbcType=CHAR}
+  	, #{StatP1,jdbcType=CHAR}
+  	, #{StatP2,jdbcType=CHAR}
+  	, #{StatF1,jdbcType=CHAR}
+  	, #{StatF2,jdbcType=CHAR}
+  	, #{StatF3,jdbcType=CHAR}
+  	, #{StatO1,jdbcType=CHAR}
+  	, #{StatO2,jdbcType=CHAR}
+  	, #{StatL1,jdbcType=CHAR}
+  	, #{StatL2,jdbcType=CHAR}
+  	, #{Evap20in,jdbcType=DECIMAL}
+  	, #{Evap20out,jdbcType=DECIMAL}
+  	, #{EvapA,jdbcType=DECIMAL}
+  	, #{TxGrassMin,jdbcType=DECIMAL}
+  	, #{TxSoil0cm,jdbcType=DECIMAL}
+  	, #{TxSoil5cm,jdbcType=DECIMAL}
+  	, #{TxSoil10cm,jdbcType=DECIMAL}
+  	, #{TxSoil20cm,jdbcType=DECIMAL}
+  	, #{TxSoil30cm,jdbcType=DECIMAL}
+  	, #{TxSoil50cm,jdbcType=DECIMAL}
+  	, #{TxSoil100cm,jdbcType=DECIMAL}
+  	, #{TxSoil200cm,jdbcType=DECIMAL}
+  	, #{TxSoil300cm,jdbcType=DECIMAL}
+  	, #{TxSoil500cm,jdbcType=DECIMAL}
+  	, #{WS_1,jdbcType=DECIMAL}
+  	, #{WS_2,jdbcType=DECIMAL}
+  	, #{WS_3,jdbcType=DECIMAL}
+  	, #{WS_4,jdbcType=DECIMAL}
+  	, #{WS_5,jdbcType=DECIMAL}
+  	, #{WS_6,jdbcType=DECIMAL}
+  	, #{WS_7,jdbcType=DECIMAL}
+  	, #{WS_8,jdbcType=DECIMAL}
+  	, #{WS_9,jdbcType=DECIMAL}
+  	, #{WS_10,jdbcType=DECIMAL} 
+    , #{WS_11,jdbcType=DECIMAL}
+    , #{WS_12,jdbcType=DECIMAL}
+    , #{WS_13,jdbcType=DECIMAL}
+    , #{WS_14,jdbcType=DECIMAL}
+    , #{WS_15,jdbcType=DECIMAL}
+    , #{WS_16,jdbcType=DECIMAL}
+    , #{WS_17,jdbcType=DECIMAL}
+    , #{WS_18,jdbcType=DECIMAL}
+    , #{WS_19,jdbcType=DECIMAL}
+    , #{WS_20,jdbcType=DECIMAL}
+    , #{WS_21,jdbcType=DECIMAL}
+    , #{WS_22,jdbcType=DECIMAL}
+    , #{WS_23,jdbcType=DECIMAL}
+    , #{WS_24,jdbcType=DECIMAL}
+    , #{WS_25,jdbcType=DECIMAL}
+    , #{WS_26,jdbcType=DECIMAL}
+    , #{WS_27,jdbcType=DECIMAL}
+    , #{WS_28,jdbcType=DECIMAL}
+    , #{WS_29,jdbcType=DECIMAL}
+    , #{WS_30,jdbcType=DECIMAL}
+    , #{WS_31,jdbcType=DECIMAL}
+    , #{WS_32,jdbcType=DECIMAL}
+    , #{WS_33,jdbcType=DECIMAL}
+    , #{WS_34,jdbcType=DECIMAL}
+    , #{WS_35,jdbcType=DECIMAL}
+    , #{WS_36,jdbcType=DECIMAL}
+    , #{WS_V,jdbcType=DECIMAL}
+    , #{WS_C,jdbcType=DECIMAL}
+    , #{WD_1,jdbcType=SMALLINT}
+    , #{WD_2,jdbcType=SMALLINT}
+    , #{WD_3,jdbcType=SMALLINT}
+    , #{WD_4,jdbcType=SMALLINT}
+    , #{WD_5,jdbcType=SMALLINT}
+    , #{WD_6,jdbcType=SMALLINT}
+    , #{WD_7,jdbcType=SMALLINT}
+    , #{WD_8,jdbcType=SMALLINT}
+    , #{WD_9,jdbcType=SMALLINT}
+    , #{WD_10,jdbcType=SMALLINT}
+    , #{WD_11,jdbcType=SMALLINT}
+    , #{WD_12,jdbcType=SMALLINT}
+    , #{WD_13,jdbcType=SMALLINT}
+    , #{WD_14,jdbcType=SMALLINT}
+    , #{WD_15,jdbcType=SMALLINT}
+    , #{WD_16,jdbcType=SMALLINT}
+    , #{WD_17,jdbcType=SMALLINT}
+    , #{WD_18,jdbcType=SMALLINT}
+    , #{WD_19,jdbcType=SMALLINT}
+    , #{WD_20,jdbcType=SMALLINT}
+    , #{WD_21,jdbcType=SMALLINT}
+    , #{WD_22,jdbcType=SMALLINT}
+    , #{WD_23,jdbcType=SMALLINT}
+    , #{WD_24,jdbcType=SMALLINT}
+    , #{WD_25,jdbcType=SMALLINT}
+    , #{WD_26,jdbcType=SMALLINT}
+    , #{WD_27,jdbcType=SMALLINT}
+    , #{WD_28,jdbcType=SMALLINT}
+    , #{WD_29,jdbcType=SMALLINT}
+    , #{WD_30,jdbcType=SMALLINT}
+    , #{WD_31,jdbcType=SMALLINT}
+    , #{WD_32,jdbcType=SMALLINT}
+    , #{WD_33,jdbcType=SMALLINT}
+    , #{WD_34,jdbcType=SMALLINT}
+    , #{WD_35,jdbcType=SMALLINT}
+    , #{WD_36,jdbcType=SMALLINT}
+    , #{WD_V,jdbcType=SMALLINT}
+    , #{WD_C,jdbcType=SMALLINT}
+    , #{TB,jdbcType=DECIMAL}
+    , #{HCStat,jdbcType=CHAR}
+    , #{MCStat,jdbcType=CHAR}
+    , #{LCStat,jdbcType=CHAR}
+    , #{LCAmt,jdbcType=DECIMAL}
+    , #{SeaPresMax,jdbcType=DECIMAL}
+    , #{SeaPresMaxTime,jdbcType=TIMESTAMP}
+    , #{SeaPresMin,jdbcType=DECIMAL}
+    , #{SeaPresMinTime,jdbcType=TIMESTAMP}
+    , #{RecUpdTime,jdbcType=TIMESTAMP}
+    , #{WeatherCondition,jdbcType=VARCHAR}
+    , #{SunShineJ,jdbcType=DECIMAL}
+    , #{uvi,jdbcType=DECIMAL}
+    , #{uviTime,jdbcType=TIMESTAMP}
+  </sql>	  
+  
+  <sql id="setStatement">
+  	  Stno = #{Stno,jdbcType=CHAR},
+      ObsTime = #{ObsTime,jdbcType=TIMESTAMP},
+      StnPres = #{StnPres,jdbcType=DECIMAL},
+      SeaPres = #{SeaPres,jdbcType=DECIMAL},
+      StnPresMax = #{StnPresMax,jdbcType=DECIMAL},
+      StnPresMaxTime = #{StnPresMaxTime,jdbcType=TIMESTAMP},
+      StnPresMin = #{StnPresMin,jdbcType=DECIMAL},
+      StnPresMinTime = #{StnPresMinTime,jdbcType=TIMESTAMP},
+      Tx = #{Tx,jdbcType=DECIMAL},
+      Tw = #{Tw,jdbcType=DECIMAL},
+      TxRange = #{TxRange,jdbcType=DECIMAL},
+      TxMaxAbs = #{TxMaxAbs,jdbcType=DECIMAL},
+      TxMaxAbsTime = #{TxMaxAbsTime,jdbcType=TIMESTAMP},
+      TxMinAbs = #{TxMinAbs,jdbcType=DECIMAL},
+      TxMinAbsTime = #{TxMinAbsTime,jdbcType=TIMESTAMP},
+      Td = #{Td,jdbcType=DECIMAL},
+      TdMax = #{TdMax,jdbcType=DECIMAL},
+      TdMaxTime = #{TdMaxTime,jdbcType=TIMESTAMP},
+      TdMin = #{TdMin,jdbcType=DECIMAL},
+      TdMinTime = #{TdMinTime,jdbcType=TIMESTAMP},
+      VprPres = #{VprPres,jdbcType=DECIMAL},
+      VprPresMax = #{VprPresMax,jdbcType=DECIMAL},
+      VprPresMaxTime = #{VprPresMaxTime,jdbcType=TIMESTAMP},
+      VprPresMin = #{VprPresMin,jdbcType=DECIMAL},
+      VprPresMinTime = #{VprPresMinTime,jdbcType=TIMESTAMP},
+      RH = #{RH,jdbcType=SMALLINT},
+      RHMax = #{RHMax,jdbcType=SMALLINT},
+      RHMaxTime = #{RHMaxTime,jdbcType=TIMESTAMP},
+      RHMin = #{RHMin,jdbcType=SMALLINT},
+      RHMinTime = #{RHMinTime,jdbcType=TIMESTAMP},
+      WS = #{WS,jdbcType=DECIMAL},
+      WD = #{WD,jdbcType=DECIMAL},
+      WindRun = #{WindRun,jdbcType=DECIMAL},
+      WSMax = #{WSMax,jdbcType=DECIMAL},
+      WDMax = #{WDMax,jdbcType=DECIMAL},
+      WMaxTime = #{WMaxTime,jdbcType=TIMESTAMP},
+      WSGust = #{WSGust,jdbcType=DECIMAL},
+      WDGust = #{WDGust,jdbcType=DECIMAL},
+      WGustTime = #{WGustTime,jdbcType=TIMESTAMP},
+      Precp = #{Precp,jdbcType=DECIMAL},
+      PrecpHour = #{PrecpHour,jdbcType=DECIMAL},
+      PrecpMax10 = #{PrecpMax10,jdbcType=DECIMAL},
+      PrecpMax10Time = #{PrecpMax10Time,jdbcType=TIMESTAMP},
+      PrecpHrMax = #{PrecpHrMax,jdbcType=DECIMAL},
+      PrecpHrMaxTime = #{PrecpHrMaxTime,jdbcType=TIMESTAMP},
+      SunShine = #{SunShine,jdbcType=DECIMAL},
+      SunShineRate = #{SunShineRate,jdbcType=DECIMAL},
+      GloblRad = #{GloblRad,jdbcType=DECIMAL},
+      GloblRadHrMax = #{GloblRadHrMax,jdbcType=DECIMAL},
+      GloblRadHrMaxTime = #{GloblRadHrMaxTime,jdbcType=TIMESTAMP},
+      VisbMean = #{VisbMean,jdbcType=DECIMAL},
+      CAmtMean = #{CAmtMean,jdbcType=DECIMAL},
+      SnowDeep = #{SnowDeep,jdbcType=SMALLINT},
+      StatS = #{StatS,jdbcType=CHAR},
+      StatG = #{StatG,jdbcType=CHAR},
+      StatE = #{StatE,jdbcType=CHAR},
+      StatP1 = #{StatP1,jdbcType=CHAR},
+      StatP2 = #{StatP2,jdbcType=CHAR},
+      StatF1 = #{StatF1,jdbcType=CHAR},
+      StatF2 = #{StatF2,jdbcType=CHAR},
+      StatF3 = #{StatF3,jdbcType=CHAR},
+      StatO1 = #{StatO1,jdbcType=CHAR},
+      StatO2 = #{StatO2,jdbcType=CHAR},
+      StatL1 = #{StatL1,jdbcType=CHAR},
+      StatL2 = #{StatL2,jdbcType=CHAR},
+      Evap20in = #{Evap20in,jdbcType=DECIMAL},
+      Evap20out = #{Evap20out,jdbcType=DECIMAL},
+      EvapA = #{EvapA,jdbcType=DECIMAL},
+      TxGrassMin = #{TxGrassMin,jdbcType=DECIMAL},
+      TxSoil0cm = #{TxSoil0cm,jdbcType=DECIMAL},
+      TxSoil5cm = #{TxSoil5cm,jdbcType=DECIMAL},
+      TxSoil10cm = #{TxSoil10cm,jdbcType=DECIMAL},
+      TxSoil20cm = #{TxSoil20cm,jdbcType=DECIMAL},
+      TxSoil30cm = #{TxSoil30cm,jdbcType=DECIMAL},
+      TxSoil50cm = #{TxSoil50cm,jdbcType=DECIMAL},
+      TxSoil100cm = #{TxSoil100cm,jdbcType=DECIMAL},
+      TxSoil200cm = #{TxSoil200cm,jdbcType=DECIMAL},
+      TxSoil300cm = #{TxSoil300cm,jdbcType=DECIMAL},
+      TxSoil500cm = #{TxSoil500cm,jdbcType=DECIMAL},
+      WS_1 = #{WS_1,jdbcType=DECIMAL},
+      WS_2 = #{WS_2,jdbcType=DECIMAL},
+      WS_3 = #{WS_3,jdbcType=DECIMAL},
+      WS_4 = #{WS_4,jdbcType=DECIMAL},
+      WS_5 = #{WS_5,jdbcType=DECIMAL},
+      WS_6 = #{WS_6,jdbcType=DECIMAL},
+      WS_7 = #{WS_7,jdbcType=DECIMAL},
+      WS_8 = #{WS_8,jdbcType=DECIMAL},
+      WS_9 = #{WS_9,jdbcType=DECIMAL},
+      WS_10 = #{WS_10,jdbcType=DECIMAL},
+      WS_11 = #{WS_11,jdbcType=DECIMAL},
+      WS_12 = #{WS_12,jdbcType=DECIMAL},
+      WS_13 = #{WS_13,jdbcType=DECIMAL},
+      WS_14 = #{WS_14,jdbcType=DECIMAL},
+      WS_15 = #{WS_15,jdbcType=DECIMAL},
+      WS_16 = #{WS_16,jdbcType=DECIMAL},
+      WS_17 = #{WS_17,jdbcType=DECIMAL},
+      WS_18 = #{WS_18,jdbcType=DECIMAL},
+      WS_19 = #{WS_19,jdbcType=DECIMAL},
+      WS_20 = #{WS_20,jdbcType=DECIMAL},
+      WS_21 = #{WS_21,jdbcType=DECIMAL},
+      WS_22 = #{WS_22,jdbcType=DECIMAL},
+      WS_23 = #{WS_23,jdbcType=DECIMAL},
+      WS_24 = #{WS_24,jdbcType=DECIMAL},
+      WS_25 = #{WS_25,jdbcType=DECIMAL},
+      WS_26 = #{WS_26,jdbcType=DECIMAL},
+      WS_27 = #{WS_27,jdbcType=DECIMAL},
+      WS_28 = #{WS_28,jdbcType=DECIMAL},
+      WS_29 = #{WS_29,jdbcType=DECIMAL},
+      WS_30 = #{WS_30,jdbcType=DECIMAL},
+      WS_31 = #{WS_31,jdbcType=DECIMAL},
+      WS_32 = #{WS_32,jdbcType=DECIMAL},
+      WS_33 = #{WS_33,jdbcType=DECIMAL},
+      WS_34 = #{WS_34,jdbcType=DECIMAL},
+      WS_35 = #{WS_35,jdbcType=DECIMAL},
+      WS_36 = #{WS_36,jdbcType=DECIMAL},
+      WS_V = #{WS_V,jdbcType=DECIMAL},
+      WS_C = #{WS_C,jdbcType=DECIMAL},
+      WD_1 = #{WD_1,jdbcType=SMALLINT},
+      WD_2 = #{WD_2,jdbcType=SMALLINT},
+      WD_3 = #{WD_3,jdbcType=SMALLINT},
+      WD_4 = #{WD_4,jdbcType=SMALLINT},
+      WD_5 = #{WD_5,jdbcType=SMALLINT},
+      WD_6 = #{WD_6,jdbcType=SMALLINT},
+      WD_7 = #{WD_7,jdbcType=SMALLINT},
+      WD_8 = #{WD_8,jdbcType=SMALLINT},
+      WD_9 = #{WD_9,jdbcType=SMALLINT},
+      WD_10 = #{WD_10,jdbcType=SMALLINT},
+      WD_11 = #{WD_11,jdbcType=SMALLINT},
+      WD_12 = #{WD_12,jdbcType=SMALLINT},
+      WD_13 = #{WD_13,jdbcType=SMALLINT},
+      WD_14 = #{WD_14,jdbcType=SMALLINT},
+      WD_15 = #{WD_15,jdbcType=SMALLINT},
+      WD_16 = #{WD_16,jdbcType=SMALLINT},
+      WD_17 = #{WD_17,jdbcType=SMALLINT},
+      WD_18 = #{WD_18,jdbcType=SMALLINT},
+      WD_19 = #{WD_19,jdbcType=SMALLINT},
+      WD_20 = #{WD_20,jdbcType=SMALLINT},
+      WD_21 = #{WD_21,jdbcType=SMALLINT},
+      WD_22 = #{WD_22,jdbcType=SMALLINT},
+      WD_23 = #{WD_23,jdbcType=SMALLINT},
+      WD_24 = #{WD_24,jdbcType=SMALLINT},
+      WD_25 = #{WD_25,jdbcType=SMALLINT},
+      WD_26 = #{WD_26,jdbcType=SMALLINT},
+      WD_27 = #{WD_27,jdbcType=SMALLINT},
+      WD_28 = #{WD_28,jdbcType=SMALLINT},
+      WD_29 = #{WD_29,jdbcType=SMALLINT},
+      WD_30 = #{WD_30,jdbcType=SMALLINT},
+      WD_31 = #{WD_31,jdbcType=SMALLINT},
+      WD_32 = #{WD_32,jdbcType=SMALLINT},
+      WD_33 = #{WD_33,jdbcType=SMALLINT},
+      WD_34 = #{WD_34,jdbcType=SMALLINT},
+      WD_35 = #{WD_35,jdbcType=SMALLINT},
+      WD_36 = #{WD_36,jdbcType=SMALLINT},
+      WD_V = #{WD_V,jdbcType=SMALLINT},
+      WD_C = #{WD_C,jdbcType=SMALLINT},
+      TB = #{TB,jdbcType=DECIMAL},
+      HCStat = #{HCStat,jdbcType=CHAR},
+      MCStat = #{MCStat,jdbcType=CHAR},
+      LCStat = #{LCStat,jdbcType=CHAR},
+      LCAmt = #{LCAmt,jdbcType=DECIMAL},
+      SeaPresMax = #{SeaPresMax,jdbcType=DECIMAL},
+      SeaPresMaxTime = #{SeaPresMaxTime,jdbcType=TIMESTAMP},
+      SeaPresMin = #{SeaPresMin,jdbcType=DECIMAL},
+      SeaPresMinTime = #{SeaPresMinTime,jdbcType=TIMESTAMP},
+      RecUpdTime = #{RecUpdTime,jdbcType=TIMESTAMP},
+      WeatherCondition = #{WeatherCondition,jdbcType=VARCHAR},
+      SunShineJ = #{SunShineJ,jdbcType=DECIMAL},
+      uvi = #{uvi,jdbcType=DECIMAL},
+      uviTime = #{uviTime,jdbcType=TIMESTAMP}
+  </sql>
+ 
+ 	<!-- my sql -->
+	<select id="selectByPrimaryKey" parameterType="map" resultType="java.util.HashMap">
+    	SELECT * FROM ${table} WHERE Stno = #{Stno} AND ObsTime = #{ObsTime}
+  	</select>
+  
+  	<!-- my sql -->
+  	<select id="selectRecupdtimeGreaterThan" parameterType="map" resultType="java.util.HashMap">
+    	SELECT * FROM ${table} WHERE RecUpdTime > #{RecUpdTime}
+  	</select>
+  	
+  	<!-- my sql -->
+  	<select id="selectRecUpdTimeBetween" parameterType="map" resultType="java.util.HashMap">
+    	SELECT * FROM ${table} WHERE RecUpdTime BETWEEN #{beginTime} AND #{endTime}  
+  	</select>
+  	
+  	<!-- my sql -->
+  	<select id="countRecUpdTimeGreaterEqualThan" parameterType="map" resultType="java.lang.Integer">
+    	SELECT COUNT(*) FROM ${table} WHERE RecUpdTime >= #{RecUpdTime}  
+  	</select>
+  	
+  
+  	<!-- my sql -->
+  	<select id="selectRecUpdTimeGreaterThanWithPagination" parameterType="map" resultType="java.util.HashMap">
+    	SELECT * FROM ${table} WHERE RecUpdTime >= #{RecUpdTime} ORDER BY Stno, ObsTime LIMIT #{offset}, #{range}   
+  	</select>
+  	
+  	<!-- ms sql -->
+  	<select id="selectMaxRecUpdTime" parameterType="map" resultType="java.time.LocalDateTime">
+    	SELECT TOP 1 RecUpdTime FROM ${table}_test ORDER BY RecUpdTime DESC
+  	</select>
+  
+	<!-- ms sql -->
+	<insert id="insertOrUpdate" parameterType="map">
+		UPDATE ${table}_test
+		SET <include refid="setStatement" />
+		WHERE Stno = #{Stno,jdbcType=CHAR}
+			AND ObsTime = #{ObsTime,jdbcType=TIMESTAMP}
+		IF @@rowcount = 0
+		BEGIN
+			INSERT INTO ${table}_test
+			(<include refid="columns" />)
+			VALUES 
+			(<include refid="values" />)
+		END
+	</insert>
+	  
+</mapper>

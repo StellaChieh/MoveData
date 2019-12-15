@@ -1,0 +1,2786 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tw.com.cwb.cmt.movedata.dao.CwbMnMapper">
+	<resultMap id="BaseResultMap" type="tw.com.cwb.cmt.movedata.model.CwbMn">
+		<constructor>
+			<idArg column="Stno" javaType="java.lang.String" jdbcType="CHAR" />
+			<idArg column="ObsTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="StnPres" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="SeaPres" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="StnPresMax" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="StnPresMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="StnPresMin" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="StnPresMinTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="Tx" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxMin" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxMaxAbs" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxMaxAbsTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="TxMinAbs" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxMinAbsTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="TxRange" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxRangeMax" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxRangeMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="TxLE10Day" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="TxGE25Day" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="TxMaxGE30Day" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="TxMaxGe35Day" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="TxMinLE10Day" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="TxMinGE20Day" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="Td" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WS" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WD" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WSGust" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WDGust" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WGustTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="WSMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WDMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="WSMaxGE10Day" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="Precp" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="PrecpHour" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="PrecpDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="PrecpMax10" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="PrecpMax10Time" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="PrecpHrMax" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="PrecpHrMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="Precp1DayMax" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="Precp1DayMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="PrecpGE1mmDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="PrecpGE10mmDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="PrecpGE30mmDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="VprPres" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="VprPresMax" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="VprPresMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="VprPresMin" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="VprPresMinTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="RH" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="RHMin" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="RHMinTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="RHMax" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="RHMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="Evap20out" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="Evap20outMax" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="Evap20outMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="EvapA" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="CAmtMean" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="SunShineRate" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="SunShine" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="GloblRad" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="GloblRadHrMax" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="GloblRadHrMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="NoSunShineDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="ThunderstormDay" javaType="java.lang.Short"
+				jdbcType="SMALLINT" />
+			<arg column="ClearSkyDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="ScatteredSkyDay" javaType="java.lang.Short"
+				jdbcType="SMALLINT" />
+			<arg column="BrokenSkyDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="OvercastSkyDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="FogDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="PrecpDay_flag" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="WS_flag" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="Precp_flag" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="SunShine_flag" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="EvapA_flag" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="Evap20out_flag" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="GloblRad_flag" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="WSMax_flag" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="WSGust_flag" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="FrostDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="SnowDay" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="MeanTxMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="MeanTxMin" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="Precp1DayMax_flag" javaType="java.lang.Short"
+				jdbcType="SMALLINT" />
+			<arg column="PrecpHrMax_flag" javaType="java.lang.Short"
+				jdbcType="SMALLINT" />
+			<arg column="TxSoil0cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxSoil5cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxSoil10cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil20cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil30cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil50cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil100cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil200cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil300cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil500cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxGrassMin" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="MinTxGrassMin" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="MinTxGrassMinTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="Evap20in" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TB" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="EvapAMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="EvapAMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="SeaPresMax" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="SeaPresMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="SeaPresMin" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="SeaPresMinTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="RecUpdTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="VisbMean" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="SunShineJ" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="uvi" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="uviMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="uviMaxTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="uvi_flag" javaType="java.lang.Short" jdbcType="SMALLINT" />
+		</constructor>
+	</resultMap>
+
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value}
+									and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem"
+										open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+
+	<sql id="Base_Column_List">
+		Stno, ObsTime, StnPres, SeaPres, StnPresMax,
+		StnPresMaxTime, StnPresMin,
+		StnPresMinTime,
+		Tx, TxMax, TxMin, TxMaxAbs,
+		TxMaxAbsTime, TxMinAbs, TxMinAbsTime,
+		TxRange, TxRangeMax,
+		TxRangeMaxTime, TxLE10Day, TxGE25Day, TxMaxGE30Day, TxMaxGe35Day,
+		TxMinLE10Day,
+		TxMinGE20Day,
+		Td, WS, WD, WSGust, WDGust, WGustTime,
+		WSMax, WDMax, WMaxTime,
+		WSMaxGE10Day, Precp,
+		PrecpHour, PrecpDay,
+		PrecpMax10, PrecpMax10Time, PrecpHrMax, PrecpHrMaxTime,
+		Precp1DayMax,
+		Precp1DayMaxTime, PrecpGE1mmDay, PrecpGE10mmDay, PrecpGE30mmDay,
+		VprPres, VprPresMax,
+		VprPresMaxTime, VprPresMin, VprPresMinTime, RH,
+		RHMin, RHMinTime,
+		RHMax, RHMaxTime,
+		Evap20out, Evap20outMax,
+		Evap20outMaxTime, EvapA, CAmtMean, SunShineRate,
+		SunShine,
+		GloblRad,
+		GloblRadHrMax, GloblRadHrMaxTime, NoSunShineDay, ThunderstormDay,
+		ClearSkyDay,
+		ScatteredSkyDay, BrokenSkyDay, OvercastSkyDay, FogDay,
+		PrecpDay_flag, WS_flag,
+		Precp_flag,
+		SunShine_flag, EvapA_flag,
+		Evap20out_flag, GloblRad_flag, WSMax_flag, WSGust_flag,
+		FrostDay,
+		SnowDay, MeanTxMax, MeanTxMin, Precp1DayMax_flag,
+		PrecpHrMax_flag,
+		TxSoil0cm,
+		TxSoil5cm, TxSoil10cm, TxSoil20cm, TxSoil30cm, TxSoil50cm,
+		TxSoil100cm,
+		TxSoil200cm,
+		TxSoil300cm, TxSoil500cm, TxGrassMin,
+		MinTxGrassMin, MinTxGrassMinTime, Evap20in,
+		TB, EvapAMax, EvapAMaxTime,
+		SeaPresMax, SeaPresMaxTime, SeaPresMin,
+		SeaPresMinTime,
+		RecUpdTime,
+		VisbMean, SunShineJ, uvi, uviMax, uviMaxTime, uvi_flag
+	</sql>
+
+	<sql id="Base_Insert_Record">
+		#{record.stno,jdbcType=CHAR}
+		,
+		#{record.obstime,jdbcType=TIMESTAMP}
+		,
+		#{record.stnpres,jdbcType=DECIMAL}
+		, #{record.seapres,jdbcType=DECIMAL}
+		, #{record.stnpresmax,jdbcType=DECIMAL}
+		,
+		#{record.stnpresmaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.stnpresmin,jdbcType=DECIMAL}
+		,
+		#{record.stnpresmintime,jdbcType=TIMESTAMP}
+		,
+		#{record.tx,jdbcType=DECIMAL}
+		, #{record.txmax,jdbcType=DECIMAL}
+		,
+		#{record.txmin,jdbcType=DECIMAL}
+		, #{record.txmaxabs,jdbcType=DECIMAL}
+		, #{record.txmaxabstime,jdbcType=TIMESTAMP}
+		,
+		#{record.txminabs,jdbcType=DECIMAL}
+		,
+		#{record.txminabstime,jdbcType=TIMESTAMP}
+		,
+		#{record.txrange,jdbcType=DECIMAL}
+		,
+		#{record.txrangemax,jdbcType=DECIMAL}
+		,
+		#{record.txrangemaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.txle10day,jdbcType=SMALLINT}
+		,
+		#{record.txge25day,jdbcType=SMALLINT}
+		,
+		#{record.txmaxge30day,jdbcType=SMALLINT}
+		,
+		#{record.txmaxge35day,jdbcType=SMALLINT}
+		,
+		#{record.txminle10day,jdbcType=SMALLINT}
+		,
+		#{record.txminge20day,jdbcType=SMALLINT}
+		,
+		#{record.td,jdbcType=DECIMAL}
+		, #{record.ws,jdbcType=DECIMAL}
+		,
+		#{record.wd,jdbcType=DECIMAL}
+		, #{record.wsgust,jdbcType=DECIMAL}
+		,
+		#{record.wdgust,jdbcType=DECIMAL}
+		,
+		#{record.wgusttime,jdbcType=TIMESTAMP}
+		,
+		#{record.wsmax,jdbcType=DECIMAL}
+		, #{record.wdmax,jdbcType=DECIMAL}
+		,
+		#{record.wmaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.wsmaxge10day,jdbcType=SMALLINT}
+		,
+		#{record.precp,jdbcType=DECIMAL}
+		, #{record.precphour,jdbcType=DECIMAL}
+		, #{record.precpday,jdbcType=SMALLINT}
+		,
+		#{record.precpmax10,jdbcType=DECIMAL}
+		,
+		#{record.precpmax10time,jdbcType=TIMESTAMP}
+		,
+		#{record.precphrmax,jdbcType=DECIMAL}
+		,
+		#{record.precphrmaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.precp1daymax,jdbcType=DECIMAL}
+		,
+		#{record.precp1daymaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.precpge1mmday,jdbcType=SMALLINT}
+		,
+		#{record.precpge10mmday,jdbcType=SMALLINT}
+		,
+		#{record.precpge30mmday,jdbcType=SMALLINT}
+		,
+		#{record.vprpres,jdbcType=DECIMAL}
+		,
+		#{record.vprpresmax,jdbcType=DECIMAL}
+		,
+		#{record.vprpresmaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.vprpresmin,jdbcType=DECIMAL}
+		,
+		#{record.vprpresmintime,jdbcType=TIMESTAMP}
+		,
+		#{record.rh,jdbcType=SMALLINT}
+		, #{record.rhmin,jdbcType=SMALLINT}
+		,
+		#{record.rhmintime,jdbcType=TIMESTAMP}
+		,
+		#{record.rhmax,jdbcType=SMALLINT}
+		,
+		#{record.rhmaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.evap20out,jdbcType=DECIMAL}
+		,
+		#{record.evap20outmax,jdbcType=DECIMAL}
+		,
+		#{record.evap20outmaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.evapa,jdbcType=DECIMAL}
+		, #{record.camtmean,jdbcType=DECIMAL}
+		, #{record.sunshinerate,jdbcType=DECIMAL}
+		,
+		#{record.sunshine,jdbcType=DECIMAL}
+		,
+		#{record.globlrad,jdbcType=DECIMAL}
+		,
+		#{record.globlradhrmax,jdbcType=DECIMAL}
+		,
+		#{record.globlradhrmaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.nosunshineday,jdbcType=SMALLINT}
+		,
+		#{record.thunderstormday,jdbcType=SMALLINT}
+		,
+		#{record.clearskyday,jdbcType=SMALLINT}
+		,
+		#{record.scatteredskyday,jdbcType=SMALLINT}
+		,
+		#{record.brokenskyday,jdbcType=SMALLINT}
+		,
+		#{record.overcastskyday,jdbcType=SMALLINT}
+		,
+		#{record.fogday,jdbcType=SMALLINT}
+		,
+		#{record.precpdayFlag,jdbcType=SMALLINT}
+		,
+		#{record.wsFlag,jdbcType=SMALLINT}
+		,
+		#{record.precpFlag,jdbcType=SMALLINT}
+		,
+		#{record.sunshineFlag,jdbcType=SMALLINT}
+		,
+		#{record.evapaFlag,jdbcType=SMALLINT}
+		,
+		#{record.evap20outFlag,jdbcType=SMALLINT}
+		,
+		#{record.globlradFlag,jdbcType=SMALLINT}
+		,
+		#{record.wsmaxFlag,jdbcType=SMALLINT}
+		,
+		#{record.wsgustFlag,jdbcType=SMALLINT}
+		,
+		#{record.frostday,jdbcType=SMALLINT}
+		,
+		#{record.snowday,jdbcType=SMALLINT}
+		,
+		#{record.meantxmax,jdbcType=DECIMAL}
+		,
+		#{record.meantxmin,jdbcType=DECIMAL}
+		,
+		#{record.precp1daymaxFlag,jdbcType=SMALLINT}
+		,
+		#{record.precphrmaxFlag,jdbcType=SMALLINT}
+		,
+		#{record.txsoil0cm,jdbcType=DECIMAL}
+		,
+		#{record.txsoil5cm,jdbcType=DECIMAL}
+		,
+		#{record.txsoil10cm,jdbcType=DECIMAL}
+		,
+		#{record.txsoil20cm,jdbcType=DECIMAL}
+		,
+		#{record.txsoil30cm,jdbcType=DECIMAL}
+		,
+		#{record.txsoil50cm,jdbcType=DECIMAL}
+		,
+		#{record.txsoil100cm,jdbcType=DECIMAL}
+		,
+		#{record.txsoil200cm,jdbcType=DECIMAL}
+		,
+		#{record.txsoil300cm,jdbcType=DECIMAL}
+		,
+		#{record.txsoil500cm,jdbcType=DECIMAL}
+		,
+		#{record.txgrassmin,jdbcType=DECIMAL}
+		,
+		#{record.mintxgrassmin,jdbcType=DECIMAL}
+		,
+		#{record.mintxgrassmintime,jdbcType=TIMESTAMP}
+		,
+		#{record.evap20in,jdbcType=DECIMAL}
+		, #{record.tb,jdbcType=DECIMAL}
+		,
+		#{record.evapamax,jdbcType=DECIMAL}
+		,
+		#{record.evapamaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.seapresmax,jdbcType=DECIMAL}
+		,
+		#{record.seapresmaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.seapresmin,jdbcType=DECIMAL}
+		,
+		#{record.seapresmintime,jdbcType=TIMESTAMP}
+		,
+		#{record.recupdtime,jdbcType=TIMESTAMP}
+		,
+		#{record.visbmean,jdbcType=DECIMAL}
+		,
+		#{record.sunshinej,jdbcType=DECIMAL}
+		, #{record.uvi,jdbcType=DECIMAL}
+		,
+		#{record.uvimax,jdbcType=DECIMAL}
+		,
+		#{record.uvimaxtime,jdbcType=TIMESTAMP}
+		,
+		#{record.uviFlag,jdbcType=SMALLINT}
+	</sql>
+
+	<sql id="Base_Update_Record">
+		StnPres = #{record.stnpres,jdbcType=DECIMAL},
+		SeaPres =
+		#{record.seapres,jdbcType=DECIMAL},
+		StnPresMax =
+		#{record.stnpresmax,jdbcType=DECIMAL},
+		StnPresMaxTime =
+		#{record.stnpresmaxtime,jdbcType=TIMESTAMP},
+		StnPresMin =
+		#{record.stnpresmin,jdbcType=DECIMAL},
+		StnPresMinTime =
+		#{record.stnpresmintime,jdbcType=TIMESTAMP},
+		Tx =
+		#{record.tx,jdbcType=DECIMAL},
+		TxMax =
+		#{record.txmax,jdbcType=DECIMAL},
+		TxMin =
+		#{record.txmin,jdbcType=DECIMAL},
+		TxMaxAbs =
+		#{record.txmaxabs,jdbcType=DECIMAL},
+		TxMaxAbsTime =
+		#{record.txmaxabstime,jdbcType=TIMESTAMP},
+		TxMinAbs =
+		#{record.txminabs,jdbcType=DECIMAL},
+		TxMinAbsTime =
+		#{record.txminabstime,jdbcType=TIMESTAMP},
+		TxRange =
+		#{record.txrange,jdbcType=DECIMAL},
+		TxRangeMax =
+		#{record.txrangemax,jdbcType=DECIMAL},
+		TxRangeMaxTime =
+		#{record.txrangemaxtime,jdbcType=TIMESTAMP},
+		TxLE10Day =
+		#{record.txle10day,jdbcType=SMALLINT},
+		TxGE25Day =
+		#{record.txge25day,jdbcType=SMALLINT},
+		TxMaxGE30Day =
+		#{record.txmaxge30day,jdbcType=SMALLINT},
+		TxMaxGe35Day =
+		#{record.txmaxge35day,jdbcType=SMALLINT},
+		TxMinLE10Day =
+		#{record.txminle10day,jdbcType=SMALLINT},
+		TxMinGE20Day =
+		#{record.txminge20day,jdbcType=SMALLINT},
+		Td =
+		#{record.td,jdbcType=DECIMAL},
+		WS = #{record.ws,jdbcType=DECIMAL},
+		WD =
+		#{record.wd,jdbcType=DECIMAL},
+		WSGust =
+		#{record.wsgust,jdbcType=DECIMAL},
+		WDGust =
+		#{record.wdgust,jdbcType=DECIMAL},
+		WGustTime =
+		#{record.wgusttime,jdbcType=TIMESTAMP},
+		WSMax =
+		#{record.wsmax,jdbcType=DECIMAL},
+		WDMax =
+		#{record.wdmax,jdbcType=DECIMAL},
+		WMaxTime =
+		#{record.wmaxtime,jdbcType=TIMESTAMP},
+		WSMaxGE10Day =
+		#{record.wsmaxge10day,jdbcType=SMALLINT},
+		Precp =
+		#{record.precp,jdbcType=DECIMAL},
+		PrecpHour =
+		#{record.precphour,jdbcType=DECIMAL},
+		PrecpDay =
+		#{record.precpday,jdbcType=SMALLINT},
+		PrecpMax10 =
+		#{record.precpmax10,jdbcType=DECIMAL},
+		PrecpMax10Time =
+		#{record.precpmax10time,jdbcType=TIMESTAMP},
+		PrecpHrMax =
+		#{record.precphrmax,jdbcType=DECIMAL},
+		PrecpHrMaxTime =
+		#{record.precphrmaxtime,jdbcType=TIMESTAMP},
+		Precp1DayMax =
+		#{record.precp1daymax,jdbcType=DECIMAL},
+		Precp1DayMaxTime =
+		#{record.precp1daymaxtime,jdbcType=TIMESTAMP},
+		PrecpGE1mmDay =
+		#{record.precpge1mmday,jdbcType=SMALLINT},
+		PrecpGE10mmDay =
+		#{record.precpge10mmday,jdbcType=SMALLINT},
+		PrecpGE30mmDay =
+		#{record.precpge30mmday,jdbcType=SMALLINT},
+		VprPres =
+		#{record.vprpres,jdbcType=DECIMAL},
+		VprPresMax =
+		#{record.vprpresmax,jdbcType=DECIMAL},
+		VprPresMaxTime =
+		#{record.vprpresmaxtime,jdbcType=TIMESTAMP},
+		VprPresMin =
+		#{record.vprpresmin,jdbcType=DECIMAL},
+		VprPresMinTime =
+		#{record.vprpresmintime,jdbcType=TIMESTAMP},
+		RH =
+		#{record.rh,jdbcType=SMALLINT},
+		RHMin =
+		#{record.rhmin,jdbcType=SMALLINT},
+		RHMinTime =
+		#{record.rhmintime,jdbcType=TIMESTAMP},
+		RHMax =
+		#{record.rhmax,jdbcType=SMALLINT},
+		RHMaxTime =
+		#{record.rhmaxtime,jdbcType=TIMESTAMP},
+		Evap20out =
+		#{record.evap20out,jdbcType=DECIMAL},
+		Evap20outMax =
+		#{record.evap20outmax,jdbcType=DECIMAL},
+		Evap20outMaxTime =
+		#{record.evap20outmaxtime,jdbcType=TIMESTAMP},
+		EvapA =
+		#{record.evapa,jdbcType=DECIMAL},
+		CAmtMean =
+		#{record.camtmean,jdbcType=DECIMAL},
+		SunShineRate =
+		#{record.sunshinerate,jdbcType=DECIMAL},
+		SunShine =
+		#{record.sunshine,jdbcType=DECIMAL},
+		GloblRad =
+		#{record.globlrad,jdbcType=DECIMAL},
+		GloblRadHrMax =
+		#{record.globlradhrmax,jdbcType=DECIMAL},
+		GloblRadHrMaxTime =
+		#{record.globlradhrmaxtime,jdbcType=TIMESTAMP},
+		NoSunShineDay =
+		#{record.nosunshineday,jdbcType=SMALLINT},
+		ThunderstormDay =
+		#{record.thunderstormday,jdbcType=SMALLINT},
+		ClearSkyDay =
+		#{record.clearskyday,jdbcType=SMALLINT},
+		ScatteredSkyDay =
+		#{record.scatteredskyday,jdbcType=SMALLINT},
+		BrokenSkyDay =
+		#{record.brokenskyday,jdbcType=SMALLINT},
+		OvercastSkyDay =
+		#{record.overcastskyday,jdbcType=SMALLINT},
+		FogDay =
+		#{record.fogday,jdbcType=SMALLINT},
+		PrecpDay_flag =
+		#{record.precpdayFlag,jdbcType=SMALLINT},
+		WS_flag =
+		#{record.wsFlag,jdbcType=SMALLINT},
+		Precp_flag =
+		#{record.precpFlag,jdbcType=SMALLINT},
+		SunShine_flag =
+		#{record.sunshineFlag,jdbcType=SMALLINT},
+		EvapA_flag =
+		#{record.evapaFlag,jdbcType=SMALLINT},
+		Evap20out_flag =
+		#{record.evap20outFlag,jdbcType=SMALLINT},
+		GloblRad_flag =
+		#{record.globlradFlag,jdbcType=SMALLINT},
+		WSMax_flag =
+		#{record.wsmaxFlag,jdbcType=SMALLINT},
+		WSGust_flag =
+		#{record.wsgustFlag,jdbcType=SMALLINT},
+		FrostDay =
+		#{record.frostday,jdbcType=SMALLINT},
+		SnowDay =
+		#{record.snowday,jdbcType=SMALLINT},
+		MeanTxMax =
+		#{record.meantxmax,jdbcType=DECIMAL},
+		MeanTxMin =
+		#{record.meantxmin,jdbcType=DECIMAL},
+		Precp1DayMax_flag =
+		#{record.precp1daymaxFlag,jdbcType=SMALLINT},
+		PrecpHrMax_flag =
+		#{record.precphrmaxFlag,jdbcType=SMALLINT},
+		TxSoil0cm =
+		#{record.txsoil0cm,jdbcType=DECIMAL},
+		TxSoil5cm =
+		#{record.txsoil5cm,jdbcType=DECIMAL},
+		TxSoil10cm =
+		#{record.txsoil10cm,jdbcType=DECIMAL},
+		TxSoil20cm =
+		#{record.txsoil20cm,jdbcType=DECIMAL},
+		TxSoil30cm =
+		#{record.txsoil30cm,jdbcType=DECIMAL},
+		TxSoil50cm =
+		#{record.txsoil50cm,jdbcType=DECIMAL},
+		TxSoil100cm =
+		#{record.txsoil100cm,jdbcType=DECIMAL},
+		TxSoil200cm =
+		#{record.txsoil200cm,jdbcType=DECIMAL},
+		TxSoil300cm =
+		#{record.txsoil300cm,jdbcType=DECIMAL},
+		TxSoil500cm =
+		#{record.txsoil500cm,jdbcType=DECIMAL},
+		TxGrassMin =
+		#{record.txgrassmin,jdbcType=DECIMAL},
+		MinTxGrassMin =
+		#{record.mintxgrassmin,jdbcType=DECIMAL},
+		MinTxGrassMinTime =
+		#{record.mintxgrassmintime,jdbcType=TIMESTAMP},
+		Evap20in =
+		#{record.evap20in,jdbcType=DECIMAL},
+		TB =
+		#{record.tb,jdbcType=DECIMAL},
+		EvapAMax =
+		#{record.evapamax,jdbcType=DECIMAL},
+		EvapAMaxTime =
+		#{record.evapamaxtime,jdbcType=TIMESTAMP},
+		SeaPresMax =
+		#{record.seapresmax,jdbcType=DECIMAL},
+		SeaPresMaxTime =
+		#{record.seapresmaxtime,jdbcType=TIMESTAMP},
+		SeaPresMin =
+		#{record.seapresmin,jdbcType=DECIMAL},
+		SeaPresMinTime =
+		#{record.seapresmintime,jdbcType=TIMESTAMP},
+		RecUpdTime =
+		#{record.recupdtime,jdbcType=TIMESTAMP},
+		VisbMean =
+		#{record.visbmean,jdbcType=DECIMAL},
+		SunShineJ =
+		#{record.sunshinej,jdbcType=DECIMAL},
+		uvi =
+		#{record.uvi,jdbcType=DECIMAL},
+		uviMax =
+		#{record.uvimax,jdbcType=DECIMAL},
+		uviMaxTime =
+		#{record.uvimaxtime,jdbcType=TIMESTAMP},
+		uvi_flag =
+		#{record.uviFlag,jdbcType=SMALLINT}
+	</sql>
+
+	<select id="selectByExample" parameterType="map" resultMap="BaseResultMap">
+		select
+		<if test="example.distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from ${table}
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="example.orderByClause != null">
+			order by ${example.orderByClause}
+		</if>
+	</select>
+
+	<select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from ${table}
+		where Stno = #{key.stno,jdbcType=CHAR}
+		and ObsTime =
+		#{key.obstime,jdbcType=TIMESTAMP}
+	</select>
+
+	<!-- insertOrUpdate is sql server's Sql syntex -->
+	<insert id="insertOrUpdate" parameterType="map">
+		UPDATE ${table}
+		SET
+		<include refid="Base_Update_Record" />
+		WHERE Stno = #{record.stno,jdbcType=CHAR}
+		AND ObsTime = #{record.obstime,jdbcType=TIMESTAMP}
+		IF @@rowcount = 0
+		BEGIN
+		INSERT INTO
+		${table}
+		(
+		<include refid="Base_Column_List" />
+		)
+		VALUES
+		(
+		<include refid="Base_Insert_Record" />
+		)
+		END
+	</insert>
+	
+
+
+<!-- below is useless -->
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value}
+									and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem"
+										open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	
+	<delete id="deleteByPrimaryKey" parameterType="model.CwbMnKey">
+		delete from
+		cwbmn_test
+		where Stno = #{stno,jdbcType=CHAR}
+		and ObsTime =
+		#{obstime,jdbcType=TIMESTAMP}
+	</delete>
+	
+	<delete id="deleteByExample" parameterType="model.CwbMnExample">
+		delete from cwbmn_test
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+
+	<insert id="insert" parameterType="map">
+		INSERT INTO
+		${table}
+		( <include refid="Base_Column_List" /> )
+		VALUES
+		( <include refid="Base_Insert_Record" />)
+	</insert>
+	
+	<insert id="insertSelective" parameterType="model.CwbMn">
+		insert into cwbmn_test
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="stno != null">
+				Stno,
+			</if>
+			<if test="obstime != null">
+				ObsTime,
+			</if>
+			<if test="stnpres != null">
+				StnPres,
+			</if>
+			<if test="seapres != null">
+				SeaPres,
+			</if>
+			<if test="stnpresmax != null">
+				StnPresMax,
+			</if>
+			<if test="stnpresmaxtime != null">
+				StnPresMaxTime,
+			</if>
+			<if test="stnpresmin != null">
+				StnPresMin,
+			</if>
+			<if test="stnpresmintime != null">
+				StnPresMinTime,
+			</if>
+			<if test="tx != null">
+				Tx,
+			</if>
+			<if test="txmax != null">
+				TxMax,
+			</if>
+			<if test="txmin != null">
+				TxMin,
+			</if>
+			<if test="txmaxabs != null">
+				TxMaxAbs,
+			</if>
+			<if test="txmaxabstime != null">
+				TxMaxAbsTime,
+			</if>
+			<if test="txminabs != null">
+				TxMinAbs,
+			</if>
+			<if test="txminabstime != null">
+				TxMinAbsTime,
+			</if>
+			<if test="txrange != null">
+				TxRange,
+			</if>
+			<if test="txrangemax != null">
+				TxRangeMax,
+			</if>
+			<if test="txrangemaxtime != null">
+				TxRangeMaxTime,
+			</if>
+			<if test="txle10day != null">
+				TxLE10Day,
+			</if>
+			<if test="txge25day != null">
+				TxGE25Day,
+			</if>
+			<if test="txmaxge30day != null">
+				TxMaxGE30Day,
+			</if>
+			<if test="txmaxge35day != null">
+				TxMaxGe35Day,
+			</if>
+			<if test="txminle10day != null">
+				TxMinLE10Day,
+			</if>
+			<if test="txminge20day != null">
+				TxMinGE20Day,
+			</if>
+			<if test="td != null">
+				Td,
+			</if>
+			<if test="ws != null">
+				WS,
+			</if>
+			<if test="wd != null">
+				WD,
+			</if>
+			<if test="wsgust != null">
+				WSGust,
+			</if>
+			<if test="wdgust != null">
+				WDGust,
+			</if>
+			<if test="wgusttime != null">
+				WGustTime,
+			</if>
+			<if test="wsmax != null">
+				WSMax,
+			</if>
+			<if test="wdmax != null">
+				WDMax,
+			</if>
+			<if test="wmaxtime != null">
+				WMaxTime,
+			</if>
+			<if test="wsmaxge10day != null">
+				WSMaxGE10Day,
+			</if>
+			<if test="precp != null">
+				Precp,
+			</if>
+			<if test="precphour != null">
+				PrecpHour,
+			</if>
+			<if test="precpday != null">
+				PrecpDay,
+			</if>
+			<if test="precpmax10 != null">
+				PrecpMax10,
+			</if>
+			<if test="precpmax10time != null">
+				PrecpMax10Time,
+			</if>
+			<if test="precphrmax != null">
+				PrecpHrMax,
+			</if>
+			<if test="precphrmaxtime != null">
+				PrecpHrMaxTime,
+			</if>
+			<if test="precp1daymax != null">
+				Precp1DayMax,
+			</if>
+			<if test="precp1daymaxtime != null">
+				Precp1DayMaxTime,
+			</if>
+			<if test="precpge1mmday != null">
+				PrecpGE1mmDay,
+			</if>
+			<if test="precpge10mmday != null">
+				PrecpGE10mmDay,
+			</if>
+			<if test="precpge30mmday != null">
+				PrecpGE30mmDay,
+			</if>
+			<if test="vprpres != null">
+				VprPres,
+			</if>
+			<if test="vprpresmax != null">
+				VprPresMax,
+			</if>
+			<if test="vprpresmaxtime != null">
+				VprPresMaxTime,
+			</if>
+			<if test="vprpresmin != null">
+				VprPresMin,
+			</if>
+			<if test="vprpresmintime != null">
+				VprPresMinTime,
+			</if>
+			<if test="rh != null">
+				RH,
+			</if>
+			<if test="rhmin != null">
+				RHMin,
+			</if>
+			<if test="rhmintime != null">
+				RHMinTime,
+			</if>
+			<if test="rhmax != null">
+				RHMax,
+			</if>
+			<if test="rhmaxtime != null">
+				RHMaxTime,
+			</if>
+			<if test="evap20out != null">
+				Evap20out,
+			</if>
+			<if test="evap20outmax != null">
+				Evap20outMax,
+			</if>
+			<if test="evap20outmaxtime != null">
+				Evap20outMaxTime,
+			</if>
+			<if test="evapa != null">
+				EvapA,
+			</if>
+			<if test="camtmean != null">
+				CAmtMean,
+			</if>
+			<if test="sunshinerate != null">
+				SunShineRate,
+			</if>
+			<if test="sunshine != null">
+				SunShine,
+			</if>
+			<if test="globlrad != null">
+				GloblRad,
+			</if>
+			<if test="globlradhrmax != null">
+				GloblRadHrMax,
+			</if>
+			<if test="globlradhrmaxtime != null">
+				GloblRadHrMaxTime,
+			</if>
+			<if test="nosunshineday != null">
+				NoSunShineDay,
+			</if>
+			<if test="thunderstormday != null">
+				ThunderstormDay,
+			</if>
+			<if test="clearskyday != null">
+				ClearSkyDay,
+			</if>
+			<if test="scatteredskyday != null">
+				ScatteredSkyDay,
+			</if>
+			<if test="brokenskyday != null">
+				BrokenSkyDay,
+			</if>
+			<if test="overcastskyday != null">
+				OvercastSkyDay,
+			</if>
+			<if test="fogday != null">
+				FogDay,
+			</if>
+			<if test="precpdayFlag != null">
+				PrecpDay_flag,
+			</if>
+			<if test="wsFlag != null">
+				WS_flag,
+			</if>
+			<if test="precpFlag != null">
+				Precp_flag,
+			</if>
+			<if test="sunshineFlag != null">
+				SunShine_flag,
+			</if>
+			<if test="evapaFlag != null">
+				EvapA_flag,
+			</if>
+			<if test="evap20outFlag != null">
+				Evap20out_flag,
+			</if>
+			<if test="globlradFlag != null">
+				GloblRad_flag,
+			</if>
+			<if test="wsmaxFlag != null">
+				WSMax_flag,
+			</if>
+			<if test="wsgustFlag != null">
+				WSGust_flag,
+			</if>
+			<if test="frostday != null">
+				FrostDay,
+			</if>
+			<if test="snowday != null">
+				SnowDay,
+			</if>
+			<if test="meantxmax != null">
+				MeanTxMax,
+			</if>
+			<if test="meantxmin != null">
+				MeanTxMin,
+			</if>
+			<if test="precp1daymaxFlag != null">
+				Precp1DayMax_flag,
+			</if>
+			<if test="precphrmaxFlag != null">
+				PrecpHrMax_flag,
+			</if>
+			<if test="txsoil0cm != null">
+				TxSoil0cm,
+			</if>
+			<if test="txsoil5cm != null">
+				TxSoil5cm,
+			</if>
+			<if test="txsoil10cm != null">
+				TxSoil10cm,
+			</if>
+			<if test="txsoil20cm != null">
+				TxSoil20cm,
+			</if>
+			<if test="txsoil30cm != null">
+				TxSoil30cm,
+			</if>
+			<if test="txsoil50cm != null">
+				TxSoil50cm,
+			</if>
+			<if test="txsoil100cm != null">
+				TxSoil100cm,
+			</if>
+			<if test="txsoil200cm != null">
+				TxSoil200cm,
+			</if>
+			<if test="txsoil300cm != null">
+				TxSoil300cm,
+			</if>
+			<if test="txsoil500cm != null">
+				TxSoil500cm,
+			</if>
+			<if test="txgrassmin != null">
+				TxGrassMin,
+			</if>
+			<if test="mintxgrassmin != null">
+				MinTxGrassMin,
+			</if>
+			<if test="mintxgrassmintime != null">
+				MinTxGrassMinTime,
+			</if>
+			<if test="evap20in != null">
+				Evap20in,
+			</if>
+			<if test="tb != null">
+				TB,
+			</if>
+			<if test="evapamax != null">
+				EvapAMax,
+			</if>
+			<if test="evapamaxtime != null">
+				EvapAMaxTime,
+			</if>
+			<if test="seapresmax != null">
+				SeaPresMax,
+			</if>
+			<if test="seapresmaxtime != null">
+				SeaPresMaxTime,
+			</if>
+			<if test="seapresmin != null">
+				SeaPresMin,
+			</if>
+			<if test="seapresmintime != null">
+				SeaPresMinTime,
+			</if>
+			<if test="recupdtime != null">
+				RecUpdTime,
+			</if>
+			<if test="visbmean != null">
+				VisbMean,
+			</if>
+			<if test="sunshinej != null">
+				SunShineJ,
+			</if>
+			<if test="uvi != null">
+				uvi,
+			</if>
+			<if test="uvimax != null">
+				uviMax,
+			</if>
+			<if test="uvimaxtime != null">
+				uviMaxTime,
+			</if>
+			<if test="uviFlag != null">
+				uvi_flag,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="stno != null">
+				#{stno,jdbcType=CHAR},
+			</if>
+			<if test="obstime != null">
+				#{obstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="stnpres != null">
+				#{stnpres,jdbcType=DECIMAL},
+			</if>
+			<if test="seapres != null">
+				#{seapres,jdbcType=DECIMAL},
+			</if>
+			<if test="stnpresmax != null">
+				#{stnpresmax,jdbcType=DECIMAL},
+			</if>
+			<if test="stnpresmaxtime != null">
+				#{stnpresmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="stnpresmin != null">
+				#{stnpresmin,jdbcType=DECIMAL},
+			</if>
+			<if test="stnpresmintime != null">
+				#{stnpresmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="tx != null">
+				#{tx,jdbcType=DECIMAL},
+			</if>
+			<if test="txmax != null">
+				#{txmax,jdbcType=DECIMAL},
+			</if>
+			<if test="txmin != null">
+				#{txmin,jdbcType=DECIMAL},
+			</if>
+			<if test="txmaxabs != null">
+				#{txmaxabs,jdbcType=DECIMAL},
+			</if>
+			<if test="txmaxabstime != null">
+				#{txmaxabstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="txminabs != null">
+				#{txminabs,jdbcType=DECIMAL},
+			</if>
+			<if test="txminabstime != null">
+				#{txminabstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="txrange != null">
+				#{txrange,jdbcType=DECIMAL},
+			</if>
+			<if test="txrangemax != null">
+				#{txrangemax,jdbcType=DECIMAL},
+			</if>
+			<if test="txrangemaxtime != null">
+				#{txrangemaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="txle10day != null">
+				#{txle10day,jdbcType=SMALLINT},
+			</if>
+			<if test="txge25day != null">
+				#{txge25day,jdbcType=SMALLINT},
+			</if>
+			<if test="txmaxge30day != null">
+				#{txmaxge30day,jdbcType=SMALLINT},
+			</if>
+			<if test="txmaxge35day != null">
+				#{txmaxge35day,jdbcType=SMALLINT},
+			</if>
+			<if test="txminle10day != null">
+				#{txminle10day,jdbcType=SMALLINT},
+			</if>
+			<if test="txminge20day != null">
+				#{txminge20day,jdbcType=SMALLINT},
+			</if>
+			<if test="td != null">
+				#{td,jdbcType=DECIMAL},
+			</if>
+			<if test="ws != null">
+				#{ws,jdbcType=DECIMAL},
+			</if>
+			<if test="wd != null">
+				#{wd,jdbcType=DECIMAL},
+			</if>
+			<if test="wsgust != null">
+				#{wsgust,jdbcType=DECIMAL},
+			</if>
+			<if test="wdgust != null">
+				#{wdgust,jdbcType=DECIMAL},
+			</if>
+			<if test="wgusttime != null">
+				#{wgusttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="wsmax != null">
+				#{wsmax,jdbcType=DECIMAL},
+			</if>
+			<if test="wdmax != null">
+				#{wdmax,jdbcType=DECIMAL},
+			</if>
+			<if test="wmaxtime != null">
+				#{wmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="wsmaxge10day != null">
+				#{wsmaxge10day,jdbcType=SMALLINT},
+			</if>
+			<if test="precp != null">
+				#{precp,jdbcType=DECIMAL},
+			</if>
+			<if test="precphour != null">
+				#{precphour,jdbcType=DECIMAL},
+			</if>
+			<if test="precpday != null">
+				#{precpday,jdbcType=SMALLINT},
+			</if>
+			<if test="precpmax10 != null">
+				#{precpmax10,jdbcType=DECIMAL},
+			</if>
+			<if test="precpmax10time != null">
+				#{precpmax10time,jdbcType=TIMESTAMP},
+			</if>
+			<if test="precphrmax != null">
+				#{precphrmax,jdbcType=DECIMAL},
+			</if>
+			<if test="precphrmaxtime != null">
+				#{precphrmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="precp1daymax != null">
+				#{precp1daymax,jdbcType=DECIMAL},
+			</if>
+			<if test="precp1daymaxtime != null">
+				#{precp1daymaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="precpge1mmday != null">
+				#{precpge1mmday,jdbcType=SMALLINT},
+			</if>
+			<if test="precpge10mmday != null">
+				#{precpge10mmday,jdbcType=SMALLINT},
+			</if>
+			<if test="precpge30mmday != null">
+				#{precpge30mmday,jdbcType=SMALLINT},
+			</if>
+			<if test="vprpres != null">
+				#{vprpres,jdbcType=DECIMAL},
+			</if>
+			<if test="vprpresmax != null">
+				#{vprpresmax,jdbcType=DECIMAL},
+			</if>
+			<if test="vprpresmaxtime != null">
+				#{vprpresmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="vprpresmin != null">
+				#{vprpresmin,jdbcType=DECIMAL},
+			</if>
+			<if test="vprpresmintime != null">
+				#{vprpresmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="rh != null">
+				#{rh,jdbcType=SMALLINT},
+			</if>
+			<if test="rhmin != null">
+				#{rhmin,jdbcType=SMALLINT},
+			</if>
+			<if test="rhmintime != null">
+				#{rhmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="rhmax != null">
+				#{rhmax,jdbcType=SMALLINT},
+			</if>
+			<if test="rhmaxtime != null">
+				#{rhmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="evap20out != null">
+				#{evap20out,jdbcType=DECIMAL},
+			</if>
+			<if test="evap20outmax != null">
+				#{evap20outmax,jdbcType=DECIMAL},
+			</if>
+			<if test="evap20outmaxtime != null">
+				#{evap20outmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="evapa != null">
+				#{evapa,jdbcType=DECIMAL},
+			</if>
+			<if test="camtmean != null">
+				#{camtmean,jdbcType=DECIMAL},
+			</if>
+			<if test="sunshinerate != null">
+				#{sunshinerate,jdbcType=DECIMAL},
+			</if>
+			<if test="sunshine != null">
+				#{sunshine,jdbcType=DECIMAL},
+			</if>
+			<if test="globlrad != null">
+				#{globlrad,jdbcType=DECIMAL},
+			</if>
+			<if test="globlradhrmax != null">
+				#{globlradhrmax,jdbcType=DECIMAL},
+			</if>
+			<if test="globlradhrmaxtime != null">
+				#{globlradhrmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="nosunshineday != null">
+				#{nosunshineday,jdbcType=SMALLINT},
+			</if>
+			<if test="thunderstormday != null">
+				#{thunderstormday,jdbcType=SMALLINT},
+			</if>
+			<if test="clearskyday != null">
+				#{clearskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="scatteredskyday != null">
+				#{scatteredskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="brokenskyday != null">
+				#{brokenskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="overcastskyday != null">
+				#{overcastskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="fogday != null">
+				#{fogday,jdbcType=SMALLINT},
+			</if>
+			<if test="precpdayFlag != null">
+				#{precpdayFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="wsFlag != null">
+				#{wsFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="precpFlag != null">
+				#{precpFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="sunshineFlag != null">
+				#{sunshineFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="evapaFlag != null">
+				#{evapaFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="evap20outFlag != null">
+				#{evap20outFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="globlradFlag != null">
+				#{globlradFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="wsmaxFlag != null">
+				#{wsmaxFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="wsgustFlag != null">
+				#{wsgustFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="frostday != null">
+				#{frostday,jdbcType=SMALLINT},
+			</if>
+			<if test="snowday != null">
+				#{snowday,jdbcType=SMALLINT},
+			</if>
+			<if test="meantxmax != null">
+				#{meantxmax,jdbcType=DECIMAL},
+			</if>
+			<if test="meantxmin != null">
+				#{meantxmin,jdbcType=DECIMAL},
+			</if>
+			<if test="precp1daymaxFlag != null">
+				#{precp1daymaxFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="precphrmaxFlag != null">
+				#{precphrmaxFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="txsoil0cm != null">
+				#{txsoil0cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil5cm != null">
+				#{txsoil5cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil10cm != null">
+				#{txsoil10cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil20cm != null">
+				#{txsoil20cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil30cm != null">
+				#{txsoil30cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil50cm != null">
+				#{txsoil50cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil100cm != null">
+				#{txsoil100cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil200cm != null">
+				#{txsoil200cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil300cm != null">
+				#{txsoil300cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil500cm != null">
+				#{txsoil500cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txgrassmin != null">
+				#{txgrassmin,jdbcType=DECIMAL},
+			</if>
+			<if test="mintxgrassmin != null">
+				#{mintxgrassmin,jdbcType=DECIMAL},
+			</if>
+			<if test="mintxgrassmintime != null">
+				#{mintxgrassmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="evap20in != null">
+				#{evap20in,jdbcType=DECIMAL},
+			</if>
+			<if test="tb != null">
+				#{tb,jdbcType=DECIMAL},
+			</if>
+			<if test="evapamax != null">
+				#{evapamax,jdbcType=DECIMAL},
+			</if>
+			<if test="evapamaxtime != null">
+				#{evapamaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="seapresmax != null">
+				#{seapresmax,jdbcType=DECIMAL},
+			</if>
+			<if test="seapresmaxtime != null">
+				#{seapresmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="seapresmin != null">
+				#{seapresmin,jdbcType=DECIMAL},
+			</if>
+			<if test="seapresmintime != null">
+				#{seapresmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="recupdtime != null">
+				#{recupdtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="visbmean != null">
+				#{visbmean,jdbcType=DECIMAL},
+			</if>
+			<if test="sunshinej != null">
+				#{sunshinej,jdbcType=DECIMAL},
+			</if>
+			<if test="uvi != null">
+				#{uvi,jdbcType=DECIMAL},
+			</if>
+			<if test="uvimax != null">
+				#{uvimax,jdbcType=DECIMAL},
+			</if>
+			<if test="uvimaxtime != null">
+				#{uvimaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="uviFlag != null">
+				#{uviFlag,jdbcType=SMALLINT},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="model.CwbMnExample"
+		resultType="java.lang.Long">
+		select count(*) from cwbmn_test
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update cwbmn_test
+		<set>
+			<if test="record.stno != null">
+				Stno = #{record.stno,jdbcType=CHAR},
+			</if>
+			<if test="record.obstime != null">
+				ObsTime = #{record.obstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.stnpres != null">
+				StnPres = #{record.stnpres,jdbcType=DECIMAL},
+			</if>
+			<if test="record.seapres != null">
+				SeaPres = #{record.seapres,jdbcType=DECIMAL},
+			</if>
+			<if test="record.stnpresmax != null">
+				StnPresMax = #{record.stnpresmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.stnpresmaxtime != null">
+				StnPresMaxTime =
+				#{record.stnpresmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.stnpresmin != null">
+				StnPresMin = #{record.stnpresmin,jdbcType=DECIMAL},
+			</if>
+			<if test="record.stnpresmintime != null">
+				StnPresMinTime =
+				#{record.stnpresmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.tx != null">
+				Tx = #{record.tx,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txmax != null">
+				TxMax = #{record.txmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txmin != null">
+				TxMin = #{record.txmin,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txmaxabs != null">
+				TxMaxAbs = #{record.txmaxabs,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txmaxabstime != null">
+				TxMaxAbsTime = #{record.txmaxabstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.txminabs != null">
+				TxMinAbs = #{record.txminabs,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txminabstime != null">
+				TxMinAbsTime = #{record.txminabstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.txrange != null">
+				TxRange = #{record.txrange,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txrangemax != null">
+				TxRangeMax = #{record.txrangemax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txrangemaxtime != null">
+				TxRangeMaxTime =
+				#{record.txrangemaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.txle10day != null">
+				TxLE10Day = #{record.txle10day,jdbcType=SMALLINT},
+			</if>
+			<if test="record.txge25day != null">
+				TxGE25Day = #{record.txge25day,jdbcType=SMALLINT},
+			</if>
+			<if test="record.txmaxge30day != null">
+				TxMaxGE30Day = #{record.txmaxge30day,jdbcType=SMALLINT},
+			</if>
+			<if test="record.txmaxge35day != null">
+				TxMaxGe35Day = #{record.txmaxge35day,jdbcType=SMALLINT},
+			</if>
+			<if test="record.txminle10day != null">
+				TxMinLE10Day = #{record.txminle10day,jdbcType=SMALLINT},
+			</if>
+			<if test="record.txminge20day != null">
+				TxMinGE20Day = #{record.txminge20day,jdbcType=SMALLINT},
+			</if>
+			<if test="record.td != null">
+				Td = #{record.td,jdbcType=DECIMAL},
+			</if>
+			<if test="record.ws != null">
+				WS = #{record.ws,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wd != null">
+				WD = #{record.wd,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wsgust != null">
+				WSGust = #{record.wsgust,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wdgust != null">
+				WDGust = #{record.wdgust,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wgusttime != null">
+				WGustTime = #{record.wgusttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.wsmax != null">
+				WSMax = #{record.wsmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wdmax != null">
+				WDMax = #{record.wdmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wmaxtime != null">
+				WMaxTime = #{record.wmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.wsmaxge10day != null">
+				WSMaxGE10Day = #{record.wsmaxge10day,jdbcType=SMALLINT},
+			</if>
+			<if test="record.precp != null">
+				Precp = #{record.precp,jdbcType=DECIMAL},
+			</if>
+			<if test="record.precphour != null">
+				PrecpHour = #{record.precphour,jdbcType=DECIMAL},
+			</if>
+			<if test="record.precpday != null">
+				PrecpDay = #{record.precpday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.precpmax10 != null">
+				PrecpMax10 = #{record.precpmax10,jdbcType=DECIMAL},
+			</if>
+			<if test="record.precpmax10time != null">
+				PrecpMax10Time =
+				#{record.precpmax10time,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.precphrmax != null">
+				PrecpHrMax = #{record.precphrmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.precphrmaxtime != null">
+				PrecpHrMaxTime =
+				#{record.precphrmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.precp1daymax != null">
+				Precp1DayMax = #{record.precp1daymax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.precp1daymaxtime != null">
+				Precp1DayMaxTime =
+				#{record.precp1daymaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.precpge1mmday != null">
+				PrecpGE1mmDay =
+				#{record.precpge1mmday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.precpge10mmday != null">
+				PrecpGE10mmDay =
+				#{record.precpge10mmday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.precpge30mmday != null">
+				PrecpGE30mmDay =
+				#{record.precpge30mmday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.vprpres != null">
+				VprPres = #{record.vprpres,jdbcType=DECIMAL},
+			</if>
+			<if test="record.vprpresmax != null">
+				VprPresMax = #{record.vprpresmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.vprpresmaxtime != null">
+				VprPresMaxTime =
+				#{record.vprpresmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.vprpresmin != null">
+				VprPresMin = #{record.vprpresmin,jdbcType=DECIMAL},
+			</if>
+			<if test="record.vprpresmintime != null">
+				VprPresMinTime =
+				#{record.vprpresmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.rh != null">
+				RH = #{record.rh,jdbcType=SMALLINT},
+			</if>
+			<if test="record.rhmin != null">
+				RHMin = #{record.rhmin,jdbcType=SMALLINT},
+			</if>
+			<if test="record.rhmintime != null">
+				RHMinTime = #{record.rhmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.rhmax != null">
+				RHMax = #{record.rhmax,jdbcType=SMALLINT},
+			</if>
+			<if test="record.rhmaxtime != null">
+				RHMaxTime = #{record.rhmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.evap20out != null">
+				Evap20out = #{record.evap20out,jdbcType=DECIMAL},
+			</if>
+			<if test="record.evap20outmax != null">
+				Evap20outMax = #{record.evap20outmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.evap20outmaxtime != null">
+				Evap20outMaxTime =
+				#{record.evap20outmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.evapa != null">
+				EvapA = #{record.evapa,jdbcType=DECIMAL},
+			</if>
+			<if test="record.camtmean != null">
+				CAmtMean = #{record.camtmean,jdbcType=DECIMAL},
+			</if>
+			<if test="record.sunshinerate != null">
+				SunShineRate = #{record.sunshinerate,jdbcType=DECIMAL},
+			</if>
+			<if test="record.sunshine != null">
+				SunShine = #{record.sunshine,jdbcType=DECIMAL},
+			</if>
+			<if test="record.globlrad != null">
+				GloblRad = #{record.globlrad,jdbcType=DECIMAL},
+			</if>
+			<if test="record.globlradhrmax != null">
+				GloblRadHrMax = #{record.globlradhrmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.globlradhrmaxtime != null">
+				GloblRadHrMaxTime =
+				#{record.globlradhrmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.nosunshineday != null">
+				NoSunShineDay =
+				#{record.nosunshineday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.thunderstormday != null">
+				ThunderstormDay =
+				#{record.thunderstormday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.clearskyday != null">
+				ClearSkyDay = #{record.clearskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.scatteredskyday != null">
+				ScatteredSkyDay =
+				#{record.scatteredskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.brokenskyday != null">
+				BrokenSkyDay = #{record.brokenskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.overcastskyday != null">
+				OvercastSkyDay =
+				#{record.overcastskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.fogday != null">
+				FogDay = #{record.fogday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.precpdayFlag != null">
+				PrecpDay_flag = #{record.precpdayFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.wsFlag != null">
+				WS_flag = #{record.wsFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.precpFlag != null">
+				Precp_flag = #{record.precpFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.sunshineFlag != null">
+				SunShine_flag = #{record.sunshineFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.evapaFlag != null">
+				EvapA_flag = #{record.evapaFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.evap20outFlag != null">
+				Evap20out_flag =
+				#{record.evap20outFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.globlradFlag != null">
+				GloblRad_flag = #{record.globlradFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.wsmaxFlag != null">
+				WSMax_flag = #{record.wsmaxFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.wsgustFlag != null">
+				WSGust_flag = #{record.wsgustFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.frostday != null">
+				FrostDay = #{record.frostday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.snowday != null">
+				SnowDay = #{record.snowday,jdbcType=SMALLINT},
+			</if>
+			<if test="record.meantxmax != null">
+				MeanTxMax = #{record.meantxmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.meantxmin != null">
+				MeanTxMin = #{record.meantxmin,jdbcType=DECIMAL},
+			</if>
+			<if test="record.precp1daymaxFlag != null">
+				Precp1DayMax_flag =
+				#{record.precp1daymaxFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.precphrmaxFlag != null">
+				PrecpHrMax_flag =
+				#{record.precphrmaxFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="record.txsoil0cm != null">
+				TxSoil0cm = #{record.txsoil0cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil5cm != null">
+				TxSoil5cm = #{record.txsoil5cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil10cm != null">
+				TxSoil10cm = #{record.txsoil10cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil20cm != null">
+				TxSoil20cm = #{record.txsoil20cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil30cm != null">
+				TxSoil30cm = #{record.txsoil30cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil50cm != null">
+				TxSoil50cm = #{record.txsoil50cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil100cm != null">
+				TxSoil100cm = #{record.txsoil100cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil200cm != null">
+				TxSoil200cm = #{record.txsoil200cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil300cm != null">
+				TxSoil300cm = #{record.txsoil300cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil500cm != null">
+				TxSoil500cm = #{record.txsoil500cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txgrassmin != null">
+				TxGrassMin = #{record.txgrassmin,jdbcType=DECIMAL},
+			</if>
+			<if test="record.mintxgrassmin != null">
+				MinTxGrassMin = #{record.mintxgrassmin,jdbcType=DECIMAL},
+			</if>
+			<if test="record.mintxgrassmintime != null">
+				MinTxGrassMinTime =
+				#{record.mintxgrassmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.evap20in != null">
+				Evap20in = #{record.evap20in,jdbcType=DECIMAL},
+			</if>
+			<if test="record.tb != null">
+				TB = #{record.tb,jdbcType=DECIMAL},
+			</if>
+			<if test="record.evapamax != null">
+				EvapAMax = #{record.evapamax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.evapamaxtime != null">
+				EvapAMaxTime = #{record.evapamaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.seapresmax != null">
+				SeaPresMax = #{record.seapresmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.seapresmaxtime != null">
+				SeaPresMaxTime =
+				#{record.seapresmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.seapresmin != null">
+				SeaPresMin = #{record.seapresmin,jdbcType=DECIMAL},
+			</if>
+			<if test="record.seapresmintime != null">
+				SeaPresMinTime =
+				#{record.seapresmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.recupdtime != null">
+				RecUpdTime = #{record.recupdtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.visbmean != null">
+				VisbMean = #{record.visbmean,jdbcType=DECIMAL},
+			</if>
+			<if test="record.sunshinej != null">
+				SunShineJ = #{record.sunshinej,jdbcType=DECIMAL},
+			</if>
+			<if test="record.uvi != null">
+				uvi = #{record.uvi,jdbcType=DECIMAL},
+			</if>
+			<if test="record.uvimax != null">
+				uviMax = #{record.uvimax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.uvimaxtime != null">
+				uviMaxTime = #{record.uvimaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.uviFlag != null">
+				uvi_flag = #{record.uviFlag,jdbcType=SMALLINT},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update cwbmn_test
+		set Stno = #{record.stno,jdbcType=CHAR},
+		ObsTime =
+		#{record.obstime,jdbcType=TIMESTAMP},
+		StnPres =
+		#{record.stnpres,jdbcType=DECIMAL},
+		SeaPres =
+		#{record.seapres,jdbcType=DECIMAL},
+		StnPresMax =
+		#{record.stnpresmax,jdbcType=DECIMAL},
+		StnPresMaxTime =
+		#{record.stnpresmaxtime,jdbcType=TIMESTAMP},
+		StnPresMin =
+		#{record.stnpresmin,jdbcType=DECIMAL},
+		StnPresMinTime =
+		#{record.stnpresmintime,jdbcType=TIMESTAMP},
+		Tx =
+		#{record.tx,jdbcType=DECIMAL},
+		TxMax =
+		#{record.txmax,jdbcType=DECIMAL},
+		TxMin =
+		#{record.txmin,jdbcType=DECIMAL},
+		TxMaxAbs =
+		#{record.txmaxabs,jdbcType=DECIMAL},
+		TxMaxAbsTime =
+		#{record.txmaxabstime,jdbcType=TIMESTAMP},
+		TxMinAbs =
+		#{record.txminabs,jdbcType=DECIMAL},
+		TxMinAbsTime =
+		#{record.txminabstime,jdbcType=TIMESTAMP},
+		TxRange =
+		#{record.txrange,jdbcType=DECIMAL},
+		TxRangeMax =
+		#{record.txrangemax,jdbcType=DECIMAL},
+		TxRangeMaxTime =
+		#{record.txrangemaxtime,jdbcType=TIMESTAMP},
+		TxLE10Day =
+		#{record.txle10day,jdbcType=SMALLINT},
+		TxGE25Day =
+		#{record.txge25day,jdbcType=SMALLINT},
+		TxMaxGE30Day =
+		#{record.txmaxge30day,jdbcType=SMALLINT},
+		TxMaxGe35Day =
+		#{record.txmaxge35day,jdbcType=SMALLINT},
+		TxMinLE10Day =
+		#{record.txminle10day,jdbcType=SMALLINT},
+		TxMinGE20Day =
+		#{record.txminge20day,jdbcType=SMALLINT},
+		Td =
+		#{record.td,jdbcType=DECIMAL},
+		WS = #{record.ws,jdbcType=DECIMAL},
+		WD =
+		#{record.wd,jdbcType=DECIMAL},
+		WSGust =
+		#{record.wsgust,jdbcType=DECIMAL},
+		WDGust =
+		#{record.wdgust,jdbcType=DECIMAL},
+		WGustTime =
+		#{record.wgusttime,jdbcType=TIMESTAMP},
+		WSMax =
+		#{record.wsmax,jdbcType=DECIMAL},
+		WDMax =
+		#{record.wdmax,jdbcType=DECIMAL},
+		WMaxTime =
+		#{record.wmaxtime,jdbcType=TIMESTAMP},
+		WSMaxGE10Day =
+		#{record.wsmaxge10day,jdbcType=SMALLINT},
+		Precp =
+		#{record.precp,jdbcType=DECIMAL},
+		PrecpHour =
+		#{record.precphour,jdbcType=DECIMAL},
+		PrecpDay =
+		#{record.precpday,jdbcType=SMALLINT},
+		PrecpMax10 =
+		#{record.precpmax10,jdbcType=DECIMAL},
+		PrecpMax10Time =
+		#{record.precpmax10time,jdbcType=TIMESTAMP},
+		PrecpHrMax =
+		#{record.precphrmax,jdbcType=DECIMAL},
+		PrecpHrMaxTime =
+		#{record.precphrmaxtime,jdbcType=TIMESTAMP},
+		Precp1DayMax =
+		#{record.precp1daymax,jdbcType=DECIMAL},
+		Precp1DayMaxTime =
+		#{record.precp1daymaxtime,jdbcType=TIMESTAMP},
+		PrecpGE1mmDay =
+		#{record.precpge1mmday,jdbcType=SMALLINT},
+		PrecpGE10mmDay =
+		#{record.precpge10mmday,jdbcType=SMALLINT},
+		PrecpGE30mmDay =
+		#{record.precpge30mmday,jdbcType=SMALLINT},
+		VprPres =
+		#{record.vprpres,jdbcType=DECIMAL},
+		VprPresMax =
+		#{record.vprpresmax,jdbcType=DECIMAL},
+		VprPresMaxTime =
+		#{record.vprpresmaxtime,jdbcType=TIMESTAMP},
+		VprPresMin =
+		#{record.vprpresmin,jdbcType=DECIMAL},
+		VprPresMinTime =
+		#{record.vprpresmintime,jdbcType=TIMESTAMP},
+		RH =
+		#{record.rh,jdbcType=SMALLINT},
+		RHMin =
+		#{record.rhmin,jdbcType=SMALLINT},
+		RHMinTime =
+		#{record.rhmintime,jdbcType=TIMESTAMP},
+		RHMax =
+		#{record.rhmax,jdbcType=SMALLINT},
+		RHMaxTime =
+		#{record.rhmaxtime,jdbcType=TIMESTAMP},
+		Evap20out =
+		#{record.evap20out,jdbcType=DECIMAL},
+		Evap20outMax =
+		#{record.evap20outmax,jdbcType=DECIMAL},
+		Evap20outMaxTime =
+		#{record.evap20outmaxtime,jdbcType=TIMESTAMP},
+		EvapA =
+		#{record.evapa,jdbcType=DECIMAL},
+		CAmtMean =
+		#{record.camtmean,jdbcType=DECIMAL},
+		SunShineRate =
+		#{record.sunshinerate,jdbcType=DECIMAL},
+		SunShine =
+		#{record.sunshine,jdbcType=DECIMAL},
+		GloblRad =
+		#{record.globlrad,jdbcType=DECIMAL},
+		GloblRadHrMax =
+		#{record.globlradhrmax,jdbcType=DECIMAL},
+		GloblRadHrMaxTime =
+		#{record.globlradhrmaxtime,jdbcType=TIMESTAMP},
+		NoSunShineDay =
+		#{record.nosunshineday,jdbcType=SMALLINT},
+		ThunderstormDay =
+		#{record.thunderstormday,jdbcType=SMALLINT},
+		ClearSkyDay =
+		#{record.clearskyday,jdbcType=SMALLINT},
+		ScatteredSkyDay =
+		#{record.scatteredskyday,jdbcType=SMALLINT},
+		BrokenSkyDay =
+		#{record.brokenskyday,jdbcType=SMALLINT},
+		OvercastSkyDay =
+		#{record.overcastskyday,jdbcType=SMALLINT},
+		FogDay =
+		#{record.fogday,jdbcType=SMALLINT},
+		PrecpDay_flag =
+		#{record.precpdayFlag,jdbcType=SMALLINT},
+		WS_flag =
+		#{record.wsFlag,jdbcType=SMALLINT},
+		Precp_flag =
+		#{record.precpFlag,jdbcType=SMALLINT},
+		SunShine_flag =
+		#{record.sunshineFlag,jdbcType=SMALLINT},
+		EvapA_flag =
+		#{record.evapaFlag,jdbcType=SMALLINT},
+		Evap20out_flag =
+		#{record.evap20outFlag,jdbcType=SMALLINT},
+		GloblRad_flag =
+		#{record.globlradFlag,jdbcType=SMALLINT},
+		WSMax_flag =
+		#{record.wsmaxFlag,jdbcType=SMALLINT},
+		WSGust_flag =
+		#{record.wsgustFlag,jdbcType=SMALLINT},
+		FrostDay =
+		#{record.frostday,jdbcType=SMALLINT},
+		SnowDay =
+		#{record.snowday,jdbcType=SMALLINT},
+		MeanTxMax =
+		#{record.meantxmax,jdbcType=DECIMAL},
+		MeanTxMin =
+		#{record.meantxmin,jdbcType=DECIMAL},
+		Precp1DayMax_flag =
+		#{record.precp1daymaxFlag,jdbcType=SMALLINT},
+		PrecpHrMax_flag =
+		#{record.precphrmaxFlag,jdbcType=SMALLINT},
+		TxSoil0cm =
+		#{record.txsoil0cm,jdbcType=DECIMAL},
+		TxSoil5cm =
+		#{record.txsoil5cm,jdbcType=DECIMAL},
+		TxSoil10cm =
+		#{record.txsoil10cm,jdbcType=DECIMAL},
+		TxSoil20cm =
+		#{record.txsoil20cm,jdbcType=DECIMAL},
+		TxSoil30cm =
+		#{record.txsoil30cm,jdbcType=DECIMAL},
+		TxSoil50cm =
+		#{record.txsoil50cm,jdbcType=DECIMAL},
+		TxSoil100cm =
+		#{record.txsoil100cm,jdbcType=DECIMAL},
+		TxSoil200cm =
+		#{record.txsoil200cm,jdbcType=DECIMAL},
+		TxSoil300cm =
+		#{record.txsoil300cm,jdbcType=DECIMAL},
+		TxSoil500cm =
+		#{record.txsoil500cm,jdbcType=DECIMAL},
+		TxGrassMin =
+		#{record.txgrassmin,jdbcType=DECIMAL},
+		MinTxGrassMin =
+		#{record.mintxgrassmin,jdbcType=DECIMAL},
+		MinTxGrassMinTime =
+		#{record.mintxgrassmintime,jdbcType=TIMESTAMP},
+		Evap20in =
+		#{record.evap20in,jdbcType=DECIMAL},
+		TB =
+		#{record.tb,jdbcType=DECIMAL},
+		EvapAMax =
+		#{record.evapamax,jdbcType=DECIMAL},
+		EvapAMaxTime =
+		#{record.evapamaxtime,jdbcType=TIMESTAMP},
+		SeaPresMax =
+		#{record.seapresmax,jdbcType=DECIMAL},
+		SeaPresMaxTime =
+		#{record.seapresmaxtime,jdbcType=TIMESTAMP},
+		SeaPresMin =
+		#{record.seapresmin,jdbcType=DECIMAL},
+		SeaPresMinTime =
+		#{record.seapresmintime,jdbcType=TIMESTAMP},
+		RecUpdTime =
+		#{record.recupdtime,jdbcType=TIMESTAMP},
+		VisbMean =
+		#{record.visbmean,jdbcType=DECIMAL},
+		SunShineJ =
+		#{record.sunshinej,jdbcType=DECIMAL},
+		uvi =
+		#{record.uvi,jdbcType=DECIMAL},
+		uviMax =
+		#{record.uvimax,jdbcType=DECIMAL},
+		uviMaxTime =
+		#{record.uvimaxtime,jdbcType=TIMESTAMP},
+		uvi_flag =
+		#{record.uviFlag,jdbcType=SMALLINT}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective" parameterType="model.CwbMn">
+		update cwbmn_test
+		<set>
+			<if test="stnpres != null">
+				StnPres = #{stnpres,jdbcType=DECIMAL},
+			</if>
+			<if test="seapres != null">
+				SeaPres = #{seapres,jdbcType=DECIMAL},
+			</if>
+			<if test="stnpresmax != null">
+				StnPresMax = #{stnpresmax,jdbcType=DECIMAL},
+			</if>
+			<if test="stnpresmaxtime != null">
+				StnPresMaxTime = #{stnpresmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="stnpresmin != null">
+				StnPresMin = #{stnpresmin,jdbcType=DECIMAL},
+			</if>
+			<if test="stnpresmintime != null">
+				StnPresMinTime = #{stnpresmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="tx != null">
+				Tx = #{tx,jdbcType=DECIMAL},
+			</if>
+			<if test="txmax != null">
+				TxMax = #{txmax,jdbcType=DECIMAL},
+			</if>
+			<if test="txmin != null">
+				TxMin = #{txmin,jdbcType=DECIMAL},
+			</if>
+			<if test="txmaxabs != null">
+				TxMaxAbs = #{txmaxabs,jdbcType=DECIMAL},
+			</if>
+			<if test="txmaxabstime != null">
+				TxMaxAbsTime = #{txmaxabstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="txminabs != null">
+				TxMinAbs = #{txminabs,jdbcType=DECIMAL},
+			</if>
+			<if test="txminabstime != null">
+				TxMinAbsTime = #{txminabstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="txrange != null">
+				TxRange = #{txrange,jdbcType=DECIMAL},
+			</if>
+			<if test="txrangemax != null">
+				TxRangeMax = #{txrangemax,jdbcType=DECIMAL},
+			</if>
+			<if test="txrangemaxtime != null">
+				TxRangeMaxTime = #{txrangemaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="txle10day != null">
+				TxLE10Day = #{txle10day,jdbcType=SMALLINT},
+			</if>
+			<if test="txge25day != null">
+				TxGE25Day = #{txge25day,jdbcType=SMALLINT},
+			</if>
+			<if test="txmaxge30day != null">
+				TxMaxGE30Day = #{txmaxge30day,jdbcType=SMALLINT},
+			</if>
+			<if test="txmaxge35day != null">
+				TxMaxGe35Day = #{txmaxge35day,jdbcType=SMALLINT},
+			</if>
+			<if test="txminle10day != null">
+				TxMinLE10Day = #{txminle10day,jdbcType=SMALLINT},
+			</if>
+			<if test="txminge20day != null">
+				TxMinGE20Day = #{txminge20day,jdbcType=SMALLINT},
+			</if>
+			<if test="td != null">
+				Td = #{td,jdbcType=DECIMAL},
+			</if>
+			<if test="ws != null">
+				WS = #{ws,jdbcType=DECIMAL},
+			</if>
+			<if test="wd != null">
+				WD = #{wd,jdbcType=DECIMAL},
+			</if>
+			<if test="wsgust != null">
+				WSGust = #{wsgust,jdbcType=DECIMAL},
+			</if>
+			<if test="wdgust != null">
+				WDGust = #{wdgust,jdbcType=DECIMAL},
+			</if>
+			<if test="wgusttime != null">
+				WGustTime = #{wgusttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="wsmax != null">
+				WSMax = #{wsmax,jdbcType=DECIMAL},
+			</if>
+			<if test="wdmax != null">
+				WDMax = #{wdmax,jdbcType=DECIMAL},
+			</if>
+			<if test="wmaxtime != null">
+				WMaxTime = #{wmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="wsmaxge10day != null">
+				WSMaxGE10Day = #{wsmaxge10day,jdbcType=SMALLINT},
+			</if>
+			<if test="precp != null">
+				Precp = #{precp,jdbcType=DECIMAL},
+			</if>
+			<if test="precphour != null">
+				PrecpHour = #{precphour,jdbcType=DECIMAL},
+			</if>
+			<if test="precpday != null">
+				PrecpDay = #{precpday,jdbcType=SMALLINT},
+			</if>
+			<if test="precpmax10 != null">
+				PrecpMax10 = #{precpmax10,jdbcType=DECIMAL},
+			</if>
+			<if test="precpmax10time != null">
+				PrecpMax10Time = #{precpmax10time,jdbcType=TIMESTAMP},
+			</if>
+			<if test="precphrmax != null">
+				PrecpHrMax = #{precphrmax,jdbcType=DECIMAL},
+			</if>
+			<if test="precphrmaxtime != null">
+				PrecpHrMaxTime = #{precphrmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="precp1daymax != null">
+				Precp1DayMax = #{precp1daymax,jdbcType=DECIMAL},
+			</if>
+			<if test="precp1daymaxtime != null">
+				Precp1DayMaxTime =
+				#{precp1daymaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="precpge1mmday != null">
+				PrecpGE1mmDay = #{precpge1mmday,jdbcType=SMALLINT},
+			</if>
+			<if test="precpge10mmday != null">
+				PrecpGE10mmDay = #{precpge10mmday,jdbcType=SMALLINT},
+			</if>
+			<if test="precpge30mmday != null">
+				PrecpGE30mmDay = #{precpge30mmday,jdbcType=SMALLINT},
+			</if>
+			<if test="vprpres != null">
+				VprPres = #{vprpres,jdbcType=DECIMAL},
+			</if>
+			<if test="vprpresmax != null">
+				VprPresMax = #{vprpresmax,jdbcType=DECIMAL},
+			</if>
+			<if test="vprpresmaxtime != null">
+				VprPresMaxTime = #{vprpresmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="vprpresmin != null">
+				VprPresMin = #{vprpresmin,jdbcType=DECIMAL},
+			</if>
+			<if test="vprpresmintime != null">
+				VprPresMinTime = #{vprpresmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="rh != null">
+				RH = #{rh,jdbcType=SMALLINT},
+			</if>
+			<if test="rhmin != null">
+				RHMin = #{rhmin,jdbcType=SMALLINT},
+			</if>
+			<if test="rhmintime != null">
+				RHMinTime = #{rhmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="rhmax != null">
+				RHMax = #{rhmax,jdbcType=SMALLINT},
+			</if>
+			<if test="rhmaxtime != null">
+				RHMaxTime = #{rhmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="evap20out != null">
+				Evap20out = #{evap20out,jdbcType=DECIMAL},
+			</if>
+			<if test="evap20outmax != null">
+				Evap20outMax = #{evap20outmax,jdbcType=DECIMAL},
+			</if>
+			<if test="evap20outmaxtime != null">
+				Evap20outMaxTime =
+				#{evap20outmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="evapa != null">
+				EvapA = #{evapa,jdbcType=DECIMAL},
+			</if>
+			<if test="camtmean != null">
+				CAmtMean = #{camtmean,jdbcType=DECIMAL},
+			</if>
+			<if test="sunshinerate != null">
+				SunShineRate = #{sunshinerate,jdbcType=DECIMAL},
+			</if>
+			<if test="sunshine != null">
+				SunShine = #{sunshine,jdbcType=DECIMAL},
+			</if>
+			<if test="globlrad != null">
+				GloblRad = #{globlrad,jdbcType=DECIMAL},
+			</if>
+			<if test="globlradhrmax != null">
+				GloblRadHrMax = #{globlradhrmax,jdbcType=DECIMAL},
+			</if>
+			<if test="globlradhrmaxtime != null">
+				GloblRadHrMaxTime =
+				#{globlradhrmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="nosunshineday != null">
+				NoSunShineDay = #{nosunshineday,jdbcType=SMALLINT},
+			</if>
+			<if test="thunderstormday != null">
+				ThunderstormDay = #{thunderstormday,jdbcType=SMALLINT},
+			</if>
+			<if test="clearskyday != null">
+				ClearSkyDay = #{clearskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="scatteredskyday != null">
+				ScatteredSkyDay = #{scatteredskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="brokenskyday != null">
+				BrokenSkyDay = #{brokenskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="overcastskyday != null">
+				OvercastSkyDay = #{overcastskyday,jdbcType=SMALLINT},
+			</if>
+			<if test="fogday != null">
+				FogDay = #{fogday,jdbcType=SMALLINT},
+			</if>
+			<if test="precpdayFlag != null">
+				PrecpDay_flag = #{precpdayFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="wsFlag != null">
+				WS_flag = #{wsFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="precpFlag != null">
+				Precp_flag = #{precpFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="sunshineFlag != null">
+				SunShine_flag = #{sunshineFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="evapaFlag != null">
+				EvapA_flag = #{evapaFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="evap20outFlag != null">
+				Evap20out_flag = #{evap20outFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="globlradFlag != null">
+				GloblRad_flag = #{globlradFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="wsmaxFlag != null">
+				WSMax_flag = #{wsmaxFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="wsgustFlag != null">
+				WSGust_flag = #{wsgustFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="frostday != null">
+				FrostDay = #{frostday,jdbcType=SMALLINT},
+			</if>
+			<if test="snowday != null">
+				SnowDay = #{snowday,jdbcType=SMALLINT},
+			</if>
+			<if test="meantxmax != null">
+				MeanTxMax = #{meantxmax,jdbcType=DECIMAL},
+			</if>
+			<if test="meantxmin != null">
+				MeanTxMin = #{meantxmin,jdbcType=DECIMAL},
+			</if>
+			<if test="precp1daymaxFlag != null">
+				Precp1DayMax_flag =
+				#{precp1daymaxFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="precphrmaxFlag != null">
+				PrecpHrMax_flag = #{precphrmaxFlag,jdbcType=SMALLINT},
+			</if>
+			<if test="txsoil0cm != null">
+				TxSoil0cm = #{txsoil0cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil5cm != null">
+				TxSoil5cm = #{txsoil5cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil10cm != null">
+				TxSoil10cm = #{txsoil10cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil20cm != null">
+				TxSoil20cm = #{txsoil20cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil30cm != null">
+				TxSoil30cm = #{txsoil30cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil50cm != null">
+				TxSoil50cm = #{txsoil50cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil100cm != null">
+				TxSoil100cm = #{txsoil100cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil200cm != null">
+				TxSoil200cm = #{txsoil200cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil300cm != null">
+				TxSoil300cm = #{txsoil300cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil500cm != null">
+				TxSoil500cm = #{txsoil500cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txgrassmin != null">
+				TxGrassMin = #{txgrassmin,jdbcType=DECIMAL},
+			</if>
+			<if test="mintxgrassmin != null">
+				MinTxGrassMin = #{mintxgrassmin,jdbcType=DECIMAL},
+			</if>
+			<if test="mintxgrassmintime != null">
+				MinTxGrassMinTime =
+				#{mintxgrassmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="evap20in != null">
+				Evap20in = #{evap20in,jdbcType=DECIMAL},
+			</if>
+			<if test="tb != null">
+				TB = #{tb,jdbcType=DECIMAL},
+			</if>
+			<if test="evapamax != null">
+				EvapAMax = #{evapamax,jdbcType=DECIMAL},
+			</if>
+			<if test="evapamaxtime != null">
+				EvapAMaxTime = #{evapamaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="seapresmax != null">
+				SeaPresMax = #{seapresmax,jdbcType=DECIMAL},
+			</if>
+			<if test="seapresmaxtime != null">
+				SeaPresMaxTime = #{seapresmaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="seapresmin != null">
+				SeaPresMin = #{seapresmin,jdbcType=DECIMAL},
+			</if>
+			<if test="seapresmintime != null">
+				SeaPresMinTime = #{seapresmintime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="recupdtime != null">
+				RecUpdTime = #{recupdtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="visbmean != null">
+				VisbMean = #{visbmean,jdbcType=DECIMAL},
+			</if>
+			<if test="sunshinej != null">
+				SunShineJ = #{sunshinej,jdbcType=DECIMAL},
+			</if>
+			<if test="uvi != null">
+				uvi = #{uvi,jdbcType=DECIMAL},
+			</if>
+			<if test="uvimax != null">
+				uviMax = #{uvimax,jdbcType=DECIMAL},
+			</if>
+			<if test="uvimaxtime != null">
+				uviMaxTime = #{uvimaxtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="uviFlag != null">
+				uvi_flag = #{uviFlag,jdbcType=SMALLINT},
+			</if>
+		</set>
+		where Stno = #{stno,jdbcType=CHAR}
+		and ObsTime =
+		#{obstime,jdbcType=TIMESTAMP}
+	</update>
+
+
+	<update id="updateByPrimaryKey" parameterType="map">
+		update ${table}
+		set StnPres = #{record.stnpres,jdbcType=DECIMAL},
+		SeaPres =
+		#{record.seapres,jdbcType=DECIMAL},
+		StnPresMax =
+		#{record.stnpresmax,jdbcType=DECIMAL},
+		StnPresMaxTime =
+		#{record.stnpresmaxtime,jdbcType=TIMESTAMP},
+		StnPresMin =
+		#{record.stnpresmin,jdbcType=DECIMAL},
+		StnPresMinTime =
+		#{record.stnpresmintime,jdbcType=TIMESTAMP},
+		Tx =
+		#{record.tx,jdbcType=DECIMAL},
+		TxMax =
+		#{record.txmax,jdbcType=DECIMAL},
+		TxMin =
+		#{record.txmin,jdbcType=DECIMAL},
+		TxMaxAbs =
+		#{record.txmaxabs,jdbcType=DECIMAL},
+		TxMaxAbsTime =
+		#{record.txmaxabstime,jdbcType=TIMESTAMP},
+		TxMinAbs =
+		#{record.txminabs,jdbcType=DECIMAL},
+		TxMinAbsTime =
+		#{record.txminabstime,jdbcType=TIMESTAMP},
+		TxRange =
+		#{record.txrange,jdbcType=DECIMAL},
+		TxRangeMax =
+		#{record.txrangemax,jdbcType=DECIMAL},
+		TxRangeMaxTime =
+		#{record.txrangemaxtime,jdbcType=TIMESTAMP},
+		TxLE10Day =
+		#{record.txle10day,jdbcType=SMALLINT},
+		TxGE25Day =
+		#{record.txge25day,jdbcType=SMALLINT},
+		TxMaxGE30Day =
+		#{record.txmaxge30day,jdbcType=SMALLINT},
+		TxMaxGe35Day =
+		#{record.txmaxge35day,jdbcType=SMALLINT},
+		TxMinLE10Day =
+		#{record.txminle10day,jdbcType=SMALLINT},
+		TxMinGE20Day =
+		#{record.txminge20day,jdbcType=SMALLINT},
+		Td =
+		#{record.td,jdbcType=DECIMAL},
+		WS = #{record.ws,jdbcType=DECIMAL},
+		WD =
+		#{record.wd,jdbcType=DECIMAL},
+		WSGust =
+		#{record.wsgust,jdbcType=DECIMAL},
+		WDGust =
+		#{record.wdgust,jdbcType=DECIMAL},
+		WGustTime =
+		#{record.wgusttime,jdbcType=TIMESTAMP},
+		WSMax =
+		#{record.wsmax,jdbcType=DECIMAL},
+		WDMax =
+		#{record.wdmax,jdbcType=DECIMAL},
+		WMaxTime =
+		#{record.wmaxtime,jdbcType=TIMESTAMP},
+		WSMaxGE10Day =
+		#{record.wsmaxge10day,jdbcType=SMALLINT},
+		Precp =
+		#{record.precp,jdbcType=DECIMAL},
+		PrecpHour =
+		#{record.precphour,jdbcType=DECIMAL},
+		PrecpDay =
+		#{record.precpday,jdbcType=SMALLINT},
+		PrecpMax10 =
+		#{record.precpmax10,jdbcType=DECIMAL},
+		PrecpMax10Time =
+		#{record.precpmax10time,jdbcType=TIMESTAMP},
+		PrecpHrMax =
+		#{record.precphrmax,jdbcType=DECIMAL},
+		PrecpHrMaxTime =
+		#{record.precphrmaxtime,jdbcType=TIMESTAMP},
+		Precp1DayMax =
+		#{record.precp1daymax,jdbcType=DECIMAL},
+		Precp1DayMaxTime =
+		#{record.precp1daymaxtime,jdbcType=TIMESTAMP},
+		PrecpGE1mmDay =
+		#{record.precpge1mmday,jdbcType=SMALLINT},
+		PrecpGE10mmDay =
+		#{record.precpge10mmday,jdbcType=SMALLINT},
+		PrecpGE30mmDay =
+		#{record.precpge30mmday,jdbcType=SMALLINT},
+		VprPres =
+		#{record.vprpres,jdbcType=DECIMAL},
+		VprPresMax =
+		#{record.vprpresmax,jdbcType=DECIMAL},
+		VprPresMaxTime =
+		#{record.vprpresmaxtime,jdbcType=TIMESTAMP},
+		VprPresMin =
+		#{record.vprpresmin,jdbcType=DECIMAL},
+		VprPresMinTime =
+		#{record.vprpresmintime,jdbcType=TIMESTAMP},
+		RH =
+		#{record.rh,jdbcType=SMALLINT},
+		RHMin =
+		#{record.rhmin,jdbcType=SMALLINT},
+		RHMinTime =
+		#{record.rhmintime,jdbcType=TIMESTAMP},
+		RHMax =
+		#{record.rhmax,jdbcType=SMALLINT},
+		RHMaxTime =
+		#{record.rhmaxtime,jdbcType=TIMESTAMP},
+		Evap20out =
+		#{record.evap20out,jdbcType=DECIMAL},
+		Evap20outMax =
+		#{record.evap20outmax,jdbcType=DECIMAL},
+		Evap20outMaxTime =
+		#{record.evap20outmaxtime,jdbcType=TIMESTAMP},
+		EvapA =
+		#{record.evapa,jdbcType=DECIMAL},
+		CAmtMean =
+		#{record.camtmean,jdbcType=DECIMAL},
+		SunShineRate =
+		#{record.sunshinerate,jdbcType=DECIMAL},
+		SunShine =
+		#{record.sunshine,jdbcType=DECIMAL},
+		GloblRad =
+		#{record.globlrad,jdbcType=DECIMAL},
+		GloblRadHrMax =
+		#{record.globlradhrmax,jdbcType=DECIMAL},
+		GloblRadHrMaxTime =
+		#{record.globlradhrmaxtime,jdbcType=TIMESTAMP},
+		NoSunShineDay =
+		#{record.nosunshineday,jdbcType=SMALLINT},
+		ThunderstormDay =
+		#{record.thunderstormday,jdbcType=SMALLINT},
+		ClearSkyDay =
+		#{record.clearskyday,jdbcType=SMALLINT},
+		ScatteredSkyDay =
+		#{record.scatteredskyday,jdbcType=SMALLINT},
+		BrokenSkyDay =
+		#{record.brokenskyday,jdbcType=SMALLINT},
+		OvercastSkyDay =
+		#{record.overcastskyday,jdbcType=SMALLINT},
+		FogDay =
+		#{record.fogday,jdbcType=SMALLINT},
+		PrecpDay_flag =
+		#{record.precpdayFlag,jdbcType=SMALLINT},
+		WS_flag =
+		#{record.wsFlag,jdbcType=SMALLINT},
+		Precp_flag =
+		#{record.precpFlag,jdbcType=SMALLINT},
+		SunShine_flag =
+		#{record.sunshineFlag,jdbcType=SMALLINT},
+		EvapA_flag =
+		#{record.evapaFlag,jdbcType=SMALLINT},
+		Evap20out_flag =
+		#{record.evap20outFlag,jdbcType=SMALLINT},
+		GloblRad_flag =
+		#{record.globlradFlag,jdbcType=SMALLINT},
+		WSMax_flag =
+		#{record.wsmaxFlag,jdbcType=SMALLINT},
+		WSGust_flag =
+		#{record.wsgustFlag,jdbcType=SMALLINT},
+		FrostDay =
+		#{record.frostday,jdbcType=SMALLINT},
+		SnowDay =
+		#{record.snowday,jdbcType=SMALLINT},
+		MeanTxMax =
+		#{record.meantxmax,jdbcType=DECIMAL},
+		MeanTxMin =
+		#{record.meantxmin,jdbcType=DECIMAL},
+		Precp1DayMax_flag =
+		#{record.precp1daymaxFlag,jdbcType=SMALLINT},
+		PrecpHrMax_flag =
+		#{record.precphrmaxFlag,jdbcType=SMALLINT},
+		TxSoil0cm =
+		#{record.txsoil0cm,jdbcType=DECIMAL},
+		TxSoil5cm =
+		#{record.txsoil5cm,jdbcType=DECIMAL},
+		TxSoil10cm =
+		#{record.txsoil10cm,jdbcType=DECIMAL},
+		TxSoil20cm =
+		#{record.txsoil20cm,jdbcType=DECIMAL},
+		TxSoil30cm =
+		#{record.txsoil30cm,jdbcType=DECIMAL},
+		TxSoil50cm =
+		#{record.txsoil50cm,jdbcType=DECIMAL},
+		TxSoil100cm =
+		#{record.txsoil100cm,jdbcType=DECIMAL},
+		TxSoil200cm =
+		#{record.txsoil200cm,jdbcType=DECIMAL},
+		TxSoil300cm =
+		#{record.txsoil300cm,jdbcType=DECIMAL},
+		TxSoil500cm =
+		#{record.txsoil500cm,jdbcType=DECIMAL},
+		TxGrassMin =
+		#{record.txgrassmin,jdbcType=DECIMAL},
+		MinTxGrassMin =
+		#{record.mintxgrassmin,jdbcType=DECIMAL},
+		MinTxGrassMinTime =
+		#{record.mintxgrassmintime,jdbcType=TIMESTAMP},
+		Evap20in =
+		#{record.evap20in,jdbcType=DECIMAL},
+		TB =
+		#{record.tb,jdbcType=DECIMAL},
+		EvapAMax =
+		#{record.evapamax,jdbcType=DECIMAL},
+		EvapAMaxTime =
+		#{record.evapamaxtime,jdbcType=TIMESTAMP},
+		SeaPresMax =
+		#{record.seapresmax,jdbcType=DECIMAL},
+		SeaPresMaxTime =
+		#{record.seapresmaxtime,jdbcType=TIMESTAMP},
+		SeaPresMin =
+		#{record.seapresmin,jdbcType=DECIMAL},
+		SeaPresMinTime =
+		#{record.seapresmintime,jdbcType=TIMESTAMP},
+		RecUpdTime =
+		#{record.recupdtime,jdbcType=TIMESTAMP},
+		VisbMean =
+		#{record.visbmean,jdbcType=DECIMAL},
+		SunShineJ =
+		#{record.sunshinej,jdbcType=DECIMAL},
+		uvi =
+		#{record.uvi,jdbcType=DECIMAL},
+		uviMax =
+		#{record.uvimax,jdbcType=DECIMAL},
+		uviMaxTime =
+		#{record.uvimaxtime,jdbcType=TIMESTAMP},
+		uvi_flag =
+		#{record.uviFlag,jdbcType=SMALLINT}
+		where Stno =
+		#{record.stno,jdbcType=CHAR}
+		and ObsTime =
+		#{record.obstime,jdbcType=TIMESTAMP}
+	</update>
+
+	<!-- <update id="updateByPrimaryKey" parameterType="model.CwbMn"> update 
+		cwbmn_test set StnPres = #{stnpres,jdbcType=DECIMAL}, SeaPres = #{seapres,jdbcType=DECIMAL}, 
+		StnPresMax = #{stnpresmax,jdbcType=DECIMAL}, StnPresMaxTime = #{stnpresmaxtime,jdbcType=TIMESTAMP}, 
+		StnPresMin = #{stnpresmin,jdbcType=DECIMAL}, StnPresMinTime = #{stnpresmintime,jdbcType=TIMESTAMP}, 
+		Tx = #{tx,jdbcType=DECIMAL}, TxMax = #{txmax,jdbcType=DECIMAL}, TxMin = #{txmin,jdbcType=DECIMAL}, 
+		TxMaxAbs = #{txmaxabs,jdbcType=DECIMAL}, TxMaxAbsTime = #{txmaxabstime,jdbcType=TIMESTAMP}, 
+		TxMinAbs = #{txminabs,jdbcType=DECIMAL}, TxMinAbsTime = #{txminabstime,jdbcType=TIMESTAMP}, 
+		TxRange = #{txrange,jdbcType=DECIMAL}, TxRangeMax = #{txrangemax,jdbcType=DECIMAL}, 
+		TxRangeMaxTime = #{txrangemaxtime,jdbcType=TIMESTAMP}, TxLE10Day = #{txle10day,jdbcType=SMALLINT}, 
+		TxGE25Day = #{txge25day,jdbcType=SMALLINT}, TxMaxGE30Day = #{txmaxge30day,jdbcType=SMALLINT}, 
+		TxMaxGe35Day = #{txmaxge35day,jdbcType=SMALLINT}, TxMinLE10Day = #{txminle10day,jdbcType=SMALLINT}, 
+		TxMinGE20Day = #{txminge20day,jdbcType=SMALLINT}, Td = #{td,jdbcType=DECIMAL}, 
+		WS = #{ws,jdbcType=DECIMAL}, WD = #{wd,jdbcType=DECIMAL}, WSGust = #{wsgust,jdbcType=DECIMAL}, 
+		WDGust = #{wdgust,jdbcType=DECIMAL}, WGustTime = #{wgusttime,jdbcType=TIMESTAMP}, 
+		WSMax = #{wsmax,jdbcType=DECIMAL}, WDMax = #{wdmax,jdbcType=DECIMAL}, WMaxTime 
+		= #{wmaxtime,jdbcType=TIMESTAMP}, WSMaxGE10Day = #{wsmaxge10day,jdbcType=SMALLINT}, 
+		Precp = #{precp,jdbcType=DECIMAL}, PrecpHour = #{precphour,jdbcType=DECIMAL}, 
+		PrecpDay = #{precpday,jdbcType=SMALLINT}, PrecpMax10 = #{precpmax10,jdbcType=DECIMAL}, 
+		PrecpMax10Time = #{precpmax10time,jdbcType=TIMESTAMP}, PrecpHrMax = #{precphrmax,jdbcType=DECIMAL}, 
+		PrecpHrMaxTime = #{precphrmaxtime,jdbcType=TIMESTAMP}, Precp1DayMax = #{precp1daymax,jdbcType=DECIMAL}, 
+		Precp1DayMaxTime = #{precp1daymaxtime,jdbcType=TIMESTAMP}, PrecpGE1mmDay 
+		= #{precpge1mmday,jdbcType=SMALLINT}, PrecpGE10mmDay = #{precpge10mmday,jdbcType=SMALLINT}, 
+		PrecpGE30mmDay = #{precpge30mmday,jdbcType=SMALLINT}, VprPres = #{vprpres,jdbcType=DECIMAL}, 
+		VprPresMax = #{vprpresmax,jdbcType=DECIMAL}, VprPresMaxTime = #{vprpresmaxtime,jdbcType=TIMESTAMP}, 
+		VprPresMin = #{vprpresmin,jdbcType=DECIMAL}, VprPresMinTime = #{vprpresmintime,jdbcType=TIMESTAMP}, 
+		RH = #{rh,jdbcType=SMALLINT}, RHMin = #{rhmin,jdbcType=SMALLINT}, RHMinTime 
+		= #{rhmintime,jdbcType=TIMESTAMP}, RHMax = #{rhmax,jdbcType=SMALLINT}, RHMaxTime 
+		= #{rhmaxtime,jdbcType=TIMESTAMP}, Evap20out = #{evap20out,jdbcType=DECIMAL}, 
+		Evap20outMax = #{evap20outmax,jdbcType=DECIMAL}, Evap20outMaxTime = #{evap20outmaxtime,jdbcType=TIMESTAMP}, 
+		EvapA = #{evapa,jdbcType=DECIMAL}, CAmtMean = #{camtmean,jdbcType=DECIMAL}, 
+		SunShineRate = #{sunshinerate,jdbcType=DECIMAL}, SunShine = #{sunshine,jdbcType=DECIMAL}, 
+		GloblRad = #{globlrad,jdbcType=DECIMAL}, GloblRadHrMax = #{globlradhrmax,jdbcType=DECIMAL}, 
+		GloblRadHrMaxTime = #{globlradhrmaxtime,jdbcType=TIMESTAMP}, NoSunShineDay 
+		= #{nosunshineday,jdbcType=SMALLINT}, ThunderstormDay = #{thunderstormday,jdbcType=SMALLINT}, 
+		ClearSkyDay = #{clearskyday,jdbcType=SMALLINT}, ScatteredSkyDay = #{scatteredskyday,jdbcType=SMALLINT}, 
+		BrokenSkyDay = #{brokenskyday,jdbcType=SMALLINT}, OvercastSkyDay = #{overcastskyday,jdbcType=SMALLINT}, 
+		FogDay = #{fogday,jdbcType=SMALLINT}, PrecpDay_flag = #{precpdayFlag,jdbcType=SMALLINT}, 
+		WS_flag = #{wsFlag,jdbcType=SMALLINT}, Precp_flag = #{precpFlag,jdbcType=SMALLINT}, 
+		SunShine_flag = #{sunshineFlag,jdbcType=SMALLINT}, EvapA_flag = #{evapaFlag,jdbcType=SMALLINT}, 
+		Evap20out_flag = #{evap20outFlag,jdbcType=SMALLINT}, GloblRad_flag = #{globlradFlag,jdbcType=SMALLINT}, 
+		WSMax_flag = #{wsmaxFlag,jdbcType=SMALLINT}, WSGust_flag = #{wsgustFlag,jdbcType=SMALLINT}, 
+		FrostDay = #{frostday,jdbcType=SMALLINT}, SnowDay = #{snowday,jdbcType=SMALLINT}, 
+		MeanTxMax = #{meantxmax,jdbcType=DECIMAL}, MeanTxMin = #{meantxmin,jdbcType=DECIMAL}, 
+		Precp1DayMax_flag = #{precp1daymaxFlag,jdbcType=SMALLINT}, PrecpHrMax_flag 
+		= #{precphrmaxFlag,jdbcType=SMALLINT}, TxSoil0cm = #{txsoil0cm,jdbcType=DECIMAL}, 
+		TxSoil5cm = #{txsoil5cm,jdbcType=DECIMAL}, TxSoil10cm = #{txsoil10cm,jdbcType=DECIMAL}, 
+		TxSoil20cm = #{txsoil20cm,jdbcType=DECIMAL}, TxSoil30cm = #{txsoil30cm,jdbcType=DECIMAL}, 
+		TxSoil50cm = #{txsoil50cm,jdbcType=DECIMAL}, TxSoil100cm = #{txsoil100cm,jdbcType=DECIMAL}, 
+		TxSoil200cm = #{txsoil200cm,jdbcType=DECIMAL}, TxSoil300cm = #{txsoil300cm,jdbcType=DECIMAL}, 
+		TxSoil500cm = #{txsoil500cm,jdbcType=DECIMAL}, TxGrassMin = #{txgrassmin,jdbcType=DECIMAL}, 
+		MinTxGrassMin = #{mintxgrassmin,jdbcType=DECIMAL}, MinTxGrassMinTime = #{mintxgrassmintime,jdbcType=TIMESTAMP}, 
+		Evap20in = #{evap20in,jdbcType=DECIMAL}, TB = #{tb,jdbcType=DECIMAL}, EvapAMax 
+		= #{evapamax,jdbcType=DECIMAL}, EvapAMaxTime = #{evapamaxtime,jdbcType=TIMESTAMP}, 
+		SeaPresMax = #{seapresmax,jdbcType=DECIMAL}, SeaPresMaxTime = #{seapresmaxtime,jdbcType=TIMESTAMP}, 
+		SeaPresMin = #{seapresmin,jdbcType=DECIMAL}, SeaPresMinTime = #{seapresmintime,jdbcType=TIMESTAMP}, 
+		RecUpdTime = #{recupdtime,jdbcType=TIMESTAMP}, VisbMean = #{visbmean,jdbcType=DECIMAL}, 
+		SunShineJ = #{sunshinej,jdbcType=DECIMAL}, uvi = #{uvi,jdbcType=DECIMAL}, 
+		uviMax = #{uvimax,jdbcType=DECIMAL}, uviMaxTime = #{uvimaxtime,jdbcType=TIMESTAMP}, 
+		uvi_flag = #{uviFlag,jdbcType=SMALLINT} where Stno = #{stno,jdbcType=CHAR} 
+		and ObsTime = #{obstime,jdbcType=TIMESTAMP} </update> -->
+</mapper>

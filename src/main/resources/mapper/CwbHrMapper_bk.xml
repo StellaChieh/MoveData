@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tw.com.cwb.cmt.movedata.dao.CwbHrMapper">
+	<resultMap id="BaseResultMap" type="tw.com.cwb.cmt.movedata.model.CwbHr">
+		<constructor>
+			<idArg column="Stno" javaType="java.lang.String" jdbcType="CHAR" />
+			<idArg column="ObsTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="StnPres" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="SeaPres" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="Tx" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="Tw" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="Td" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="RH" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="VprPres" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WS" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WD" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WSMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WDmax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WSGust" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="WDGust" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="Precp" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="PrecpHour" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="SunShine" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="Visb" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="HCHgh" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="MCHgh" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="LCHgh" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="HCAmt" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="MCAmt" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="LCAmt" javaType="java.lang.Short" jdbcType="SMALLINT" />
+			<arg column="HCStat" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="MCStat" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="LCStat" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="Ceiling" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="CAmtTotal" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxSoil0cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxSoil5cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxSoil10cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil20cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil30cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="StatS" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatG" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatE" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatP1" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatP2" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatF1" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatF2" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatF3" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatO1" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatO2" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatL1" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="StatL2" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="GloblRad" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="PresTrend" javaType="java.lang.String" jdbcType="CHAR" />
+			<arg column="SatuVprPres" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="RecUpdTime" javaType="java.time.LocalDateTime"
+				jdbcType="TIMESTAMP" />
+			<arg column="SunShineJ" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+			<arg column="TxSoil50cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil100cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil200cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil300cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="TxSoil500cm" javaType="java.math.BigDecimal"
+				jdbcType="DECIMAL" />
+			<arg column="uvi" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+		</constructor>
+	</resultMap>
+
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem"
+										open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+
+	<sql id="Base_Column_List">
+		Stno, ObsTime, StnPres, SeaPres, Tx, Tw, Td, RH, VprPres, WS, WD, WSMax,
+		WDmax, WSGust,
+		WDGust, Precp, PrecpHour, SunShine, Visb, HCHgh, MCHgh, LCHgh, HCAmt, MCAmt,
+		LCAmt,
+		HCStat, MCStat, LCStat, Ceiling, CAmtTotal, TxSoil0cm, TxSoil5cm, TxSoil10cm,
+		TxSoil20cm,
+		TxSoil30cm, StatS, StatG, StatE, StatP1, StatP2, StatF1, StatF2, StatF3, StatO1,
+		StatO2, StatL1, StatL2, GloblRad, PresTrend, SatuVprPres, RecUpdTime,
+		SunShineJ,
+		TxSoil50cm, TxSoil100cm, TxSoil200cm, TxSoil300cm, TxSoil500cm, uvi
+	</sql>
+
+	<sql id="Base_Insert_Record">
+		#{record.stno,jdbcType=CHAR}, #{record.obstime,jdbcType=TIMESTAMP},
+		#{record.stnpres,jdbcType=DECIMAL},
+		#{record.seapres,jdbcType=DECIMAL}, #{record.tx,jdbcType=DECIMAL},
+		#{record.tw,jdbcType=DECIMAL}
+		, #{record.td,jdbcType=DECIMAL},
+		#{record.rh,jdbcType=SMALLINT}, #{record.vprpres,jdbcType=DECIMAL}, #{record.ws,jdbcType=DECIMAL}
+		, #{record.wd,jdbcType=DECIMAL},
+		#{record.wsmax,jdbcType=DECIMAL}, #{record.wdmax,jdbcType=DECIMAL}, #{record.wsgust,jdbcType=DECIMAL},
+		#{record.wdgust,jdbcType=DECIMAL}, #{record.precp,jdbcType=DECIMAL},
+		#{record.precphour,jdbcType=DECIMAL},
+		#{record.sunshine,jdbcType=DECIMAL}, #{record.visb,jdbcType=DECIMAL},
+		#{record.hchgh,jdbcType=DECIMAL},
+		#{record.mchgh,jdbcType=DECIMAL}, #{record.lchgh,jdbcType=DECIMAL}, #{record.hcamt,jdbcType=SMALLINT},
+		#{record.mcamt,jdbcType=SMALLINT}, #{record.lcamt,jdbcType=SMALLINT},
+		#{record.hcstat,jdbcType=CHAR},
+		#{record.mcstat,jdbcType=CHAR}, #{record.lcstat,jdbcType=CHAR}, #{record.ceiling,jdbcType=DECIMAL},
+		#{record.camttotal,jdbcType=DECIMAL},
+		#{record.txsoil0cm,jdbcType=DECIMAL},
+		#{record.txsoil5cm,jdbcType=DECIMAL},
+		#{record.txsoil10cm,jdbcType=DECIMAL},
+		#{record.txsoil20cm,jdbcType=DECIMAL},
+		#{record.txsoil30cm,jdbcType=DECIMAL},
+		#{record.stats,jdbcType=CHAR}, #{record.statg,jdbcType=CHAR}, #{record.state,jdbcType=CHAR}
+		, #{record.statp1,jdbcType=CHAR},
+		#{record.statp2,jdbcType=CHAR}, #{record.statf1,jdbcType=CHAR}, #{record.statf2,jdbcType=CHAR}
+		, #{record.statf3,jdbcType=CHAR},
+		#{record.stato1,jdbcType=CHAR}, #{record.stato2,jdbcType=CHAR}, #{record.statl1,jdbcType=CHAR}
+		, #{record.statl2,jdbcType=CHAR},
+		#{record.globlrad,jdbcType=DECIMAL}, #{record.prestrend,jdbcType=CHAR},
+		#{record.satuvprpres,jdbcType=DECIMAL},
+		#{record.recupdtime,jdbcType=TIMESTAMP},
+		#{record.sunshinej,jdbcType=DECIMAL},
+		#{record.txsoil50cm,jdbcType=DECIMAL},
+		#{record.txsoil100cm,jdbcType=DECIMAL},
+		#{record.txsoil200cm,jdbcType=DECIMAL},
+		#{record.txsoil300cm,jdbcType=DECIMAL},
+		#{record.txsoil500cm,jdbcType=DECIMAL}, #{record.uvi,jdbcType=DECIMAL}
+	</sql>
+
+	<sql id="Base_Update_Record">
+		Stno = #{record.stno,jdbcType=CHAR},
+		ObsTime = #{record.obstime,jdbcType=TIMESTAMP},
+		StnPres = #{record.stnpres,jdbcType=DECIMAL},
+		SeaPres = #{record.seapres,jdbcType=DECIMAL},
+		Tx = #{record.tx,jdbcType=DECIMAL},
+		Tw = #{record.tw,jdbcType=DECIMAL},
+		Td = #{record.td,jdbcType=DECIMAL},
+		RH = #{record.rh,jdbcType=SMALLINT},
+		VprPres = #{record.vprpres,jdbcType=DECIMAL},
+		WS = #{record.ws,jdbcType=DECIMAL},
+		WD = #{record.wd,jdbcType=DECIMAL},
+		WSMax = #{record.wsmax,jdbcType=DECIMAL},
+		WDmax = #{record.wdmax,jdbcType=DECIMAL},
+		WSGust = #{record.wsgust,jdbcType=DECIMAL},
+		WDGust = #{record.wdgust,jdbcType=DECIMAL},
+		Precp = #{record.precp,jdbcType=DECIMAL},
+		PrecpHour = #{record.precphour,jdbcType=DECIMAL},
+		SunShine = #{record.sunshine,jdbcType=DECIMAL},
+		Visb = #{record.visb,jdbcType=DECIMAL},
+		HCHgh = #{record.hchgh,jdbcType=DECIMAL},
+		MCHgh = #{record.mchgh,jdbcType=DECIMAL},
+		LCHgh = #{record.lchgh,jdbcType=DECIMAL},
+		HCAmt = #{record.hcamt,jdbcType=SMALLINT},
+		MCAmt = #{record.mcamt,jdbcType=SMALLINT},
+		LCAmt = #{record.lcamt,jdbcType=SMALLINT},
+		HCStat = #{record.hcstat,jdbcType=CHAR},
+		MCStat = #{record.mcstat,jdbcType=CHAR},
+		LCStat = #{record.lcstat,jdbcType=CHAR},
+		Ceiling = #{record.ceiling,jdbcType=DECIMAL},
+		CAmtTotal = #{record.camttotal,jdbcType=DECIMAL},
+		TxSoil0cm = #{record.txsoil0cm,jdbcType=DECIMAL},
+		TxSoil5cm = #{record.txsoil5cm,jdbcType=DECIMAL},
+		TxSoil10cm = #{record.txsoil10cm,jdbcType=DECIMAL},
+		TxSoil20cm = #{record.txsoil20cm,jdbcType=DECIMAL},
+		TxSoil30cm = #{record.txsoil30cm,jdbcType=DECIMAL},
+		StatS = #{record.stats,jdbcType=CHAR},
+		StatG = #{record.statg,jdbcType=CHAR},
+		StatE = #{record.state,jdbcType=CHAR},
+		StatP1 = #{record.statp1,jdbcType=CHAR},
+		StatP2 = #{record.statp2,jdbcType=CHAR},
+		StatF1 = #{record.statf1,jdbcType=CHAR},
+		StatF2 = #{record.statf2,jdbcType=CHAR},
+		StatF3 = #{record.statf3,jdbcType=CHAR},
+		StatO1 = #{record.stato1,jdbcType=CHAR},
+		StatO2 = #{record.stato2,jdbcType=CHAR},
+		StatL1 = #{record.statl1,jdbcType=CHAR},
+		StatL2 = #{record.statl2,jdbcType=CHAR},
+		GloblRad = #{record.globlrad,jdbcType=DECIMAL},
+		PresTrend = #{record.prestrend,jdbcType=CHAR},
+		SatuVprPres = #{record.satuvprpres,jdbcType=DECIMAL},
+		RecUpdTime = #{record.recupdtime,jdbcType=TIMESTAMP},
+		SunShineJ = #{record.sunshinej,jdbcType=DECIMAL},
+		TxSoil50cm = #{record.txsoil50cm,jdbcType=DECIMAL},
+		TxSoil100cm = #{record.txsoil100cm,jdbcType=DECIMAL},
+		TxSoil200cm = #{record.txsoil200cm,jdbcType=DECIMAL},
+		TxSoil300cm = #{record.txsoil300cm,jdbcType=DECIMAL},
+		TxSoil500cm = #{record.txsoil500cm,jdbcType=DECIMAL},
+		uvi = #{record.uvi,jdbcType=DECIMAL}
+	</sql>
+
+
+	<select id="selectByExample" parameterType="map" resultMap="BaseResultMap">
+		select
+		<if test="example.distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from ${table}
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="example.orderByClause != null">
+			order by ${example.orderByClause}
+		</if>
+	</select>
+
+	<select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from ${table}
+		where Stno = #{key.stno,jdbcType=CHAR}
+		and ObsTime = #{key.obstime,jdbcType=TIMESTAMP}
+	</select>
+
+	<!-- insertOrUpdate is sql server's Sql syntex -->
+	<insert id="insertOrUpdate" parameterType="map">
+		UPDATE ${table}
+		SET
+		<include refid="Base_Update_Record" />
+		WHERE Stno = #{record.stno,jdbcType=CHAR}
+		AND ObsTime =
+		#{record.obstime,jdbcType=TIMESTAMP}
+		IF @@rowcount = 0
+		BEGIN
+		INSERT INTO
+		${table}
+		(
+		<include refid="Base_Column_List" />
+		)
+		VALUES
+		(
+		<include refid="Base_Insert_Record" />
+		)
+		END
+	</insert>
+
+
+	<!-- below is useless -->
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" prefixOverrides="and" suffix=")">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach close=")" collection="criterion.value" item="listItem"
+										open="(" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+
+	<delete id="deleteByPrimaryKey" parameterType="model.CwbHrKey">
+		delete from cwbhr_test
+		where Stno = #{stno,jdbcType=CHAR}
+		and ObsTime = #{obstime,jdbcType=TIMESTAMP}
+	</delete>
+	<delete id="deleteByExample" parameterType="model.CwbHrExample">
+		delete from cwbhr_test
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="model.CwbHr">
+		insert into cwbhr_test (Stno, ObsTime, StnPres,
+		SeaPres, Tx, Tw, Td,
+		RH, VprPres, WS, WD,
+		WSMax, WDmax, WSGust,
+		WDGust, Precp, PrecpHour,
+		SunShine, Visb, HCHgh,
+		MCHgh, LCHgh, HCAmt,
+		MCAmt, LCAmt, HCStat,
+		MCStat, LCStat, Ceiling,
+		CAmtTotal, TxSoil0cm, TxSoil5cm,
+		TxSoil10cm, TxSoil20cm, TxSoil30cm,
+		StatS, StatG, StatE, StatP1,
+		StatP2, StatF1, StatF2, StatF3,
+		StatO1, StatO2, StatL1, StatL2,
+		GloblRad, PresTrend, SatuVprPres,
+		RecUpdTime, SunShineJ, TxSoil50cm,
+		TxSoil100cm, TxSoil200cm, TxSoil300cm,
+		TxSoil500cm, uvi)
+		values ()
+	</insert>
+	<insert id="insertSelective" parameterType="model.CwbHr">
+		insert into cwbhr_test
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="stno != null">
+				Stno,
+			</if>
+			<if test="obstime != null">
+				ObsTime,
+			</if>
+			<if test="stnpres != null">
+				StnPres,
+			</if>
+			<if test="seapres != null">
+				SeaPres,
+			</if>
+			<if test="tx != null">
+				Tx,
+			</if>
+			<if test="tw != null">
+				Tw,
+			</if>
+			<if test="td != null">
+				Td,
+			</if>
+			<if test="rh != null">
+				RH,
+			</if>
+			<if test="vprpres != null">
+				VprPres,
+			</if>
+			<if test="ws != null">
+				WS,
+			</if>
+			<if test="wd != null">
+				WD,
+			</if>
+			<if test="wsmax != null">
+				WSMax,
+			</if>
+			<if test="wdmax != null">
+				WDmax,
+			</if>
+			<if test="wsgust != null">
+				WSGust,
+			</if>
+			<if test="wdgust != null">
+				WDGust,
+			</if>
+			<if test="precp != null">
+				Precp,
+			</if>
+			<if test="precphour != null">
+				PrecpHour,
+			</if>
+			<if test="sunshine != null">
+				SunShine,
+			</if>
+			<if test="visb != null">
+				Visb,
+			</if>
+			<if test="hchgh != null">
+				HCHgh,
+			</if>
+			<if test="mchgh != null">
+				MCHgh,
+			</if>
+			<if test="lchgh != null">
+				LCHgh,
+			</if>
+			<if test="hcamt != null">
+				HCAmt,
+			</if>
+			<if test="mcamt != null">
+				MCAmt,
+			</if>
+			<if test="lcamt != null">
+				LCAmt,
+			</if>
+			<if test="hcstat != null">
+				HCStat,
+			</if>
+			<if test="mcstat != null">
+				MCStat,
+			</if>
+			<if test="lcstat != null">
+				LCStat,
+			</if>
+			<if test="ceiling != null">
+				Ceiling,
+			</if>
+			<if test="camttotal != null">
+				CAmtTotal,
+			</if>
+			<if test="txsoil0cm != null">
+				TxSoil0cm,
+			</if>
+			<if test="txsoil5cm != null">
+				TxSoil5cm,
+			</if>
+			<if test="txsoil10cm != null">
+				TxSoil10cm,
+			</if>
+			<if test="txsoil20cm != null">
+				TxSoil20cm,
+			</if>
+			<if test="txsoil30cm != null">
+				TxSoil30cm,
+			</if>
+			<if test="stats != null">
+				StatS,
+			</if>
+			<if test="statg != null">
+				StatG,
+			</if>
+			<if test="state != null">
+				StatE,
+			</if>
+			<if test="statp1 != null">
+				StatP1,
+			</if>
+			<if test="statp2 != null">
+				StatP2,
+			</if>
+			<if test="statf1 != null">
+				StatF1,
+			</if>
+			<if test="statf2 != null">
+				StatF2,
+			</if>
+			<if test="statf3 != null">
+				StatF3,
+			</if>
+			<if test="stato1 != null">
+				StatO1,
+			</if>
+			<if test="stato2 != null">
+				StatO2,
+			</if>
+			<if test="statl1 != null">
+				StatL1,
+			</if>
+			<if test="statl2 != null">
+				StatL2,
+			</if>
+			<if test="globlrad != null">
+				GloblRad,
+			</if>
+			<if test="prestrend != null">
+				PresTrend,
+			</if>
+			<if test="satuvprpres != null">
+				SatuVprPres,
+			</if>
+			<if test="recupdtime != null">
+				RecUpdTime,
+			</if>
+			<if test="sunshinej != null">
+				SunShineJ,
+			</if>
+			<if test="txsoil50cm != null">
+				TxSoil50cm,
+			</if>
+			<if test="txsoil100cm != null">
+				TxSoil100cm,
+			</if>
+			<if test="txsoil200cm != null">
+				TxSoil200cm,
+			</if>
+			<if test="txsoil300cm != null">
+				TxSoil300cm,
+			</if>
+			<if test="txsoil500cm != null">
+				TxSoil500cm,
+			</if>
+			<if test="uvi != null">
+				uvi,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="stno != null">
+				#{stno,jdbcType=CHAR},
+			</if>
+			<if test="obstime != null">
+				#{obstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="stnpres != null">
+				#{stnpres,jdbcType=DECIMAL},
+			</if>
+			<if test="seapres != null">
+				#{seapres,jdbcType=DECIMAL},
+			</if>
+			<if test="tx != null">
+				#{tx,jdbcType=DECIMAL},
+			</if>
+			<if test="tw != null">
+				#{tw,jdbcType=DECIMAL},
+			</if>
+			<if test="td != null">
+				#{td,jdbcType=DECIMAL},
+			</if>
+			<if test="rh != null">
+				#{rh,jdbcType=SMALLINT},
+			</if>
+			<if test="vprpres != null">
+				#{vprpres,jdbcType=DECIMAL},
+			</if>
+			<if test="ws != null">
+				#{ws,jdbcType=DECIMAL},
+			</if>
+			<if test="wd != null">
+				#{wd,jdbcType=DECIMAL},
+			</if>
+			<if test="wsmax != null">
+				#{wsmax,jdbcType=DECIMAL},
+			</if>
+			<if test="wdmax != null">
+				#{wdmax,jdbcType=DECIMAL},
+			</if>
+			<if test="wsgust != null">
+				#{wsgust,jdbcType=DECIMAL},
+			</if>
+			<if test="wdgust != null">
+				#{wdgust,jdbcType=DECIMAL},
+			</if>
+			<if test="precp != null">
+				#{precp,jdbcType=DECIMAL},
+			</if>
+			<if test="precphour != null">
+				#{precphour,jdbcType=DECIMAL},
+			</if>
+			<if test="sunshine != null">
+				#{sunshine,jdbcType=DECIMAL},
+			</if>
+			<if test="visb != null">
+				#{visb,jdbcType=DECIMAL},
+			</if>
+			<if test="hchgh != null">
+				#{hchgh,jdbcType=DECIMAL},
+			</if>
+			<if test="mchgh != null">
+				#{mchgh,jdbcType=DECIMAL},
+			</if>
+			<if test="lchgh != null">
+				#{lchgh,jdbcType=DECIMAL},
+			</if>
+			<if test="hcamt != null">
+				#{hcamt,jdbcType=SMALLINT},
+			</if>
+			<if test="mcamt != null">
+				#{mcamt,jdbcType=SMALLINT},
+			</if>
+			<if test="lcamt != null">
+				#{lcamt,jdbcType=SMALLINT},
+			</if>
+			<if test="hcstat != null">
+				#{hcstat,jdbcType=CHAR},
+			</if>
+			<if test="mcstat != null">
+				#{mcstat,jdbcType=CHAR},
+			</if>
+			<if test="lcstat != null">
+				#{lcstat,jdbcType=CHAR},
+			</if>
+			<if test="ceiling != null">
+				#{ceiling,jdbcType=DECIMAL},
+			</if>
+			<if test="camttotal != null">
+				#{camttotal,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil0cm != null">
+				#{txsoil0cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil5cm != null">
+				#{txsoil5cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil10cm != null">
+				#{txsoil10cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil20cm != null">
+				#{txsoil20cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil30cm != null">
+				#{txsoil30cm,jdbcType=DECIMAL},
+			</if>
+			<if test="stats != null">
+				#{stats,jdbcType=CHAR},
+			</if>
+			<if test="statg != null">
+				#{statg,jdbcType=CHAR},
+			</if>
+			<if test="state != null">
+				#{state,jdbcType=CHAR},
+			</if>
+			<if test="statp1 != null">
+				#{statp1,jdbcType=CHAR},
+			</if>
+			<if test="statp2 != null">
+				#{statp2,jdbcType=CHAR},
+			</if>
+			<if test="statf1 != null">
+				#{statf1,jdbcType=CHAR},
+			</if>
+			<if test="statf2 != null">
+				#{statf2,jdbcType=CHAR},
+			</if>
+			<if test="statf3 != null">
+				#{statf3,jdbcType=CHAR},
+			</if>
+			<if test="stato1 != null">
+				#{stato1,jdbcType=CHAR},
+			</if>
+			<if test="stato2 != null">
+				#{stato2,jdbcType=CHAR},
+			</if>
+			<if test="statl1 != null">
+				#{statl1,jdbcType=CHAR},
+			</if>
+			<if test="statl2 != null">
+				#{statl2,jdbcType=CHAR},
+			</if>
+			<if test="globlrad != null">
+				#{globlrad,jdbcType=DECIMAL},
+			</if>
+			<if test="prestrend != null">
+				#{prestrend,jdbcType=CHAR},
+			</if>
+			<if test="satuvprpres != null">
+				#{satuvprpres,jdbcType=DECIMAL},
+			</if>
+			<if test="recupdtime != null">
+				#{recupdtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="sunshinej != null">
+				#{sunshinej,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil50cm != null">
+				#{txsoil50cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil100cm != null">
+				#{txsoil100cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil200cm != null">
+				#{txsoil200cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil300cm != null">
+				#{txsoil300cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil500cm != null">
+				#{txsoil500cm,jdbcType=DECIMAL},
+			</if>
+			<if test="uvi != null">
+				#{uvi,jdbcType=DECIMAL},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="model.CwbHrExample"
+		resultType="java.lang.Long">
+		select count(*) from cwbhr_test
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update cwbhr_test
+		<set>
+			<if test="record.stno != null">
+				Stno = #{record.stno,jdbcType=CHAR},
+			</if>
+			<if test="record.obstime != null">
+				ObsTime = #{record.obstime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.stnpres != null">
+				StnPres = #{record.stnpres,jdbcType=DECIMAL},
+			</if>
+			<if test="record.seapres != null">
+				SeaPres = #{record.seapres,jdbcType=DECIMAL},
+			</if>
+			<if test="record.tx != null">
+				Tx = #{record.tx,jdbcType=DECIMAL},
+			</if>
+			<if test="record.tw != null">
+				Tw = #{record.tw,jdbcType=DECIMAL},
+			</if>
+			<if test="record.td != null">
+				Td = #{record.td,jdbcType=DECIMAL},
+			</if>
+			<if test="record.rh != null">
+				RH = #{record.rh,jdbcType=SMALLINT},
+			</if>
+			<if test="record.vprpres != null">
+				VprPres = #{record.vprpres,jdbcType=DECIMAL},
+			</if>
+			<if test="record.ws != null">
+				WS = #{record.ws,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wd != null">
+				WD = #{record.wd,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wsmax != null">
+				WSMax = #{record.wsmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wdmax != null">
+				WDmax = #{record.wdmax,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wsgust != null">
+				WSGust = #{record.wsgust,jdbcType=DECIMAL},
+			</if>
+			<if test="record.wdgust != null">
+				WDGust = #{record.wdgust,jdbcType=DECIMAL},
+			</if>
+			<if test="record.precp != null">
+				Precp = #{record.precp,jdbcType=DECIMAL},
+			</if>
+			<if test="record.precphour != null">
+				PrecpHour = #{record.precphour,jdbcType=DECIMAL},
+			</if>
+			<if test="record.sunshine != null">
+				SunShine = #{record.sunshine,jdbcType=DECIMAL},
+			</if>
+			<if test="record.visb != null">
+				Visb = #{record.visb,jdbcType=DECIMAL},
+			</if>
+			<if test="record.hchgh != null">
+				HCHgh = #{record.hchgh,jdbcType=DECIMAL},
+			</if>
+			<if test="record.mchgh != null">
+				MCHgh = #{record.mchgh,jdbcType=DECIMAL},
+			</if>
+			<if test="record.lchgh != null">
+				LCHgh = #{record.lchgh,jdbcType=DECIMAL},
+			</if>
+			<if test="record.hcamt != null">
+				HCAmt = #{record.hcamt,jdbcType=SMALLINT},
+			</if>
+			<if test="record.mcamt != null">
+				MCAmt = #{record.mcamt,jdbcType=SMALLINT},
+			</if>
+			<if test="record.lcamt != null">
+				LCAmt = #{record.lcamt,jdbcType=SMALLINT},
+			</if>
+			<if test="record.hcstat != null">
+				HCStat = #{record.hcstat,jdbcType=CHAR},
+			</if>
+			<if test="record.mcstat != null">
+				MCStat = #{record.mcstat,jdbcType=CHAR},
+			</if>
+			<if test="record.lcstat != null">
+				LCStat = #{record.lcstat,jdbcType=CHAR},
+			</if>
+			<if test="record.ceiling != null">
+				Ceiling = #{record.ceiling,jdbcType=DECIMAL},
+			</if>
+			<if test="record.camttotal != null">
+				CAmtTotal = #{record.camttotal,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil0cm != null">
+				TxSoil0cm = #{record.txsoil0cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil5cm != null">
+				TxSoil5cm = #{record.txsoil5cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil10cm != null">
+				TxSoil10cm = #{record.txsoil10cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil20cm != null">
+				TxSoil20cm = #{record.txsoil20cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil30cm != null">
+				TxSoil30cm = #{record.txsoil30cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.stats != null">
+				StatS = #{record.stats,jdbcType=CHAR},
+			</if>
+			<if test="record.statg != null">
+				StatG = #{record.statg,jdbcType=CHAR},
+			</if>
+			<if test="record.state != null">
+				StatE = #{record.state,jdbcType=CHAR},
+			</if>
+			<if test="record.statp1 != null">
+				StatP1 = #{record.statp1,jdbcType=CHAR},
+			</if>
+			<if test="record.statp2 != null">
+				StatP2 = #{record.statp2,jdbcType=CHAR},
+			</if>
+			<if test="record.statf1 != null">
+				StatF1 = #{record.statf1,jdbcType=CHAR},
+			</if>
+			<if test="record.statf2 != null">
+				StatF2 = #{record.statf2,jdbcType=CHAR},
+			</if>
+			<if test="record.statf3 != null">
+				StatF3 = #{record.statf3,jdbcType=CHAR},
+			</if>
+			<if test="record.stato1 != null">
+				StatO1 = #{record.stato1,jdbcType=CHAR},
+			</if>
+			<if test="record.stato2 != null">
+				StatO2 = #{record.stato2,jdbcType=CHAR},
+			</if>
+			<if test="record.statl1 != null">
+				StatL1 = #{record.statl1,jdbcType=CHAR},
+			</if>
+			<if test="record.statl2 != null">
+				StatL2 = #{record.statl2,jdbcType=CHAR},
+			</if>
+			<if test="record.globlrad != null">
+				GloblRad = #{record.globlrad,jdbcType=DECIMAL},
+			</if>
+			<if test="record.prestrend != null">
+				PresTrend = #{record.prestrend,jdbcType=CHAR},
+			</if>
+			<if test="record.satuvprpres != null">
+				SatuVprPres = #{record.satuvprpres,jdbcType=DECIMAL},
+			</if>
+			<if test="record.recupdtime != null">
+				RecUpdTime = #{record.recupdtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.sunshinej != null">
+				SunShineJ = #{record.sunshinej,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil50cm != null">
+				TxSoil50cm = #{record.txsoil50cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil100cm != null">
+				TxSoil100cm = #{record.txsoil100cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil200cm != null">
+				TxSoil200cm = #{record.txsoil200cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil300cm != null">
+				TxSoil300cm = #{record.txsoil300cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.txsoil500cm != null">
+				TxSoil500cm = #{record.txsoil500cm,jdbcType=DECIMAL},
+			</if>
+			<if test="record.uvi != null">
+				uvi = #{record.uvi,jdbcType=DECIMAL},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update cwbhr_test
+		set Stno = #{record.stno,jdbcType=CHAR},
+		ObsTime = #{record.obstime,jdbcType=TIMESTAMP},
+		StnPres = #{record.stnpres,jdbcType=DECIMAL},
+		SeaPres = #{record.seapres,jdbcType=DECIMAL},
+		Tx = #{record.tx,jdbcType=DECIMAL},
+		Tw = #{record.tw,jdbcType=DECIMAL},
+		Td = #{record.td,jdbcType=DECIMAL},
+		RH = #{record.rh,jdbcType=SMALLINT},
+		VprPres = #{record.vprpres,jdbcType=DECIMAL},
+		WS = #{record.ws,jdbcType=DECIMAL},
+		WD = #{record.wd,jdbcType=DECIMAL},
+		WSMax = #{record.wsmax,jdbcType=DECIMAL},
+		WDmax = #{record.wdmax,jdbcType=DECIMAL},
+		WSGust = #{record.wsgust,jdbcType=DECIMAL},
+		WDGust = #{record.wdgust,jdbcType=DECIMAL},
+		Precp = #{record.precp,jdbcType=DECIMAL},
+		PrecpHour = #{record.precphour,jdbcType=DECIMAL},
+		SunShine = #{record.sunshine,jdbcType=DECIMAL},
+		Visb = #{record.visb,jdbcType=DECIMAL},
+		HCHgh = #{record.hchgh,jdbcType=DECIMAL},
+		MCHgh = #{record.mchgh,jdbcType=DECIMAL},
+		LCHgh = #{record.lchgh,jdbcType=DECIMAL},
+		HCAmt = #{record.hcamt,jdbcType=SMALLINT},
+		MCAmt = #{record.mcamt,jdbcType=SMALLINT},
+		LCAmt = #{record.lcamt,jdbcType=SMALLINT},
+		HCStat = #{record.hcstat,jdbcType=CHAR},
+		MCStat = #{record.mcstat,jdbcType=CHAR},
+		LCStat = #{record.lcstat,jdbcType=CHAR},
+		Ceiling = #{record.ceiling,jdbcType=DECIMAL},
+		CAmtTotal = #{record.camttotal,jdbcType=DECIMAL},
+		TxSoil0cm = #{record.txsoil0cm,jdbcType=DECIMAL},
+		TxSoil5cm = #{record.txsoil5cm,jdbcType=DECIMAL},
+		TxSoil10cm = #{record.txsoil10cm,jdbcType=DECIMAL},
+		TxSoil20cm = #{record.txsoil20cm,jdbcType=DECIMAL},
+		TxSoil30cm = #{record.txsoil30cm,jdbcType=DECIMAL},
+		StatS = #{record.stats,jdbcType=CHAR},
+		StatG = #{record.statg,jdbcType=CHAR},
+		StatE = #{record.state,jdbcType=CHAR},
+		StatP1 = #{record.statp1,jdbcType=CHAR},
+		StatP2 = #{record.statp2,jdbcType=CHAR},
+		StatF1 = #{record.statf1,jdbcType=CHAR},
+		StatF2 = #{record.statf2,jdbcType=CHAR},
+		StatF3 = #{record.statf3,jdbcType=CHAR},
+		StatO1 = #{record.stato1,jdbcType=CHAR},
+		StatO2 = #{record.stato2,jdbcType=CHAR},
+		StatL1 = #{record.statl1,jdbcType=CHAR},
+		StatL2 = #{record.statl2,jdbcType=CHAR},
+		GloblRad = #{record.globlrad,jdbcType=DECIMAL},
+		PresTrend = #{record.prestrend,jdbcType=CHAR},
+		SatuVprPres = #{record.satuvprpres,jdbcType=DECIMAL},
+		RecUpdTime = #{record.recupdtime,jdbcType=TIMESTAMP},
+		SunShineJ = #{record.sunshinej,jdbcType=DECIMAL},
+		TxSoil50cm = #{record.txsoil50cm,jdbcType=DECIMAL},
+		TxSoil100cm = #{record.txsoil100cm,jdbcType=DECIMAL},
+		TxSoil200cm = #{record.txsoil200cm,jdbcType=DECIMAL},
+		TxSoil300cm = #{record.txsoil300cm,jdbcType=DECIMAL},
+		TxSoil500cm = #{record.txsoil500cm,jdbcType=DECIMAL},
+		uvi = #{record.uvi,jdbcType=DECIMAL}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective" parameterType="model.CwbHr">
+		update cwbhr_test
+		<set>
+			<if test="stnpres != null">
+				StnPres = #{stnpres,jdbcType=DECIMAL},
+			</if>
+			<if test="seapres != null">
+				SeaPres = #{seapres,jdbcType=DECIMAL},
+			</if>
+			<if test="tx != null">
+				Tx = #{tx,jdbcType=DECIMAL},
+			</if>
+			<if test="tw != null">
+				Tw = #{tw,jdbcType=DECIMAL},
+			</if>
+			<if test="td != null">
+				Td = #{td,jdbcType=DECIMAL},
+			</if>
+			<if test="rh != null">
+				RH = #{rh,jdbcType=SMALLINT},
+			</if>
+			<if test="vprpres != null">
+				VprPres = #{vprpres,jdbcType=DECIMAL},
+			</if>
+			<if test="ws != null">
+				WS = #{ws,jdbcType=DECIMAL},
+			</if>
+			<if test="wd != null">
+				WD = #{wd,jdbcType=DECIMAL},
+			</if>
+			<if test="wsmax != null">
+				WSMax = #{wsmax,jdbcType=DECIMAL},
+			</if>
+			<if test="wdmax != null">
+				WDmax = #{wdmax,jdbcType=DECIMAL},
+			</if>
+			<if test="wsgust != null">
+				WSGust = #{wsgust,jdbcType=DECIMAL},
+			</if>
+			<if test="wdgust != null">
+				WDGust = #{wdgust,jdbcType=DECIMAL},
+			</if>
+			<if test="precp != null">
+				Precp = #{precp,jdbcType=DECIMAL},
+			</if>
+			<if test="precphour != null">
+				PrecpHour = #{precphour,jdbcType=DECIMAL},
+			</if>
+			<if test="sunshine != null">
+				SunShine = #{sunshine,jdbcType=DECIMAL},
+			</if>
+			<if test="visb != null">
+				Visb = #{visb,jdbcType=DECIMAL},
+			</if>
+			<if test="hchgh != null">
+				HCHgh = #{hchgh,jdbcType=DECIMAL},
+			</if>
+			<if test="mchgh != null">
+				MCHgh = #{mchgh,jdbcType=DECIMAL},
+			</if>
+			<if test="lchgh != null">
+				LCHgh = #{lchgh,jdbcType=DECIMAL},
+			</if>
+			<if test="hcamt != null">
+				HCAmt = #{hcamt,jdbcType=SMALLINT},
+			</if>
+			<if test="mcamt != null">
+				MCAmt = #{mcamt,jdbcType=SMALLINT},
+			</if>
+			<if test="lcamt != null">
+				LCAmt = #{lcamt,jdbcType=SMALLINT},
+			</if>
+			<if test="hcstat != null">
+				HCStat = #{hcstat,jdbcType=CHAR},
+			</if>
+			<if test="mcstat != null">
+				MCStat = #{mcstat,jdbcType=CHAR},
+			</if>
+			<if test="lcstat != null">
+				LCStat = #{lcstat,jdbcType=CHAR},
+			</if>
+			<if test="ceiling != null">
+				Ceiling = #{ceiling,jdbcType=DECIMAL},
+			</if>
+			<if test="camttotal != null">
+				CAmtTotal = #{camttotal,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil0cm != null">
+				TxSoil0cm = #{txsoil0cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil5cm != null">
+				TxSoil5cm = #{txsoil5cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil10cm != null">
+				TxSoil10cm = #{txsoil10cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil20cm != null">
+				TxSoil20cm = #{txsoil20cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil30cm != null">
+				TxSoil30cm = #{txsoil30cm,jdbcType=DECIMAL},
+			</if>
+			<if test="stats != null">
+				StatS = #{stats,jdbcType=CHAR},
+			</if>
+			<if test="statg != null">
+				StatG = #{statg,jdbcType=CHAR},
+			</if>
+			<if test="state != null">
+				StatE = #{state,jdbcType=CHAR},
+			</if>
+			<if test="statp1 != null">
+				StatP1 = #{statp1,jdbcType=CHAR},
+			</if>
+			<if test="statp2 != null">
+				StatP2 = #{statp2,jdbcType=CHAR},
+			</if>
+			<if test="statf1 != null">
+				StatF1 = #{statf1,jdbcType=CHAR},
+			</if>
+			<if test="statf2 != null">
+				StatF2 = #{statf2,jdbcType=CHAR},
+			</if>
+			<if test="statf3 != null">
+				StatF3 = #{statf3,jdbcType=CHAR},
+			</if>
+			<if test="stato1 != null">
+				StatO1 = #{stato1,jdbcType=CHAR},
+			</if>
+			<if test="stato2 != null">
+				StatO2 = #{stato2,jdbcType=CHAR},
+			</if>
+			<if test="statl1 != null">
+				StatL1 = #{statl1,jdbcType=CHAR},
+			</if>
+			<if test="statl2 != null">
+				StatL2 = #{statl2,jdbcType=CHAR},
+			</if>
+			<if test="globlrad != null">
+				GloblRad = #{globlrad,jdbcType=DECIMAL},
+			</if>
+			<if test="prestrend != null">
+				PresTrend = #{prestrend,jdbcType=CHAR},
+			</if>
+			<if test="satuvprpres != null">
+				SatuVprPres = #{satuvprpres,jdbcType=DECIMAL},
+			</if>
+			<if test="recupdtime != null">
+				RecUpdTime = #{recupdtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="sunshinej != null">
+				SunShineJ = #{sunshinej,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil50cm != null">
+				TxSoil50cm = #{txsoil50cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil100cm != null">
+				TxSoil100cm = #{txsoil100cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil200cm != null">
+				TxSoil200cm = #{txsoil200cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil300cm != null">
+				TxSoil300cm = #{txsoil300cm,jdbcType=DECIMAL},
+			</if>
+			<if test="txsoil500cm != null">
+				TxSoil500cm = #{txsoil500cm,jdbcType=DECIMAL},
+			</if>
+			<if test="uvi != null">
+				uvi = #{uvi,jdbcType=DECIMAL},
+			</if>
+		</set>
+		where Stno = #{stno,jdbcType=CHAR}
+		and ObsTime = #{obstime,jdbcType=TIMESTAMP}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="model.CwbHr">
+		update cwbhr_test
+		set StnPres = #{stnpres,jdbcType=DECIMAL},
+		SeaPres = #{seapres,jdbcType=DECIMAL},
+		Tx = #{tx,jdbcType=DECIMAL},
+		Tw = #{tw,jdbcType=DECIMAL},
+		Td = #{td,jdbcType=DECIMAL},
+		RH = #{rh,jdbcType=SMALLINT},
+		VprPres = #{vprpres,jdbcType=DECIMAL},
+		WS = #{ws,jdbcType=DECIMAL},
+		WD = #{wd,jdbcType=DECIMAL},
+		WSMax = #{wsmax,jdbcType=DECIMAL},
+		WDmax = #{wdmax,jdbcType=DECIMAL},
+		WSGust = #{wsgust,jdbcType=DECIMAL},
+		WDGust = #{wdgust,jdbcType=DECIMAL},
+		Precp = #{precp,jdbcType=DECIMAL},
+		PrecpHour = #{precphour,jdbcType=DECIMAL},
+		SunShine = #{sunshine,jdbcType=DECIMAL},
+		Visb = #{visb,jdbcType=DECIMAL},
+		HCHgh = #{hchgh,jdbcType=DECIMAL},
+		MCHgh = #{mchgh,jdbcType=DECIMAL},
+		LCHgh = #{lchgh,jdbcType=DECIMAL},
+		HCAmt = #{hcamt,jdbcType=SMALLINT},
+		MCAmt = #{mcamt,jdbcType=SMALLINT},
+		LCAmt = #{lcamt,jdbcType=SMALLINT},
+		HCStat = #{hcstat,jdbcType=CHAR},
+		MCStat = #{mcstat,jdbcType=CHAR},
+		LCStat = #{lcstat,jdbcType=CHAR},
+		Ceiling = #{ceiling,jdbcType=DECIMAL},
+		CAmtTotal = #{camttotal,jdbcType=DECIMAL},
+		TxSoil0cm = #{txsoil0cm,jdbcType=DECIMAL},
+		TxSoil5cm = #{txsoil5cm,jdbcType=DECIMAL},
+		TxSoil10cm = #{txsoil10cm,jdbcType=DECIMAL},
+		TxSoil20cm = #{txsoil20cm,jdbcType=DECIMAL},
+		TxSoil30cm = #{txsoil30cm,jdbcType=DECIMAL},
+		StatS = #{stats,jdbcType=CHAR},
+		StatG = #{statg,jdbcType=CHAR},
+		StatE = #{state,jdbcType=CHAR},
+		StatP1 = #{statp1,jdbcType=CHAR},
+		StatP2 = #{statp2,jdbcType=CHAR},
+		StatF1 = #{statf1,jdbcType=CHAR},
+		StatF2 = #{statf2,jdbcType=CHAR},
+		StatF3 = #{statf3,jdbcType=CHAR},
+		StatO1 = #{stato1,jdbcType=CHAR},
+		StatO2 = #{stato2,jdbcType=CHAR},
+		StatL1 = #{statl1,jdbcType=CHAR},
+		StatL2 = #{statl2,jdbcType=CHAR},
+		GloblRad = #{globlrad,jdbcType=DECIMAL},
+		PresTrend = #{prestrend,jdbcType=CHAR},
+		SatuVprPres = #{satuvprpres,jdbcType=DECIMAL},
+		RecUpdTime = #{recupdtime,jdbcType=TIMESTAMP},
+		SunShineJ = #{sunshinej,jdbcType=DECIMAL},
+		TxSoil50cm = #{txsoil50cm,jdbcType=DECIMAL},
+		TxSoil100cm = #{txsoil100cm,jdbcType=DECIMAL},
+		TxSoil200cm = #{txsoil200cm,jdbcType=DECIMAL},
+		TxSoil300cm = #{txsoil300cm,jdbcType=DECIMAL},
+		TxSoil500cm = #{txsoil500cm,jdbcType=DECIMAL},
+		uvi = #{uvi,jdbcType=DECIMAL}
+		where Stno = #{stno,jdbcType=CHAR}
+		and ObsTime = #{obstime,jdbcType=TIMESTAMP}
+	</update>
+</mapper>

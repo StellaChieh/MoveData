@@ -1,0 +1,3039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tw.com.cwb.cmt.movedata.dao.CwbDyMapper">
+  <resultMap id="BaseResultMap" type="tw.com.cwb.cmt.movedata.model.CwbDy">
+    <constructor>
+      <idArg column="Stno" javaType="java.lang.String" jdbcType="CHAR" />
+      <idArg column="ObsTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="StnPres" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="SeaPres" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="StnPresMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="StnPresMaxTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="StnPresMin" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="StnPresMinTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="Tx" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="Tw" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxRange" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxMaxAbs" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxMaxAbsTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="TxMinAbs" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxMinAbsTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="Td" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TdMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TdMaxTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="TdMin" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TdMinTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="VprPres" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="VprPresMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="VprPresMaxTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="VprPresMin" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="VprPresMinTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="RH" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="RHMax" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="RHMaxTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="RHMin" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="RHMinTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="WS" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WD" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WindRun" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WSMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WDMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WMaxTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="WSGust" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WDGust" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WGustTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="Precp" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PrecpHour" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PrecpMax10" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PrecpMax10Time" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="PrecpHrMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="PrecpHrMaxTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="SunShine" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="SunShineRate" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="GloblRad" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="GloblRadHrMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="GloblRadHrMaxTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="VisbMean" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="CAmtMean" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="SnowDeep" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="StatS" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatG" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatE" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatP1" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatP2" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatF1" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatF2" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatF3" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatO1" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatO2" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatL1" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="StatL2" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="Evap20in" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="Evap20out" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="EvapA" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxGrassMin" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxSoil0cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxSoil5cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxSoil10cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxSoil20cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxSoil30cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxSoil50cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxSoil100cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxSoil200cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxSoil300cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="TxSoil500cm" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_1" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_2" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_3" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_4" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_5" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_6" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_7" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_8" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_9" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_10" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_11" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_12" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_13" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_14" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_15" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_16" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_17" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_18" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_19" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_20" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_21" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_22" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_23" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_24" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_25" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_26" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_27" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_28" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_29" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_30" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_31" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_32" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_33" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_34" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_35" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_36" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_V" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WS_C" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="WD_1" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_2" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_3" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_4" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_5" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_6" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_7" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_8" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_9" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_10" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_11" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_12" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_13" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_14" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_15" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_16" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_17" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_18" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_19" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_20" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_21" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_22" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_23" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_24" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_25" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_26" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_27" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_28" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_29" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_30" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_31" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_32" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_33" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_34" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_35" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_36" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_V" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="WD_C" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="TB" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="HCStat" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="MCStat" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="LCStat" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="LCAmt" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="SeaPresMax" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="SeaPresMaxTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="SeaPresMin" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="SeaPresMinTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="RecUpdTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+      <arg column="WeatherCondition" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="SunShineJ" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="uvi" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="uviTime" javaType="java.time.LocalDateTime" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  
+  <sql id="Base_Column_List">
+    Stno, ObsTime, StnPres, SeaPres, StnPresMax, StnPresMaxTime, StnPresMin, StnPresMinTime, 
+    Tx, Tw, TxRange, TxMaxAbs, TxMaxAbsTime, TxMinAbs, TxMinAbsTime, Td, TdMax, TdMaxTime, 
+    TdMin, TdMinTime, VprPres, VprPresMax, VprPresMaxTime, VprPresMin, VprPresMinTime, 
+    RH, RHMax, RHMaxTime, RHMin, RHMinTime, WS, WD, WindRun, WSMax, WDMax, WMaxTime, 
+    WSGust, WDGust, WGustTime, Precp, PrecpHour, PrecpMax10, PrecpMax10Time, PrecpHrMax, 
+    PrecpHrMaxTime, SunShine, SunShineRate, GloblRad, GloblRadHrMax, GloblRadHrMaxTime, 
+    VisbMean, CAmtMean, SnowDeep, StatS, StatG, StatE, StatP1, StatP2, StatF1, StatF2, 
+    StatF3, StatO1, StatO2, StatL1, StatL2, Evap20in, Evap20out, EvapA, TxGrassMin, TxSoil0cm, 
+    TxSoil5cm, TxSoil10cm, TxSoil20cm, TxSoil30cm, TxSoil50cm, TxSoil100cm, TxSoil200cm, 
+    TxSoil300cm, TxSoil500cm, WS_1, WS_2, WS_3, WS_4, WS_5, WS_6, WS_7, WS_8, WS_9, WS_10, 
+    WS_11, WS_12, WS_13, WS_14, WS_15, WS_16, WS_17, WS_18, WS_19, WS_20, WS_21, WS_22, 
+    WS_23, WS_24, WS_25, WS_26, WS_27, WS_28, WS_29, WS_30, WS_31, WS_32, WS_33, WS_34, 
+    WS_35, WS_36, WS_V, WS_C, WD_1, WD_2, WD_3, WD_4, WD_5, WD_6, WD_7, WD_8, WD_9, WD_10, 
+    WD_11, WD_12, WD_13, WD_14, WD_15, WD_16, WD_17, WD_18, WD_19, WD_20, WD_21, WD_22, 
+    WD_23, WD_24, WD_25, WD_26, WD_27, WD_28, WD_29, WD_30, WD_31, WD_32, WD_33, WD_34, 
+    WD_35, WD_36, WD_V, WD_C, TB, HCStat, MCStat, LCStat, LCAmt, SeaPresMax, SeaPresMaxTime, 
+    SeaPresMin, SeaPresMinTime, RecUpdTime, WeatherCondition, SunShineJ, uvi, uviTime
+  </sql>
+
+  <sql id="Base_Insert_Record">
+  	#{record.stno,jdbcType=CHAR}, #{record.obstime,jdbcType=TIMESTAMP}, #{record.stnpres,jdbcType=DECIMAL}, 
+      #{record.seapres,jdbcType=DECIMAL}, #{record.stnpresmax,jdbcType=DECIMAL}, #{record.stnpresmaxtime,jdbcType=TIMESTAMP}, 
+      #{record.stnpresmin,jdbcType=DECIMAL}, #{record.stnpresmintime,jdbcType=TIMESTAMP}, #{record.tx,jdbcType=DECIMAL}, 
+      #{record.tw,jdbcType=DECIMAL}, #{record.txrange,jdbcType=DECIMAL}, #{record.txmaxabs,jdbcType=DECIMAL}, 
+      #{record.txmaxabstime,jdbcType=TIMESTAMP}, #{record.txminabs,jdbcType=DECIMAL}, #{record.txminabstime,jdbcType=TIMESTAMP}, 
+      #{record.td,jdbcType=DECIMAL}, #{record.tdmax,jdbcType=DECIMAL}, #{record.tdmaxtime,jdbcType=TIMESTAMP}, 
+      #{record.tdmin,jdbcType=DECIMAL}, #{record.tdmintime,jdbcType=TIMESTAMP}, #{record.vprpres,jdbcType=DECIMAL}, 
+      #{record.vprpresmax,jdbcType=DECIMAL}, #{record.vprpresmaxtime,jdbcType=TIMESTAMP}, #{record.vprpresmin,jdbcType=DECIMAL}, 
+      #{record.vprpresmintime,jdbcType=TIMESTAMP}, #{record.rh,jdbcType=SMALLINT}, #{record.rhmax,jdbcType=SMALLINT}, 
+      #{record.rhmaxtime,jdbcType=TIMESTAMP}, #{record.rhmin,jdbcType=SMALLINT}, #{record.rhmintime,jdbcType=TIMESTAMP}, 
+      #{record.ws,jdbcType=DECIMAL}, #{record.wd,jdbcType=DECIMAL}, #{record.windrun,jdbcType=DECIMAL}, #{record.wsmax,jdbcType=DECIMAL}, 
+      #{record.wdmax,jdbcType=DECIMAL}, #{record.wmaxtime,jdbcType=TIMESTAMP}, #{record.wsgust,jdbcType=DECIMAL}, 
+      #{record.wdgust,jdbcType=DECIMAL}, #{record.wgusttime,jdbcType=TIMESTAMP}, #{record.precp,jdbcType=DECIMAL}, 
+      #{record.precphour,jdbcType=DECIMAL}, #{record.precpmax10,jdbcType=DECIMAL}, #{record.precpmax10time,jdbcType=TIMESTAMP}, 
+      #{record.precphrmax,jdbcType=DECIMAL}, #{record.precphrmaxtime,jdbcType=TIMESTAMP}, #{record.sunshine,jdbcType=DECIMAL}, 
+      #{record.sunshinerate,jdbcType=DECIMAL}, #{record.globlrad,jdbcType=DECIMAL}, #{record.globlradhrmax,jdbcType=DECIMAL}, 
+      #{record.globlradhrmaxtime,jdbcType=TIMESTAMP}, #{record.visbmean,jdbcType=DECIMAL}, #{record.camtmean,jdbcType=DECIMAL}, 
+      #{record.snowdeep,jdbcType=SMALLINT}, #{record.stats,jdbcType=CHAR}, #{record.statg,jdbcType=CHAR}, 
+      #{record.state,jdbcType=CHAR}, #{record.statp1,jdbcType=CHAR}, #{record.statp2,jdbcType=CHAR}, #{record.statf1,jdbcType=CHAR}, 
+      #{record.statf2,jdbcType=CHAR}, #{record.statf3,jdbcType=CHAR}, #{record.stato1,jdbcType=CHAR}, #{record.stato2,jdbcType=CHAR}, 
+      #{record.statl1,jdbcType=CHAR}, #{record.statl2,jdbcType=CHAR}, #{record.evap20in,jdbcType=DECIMAL}, 
+      #{record.evap20out,jdbcType=DECIMAL}, #{record.evapa,jdbcType=DECIMAL}, #{record.txgrassmin,jdbcType=DECIMAL}, 
+      #{record.txsoil0cm,jdbcType=DECIMAL}, #{record.txsoil5cm,jdbcType=DECIMAL}, #{record.txsoil10cm,jdbcType=DECIMAL}, 
+      #{record.txsoil20cm,jdbcType=DECIMAL}, #{record.txsoil30cm,jdbcType=DECIMAL}, #{record.txsoil50cm,jdbcType=DECIMAL}, 
+      #{record.txsoil100cm,jdbcType=DECIMAL}, #{record.txsoil200cm,jdbcType=DECIMAL}, #{record.txsoil300cm,jdbcType=DECIMAL}, 
+      #{record.txsoil500cm,jdbcType=DECIMAL}, #{record.ws1,jdbcType=DECIMAL}, #{record.ws2,jdbcType=DECIMAL}, 
+      #{record.ws3,jdbcType=DECIMAL}, #{record.ws4,jdbcType=DECIMAL}, #{record.ws5,jdbcType=DECIMAL}, #{record.ws6,jdbcType=DECIMAL}, 
+      #{record.ws7,jdbcType=DECIMAL}, #{record.ws8,jdbcType=DECIMAL}, #{record.ws9,jdbcType=DECIMAL}, #{record.ws10,jdbcType=DECIMAL}, 
+      #{record.ws11,jdbcType=DECIMAL}, #{record.ws12,jdbcType=DECIMAL}, #{record.ws13,jdbcType=DECIMAL}, #{record.ws14,jdbcType=DECIMAL}, 
+      #{record.ws15,jdbcType=DECIMAL}, #{record.ws16,jdbcType=DECIMAL}, #{record.ws17,jdbcType=DECIMAL}, #{record.ws18,jdbcType=DECIMAL}, 
+      #{record.ws19,jdbcType=DECIMAL}, #{record.ws20,jdbcType=DECIMAL}, #{record.ws21,jdbcType=DECIMAL}, #{record.ws22,jdbcType=DECIMAL}, 
+      #{record.ws23,jdbcType=DECIMAL}, #{record.ws24,jdbcType=DECIMAL}, #{record.ws25,jdbcType=DECIMAL}, #{record.ws26,jdbcType=DECIMAL}, 
+      #{record.ws27,jdbcType=DECIMAL}, #{record.ws28,jdbcType=DECIMAL}, #{record.ws29,jdbcType=DECIMAL}, #{record.ws30,jdbcType=DECIMAL}, 
+      #{record.ws31,jdbcType=DECIMAL}, #{record.ws32,jdbcType=DECIMAL}, #{record.ws33,jdbcType=DECIMAL}, #{record.ws34,jdbcType=DECIMAL}, 
+      #{record.ws35,jdbcType=DECIMAL}, #{record.ws36,jdbcType=DECIMAL}, #{record.wsV,jdbcType=DECIMAL}, #{record.wsC,jdbcType=DECIMAL}, 
+      #{record.wd1,jdbcType=SMALLINT}, #{record.wd2,jdbcType=SMALLINT}, #{record.wd3,jdbcType=SMALLINT}, #{record.wd4,jdbcType=SMALLINT}, 
+      #{record.wd5,jdbcType=SMALLINT}, #{record.wd6,jdbcType=SMALLINT}, #{record.wd7,jdbcType=SMALLINT}, #{record.wd8,jdbcType=SMALLINT}, 
+      #{record.wd9,jdbcType=SMALLINT}, #{record.wd10,jdbcType=SMALLINT}, #{record.wd11,jdbcType=SMALLINT}, 
+      #{record.wd12,jdbcType=SMALLINT}, #{record.wd13,jdbcType=SMALLINT}, #{record.wd14,jdbcType=SMALLINT}, 
+      #{record.wd15,jdbcType=SMALLINT}, #{record.wd16,jdbcType=SMALLINT}, #{record.wd17,jdbcType=SMALLINT}, 
+      #{record.wd18,jdbcType=SMALLINT}, #{record.wd19,jdbcType=SMALLINT}, #{record.wd20,jdbcType=SMALLINT}, 
+      #{record.wd21,jdbcType=SMALLINT}, #{record.wd22,jdbcType=SMALLINT}, #{record.wd23,jdbcType=SMALLINT}, 
+      #{record.wd24,jdbcType=SMALLINT}, #{record.wd25,jdbcType=SMALLINT}, #{record.wd26,jdbcType=SMALLINT}, 
+      #{record.wd27,jdbcType=SMALLINT}, #{record.wd28,jdbcType=SMALLINT}, #{record.wd29,jdbcType=SMALLINT}, 
+      #{record.wd30,jdbcType=SMALLINT}, #{record.wd31,jdbcType=SMALLINT}, #{record.wd32,jdbcType=SMALLINT}, 
+      #{record.wd33,jdbcType=SMALLINT}, #{record.wd34,jdbcType=SMALLINT}, #{record.wd35,jdbcType=SMALLINT}, 
+      #{record.wd36,jdbcType=SMALLINT}, #{record.wdV,jdbcType=SMALLINT}, #{record.wdC,jdbcType=SMALLINT}, 
+      #{record.tb,jdbcType=DECIMAL}, #{record.hcstat,jdbcType=CHAR}, #{record.mcstat,jdbcType=CHAR}, #{record.lcstat,jdbcType=CHAR}, 
+      #{record.lcamt,jdbcType=DECIMAL}, #{record.seapresmax,jdbcType=DECIMAL}, #{record.seapresmaxtime,jdbcType=TIMESTAMP}, 
+      #{record.seapresmin,jdbcType=DECIMAL}, #{record.seapresmintime,jdbcType=TIMESTAMP}, #{record.recupdtime,jdbcType=TIMESTAMP}, 
+      #{record.weathercondition,jdbcType=VARCHAR}, #{record.sunshinej,jdbcType=DECIMAL}, #{record.uvi,jdbcType=DECIMAL}, 
+      #{record.uvitime,jdbcType=TIMESTAMP}
+  </sql>	  
+  
+  <sql id="Base_Update_Record">
+  	Stno = #{record.stno,jdbcType=CHAR},
+      ObsTime = #{record.obstime,jdbcType=TIMESTAMP},
+      StnPres = #{record.stnpres,jdbcType=DECIMAL},
+      SeaPres = #{record.seapres,jdbcType=DECIMAL},
+      StnPresMax = #{record.stnpresmax,jdbcType=DECIMAL},
+      StnPresMaxTime = #{record.stnpresmaxtime,jdbcType=TIMESTAMP},
+      StnPresMin = #{record.stnpresmin,jdbcType=DECIMAL},
+      StnPresMinTime = #{record.stnpresmintime,jdbcType=TIMESTAMP},
+      Tx = #{record.tx,jdbcType=DECIMAL},
+      Tw = #{record.tw,jdbcType=DECIMAL},
+      TxRange = #{record.txrange,jdbcType=DECIMAL},
+      TxMaxAbs = #{record.txmaxabs,jdbcType=DECIMAL},
+      TxMaxAbsTime = #{record.txmaxabstime,jdbcType=TIMESTAMP},
+      TxMinAbs = #{record.txminabs,jdbcType=DECIMAL},
+      TxMinAbsTime = #{record.txminabstime,jdbcType=TIMESTAMP},
+      Td = #{record.td,jdbcType=DECIMAL},
+      TdMax = #{record.tdmax,jdbcType=DECIMAL},
+      TdMaxTime = #{record.tdmaxtime,jdbcType=TIMESTAMP},
+      TdMin = #{record.tdmin,jdbcType=DECIMAL},
+      TdMinTime = #{record.tdmintime,jdbcType=TIMESTAMP},
+      VprPres = #{record.vprpres,jdbcType=DECIMAL},
+      VprPresMax = #{record.vprpresmax,jdbcType=DECIMAL},
+      VprPresMaxTime = #{record.vprpresmaxtime,jdbcType=TIMESTAMP},
+      VprPresMin = #{record.vprpresmin,jdbcType=DECIMAL},
+      VprPresMinTime = #{record.vprpresmintime,jdbcType=TIMESTAMP},
+      RH = #{record.rh,jdbcType=SMALLINT},
+      RHMax = #{record.rhmax,jdbcType=SMALLINT},
+      RHMaxTime = #{record.rhmaxtime,jdbcType=TIMESTAMP},
+      RHMin = #{record.rhmin,jdbcType=SMALLINT},
+      RHMinTime = #{record.rhmintime,jdbcType=TIMESTAMP},
+      WS = #{record.ws,jdbcType=DECIMAL},
+      WD = #{record.wd,jdbcType=DECIMAL},
+      WindRun = #{record.windrun,jdbcType=DECIMAL},
+      WSMax = #{record.wsmax,jdbcType=DECIMAL},
+      WDMax = #{record.wdmax,jdbcType=DECIMAL},
+      WMaxTime = #{record.wmaxtime,jdbcType=TIMESTAMP},
+      WSGust = #{record.wsgust,jdbcType=DECIMAL},
+      WDGust = #{record.wdgust,jdbcType=DECIMAL},
+      WGustTime = #{record.wgusttime,jdbcType=TIMESTAMP},
+      Precp = #{record.precp,jdbcType=DECIMAL},
+      PrecpHour = #{record.precphour,jdbcType=DECIMAL},
+      PrecpMax10 = #{record.precpmax10,jdbcType=DECIMAL},
+      PrecpMax10Time = #{record.precpmax10time,jdbcType=TIMESTAMP},
+      PrecpHrMax = #{record.precphrmax,jdbcType=DECIMAL},
+      PrecpHrMaxTime = #{record.precphrmaxtime,jdbcType=TIMESTAMP},
+      SunShine = #{record.sunshine,jdbcType=DECIMAL},
+      SunShineRate = #{record.sunshinerate,jdbcType=DECIMAL},
+      GloblRad = #{record.globlrad,jdbcType=DECIMAL},
+      GloblRadHrMax = #{record.globlradhrmax,jdbcType=DECIMAL},
+      GloblRadHrMaxTime = #{record.globlradhrmaxtime,jdbcType=TIMESTAMP},
+      VisbMean = #{record.visbmean,jdbcType=DECIMAL},
+      CAmtMean = #{record.camtmean,jdbcType=DECIMAL},
+      SnowDeep = #{record.snowdeep,jdbcType=SMALLINT},
+      StatS = #{record.stats,jdbcType=CHAR},
+      StatG = #{record.statg,jdbcType=CHAR},
+      StatE = #{record.state,jdbcType=CHAR},
+      StatP1 = #{record.statp1,jdbcType=CHAR},
+      StatP2 = #{record.statp2,jdbcType=CHAR},
+      StatF1 = #{record.statf1,jdbcType=CHAR},
+      StatF2 = #{record.statf2,jdbcType=CHAR},
+      StatF3 = #{record.statf3,jdbcType=CHAR},
+      StatO1 = #{record.stato1,jdbcType=CHAR},
+      StatO2 = #{record.stato2,jdbcType=CHAR},
+      StatL1 = #{record.statl1,jdbcType=CHAR},
+      StatL2 = #{record.statl2,jdbcType=CHAR},
+      Evap20in = #{record.evap20in,jdbcType=DECIMAL},
+      Evap20out = #{record.evap20out,jdbcType=DECIMAL},
+      EvapA = #{record.evapa,jdbcType=DECIMAL},
+      TxGrassMin = #{record.txgrassmin,jdbcType=DECIMAL},
+      TxSoil0cm = #{record.txsoil0cm,jdbcType=DECIMAL},
+      TxSoil5cm = #{record.txsoil5cm,jdbcType=DECIMAL},
+      TxSoil10cm = #{record.txsoil10cm,jdbcType=DECIMAL},
+      TxSoil20cm = #{record.txsoil20cm,jdbcType=DECIMAL},
+      TxSoil30cm = #{record.txsoil30cm,jdbcType=DECIMAL},
+      TxSoil50cm = #{record.txsoil50cm,jdbcType=DECIMAL},
+      TxSoil100cm = #{record.txsoil100cm,jdbcType=DECIMAL},
+      TxSoil200cm = #{record.txsoil200cm,jdbcType=DECIMAL},
+      TxSoil300cm = #{record.txsoil300cm,jdbcType=DECIMAL},
+      TxSoil500cm = #{record.txsoil500cm,jdbcType=DECIMAL},
+      WS_1 = #{record.ws1,jdbcType=DECIMAL},
+      WS_2 = #{record.ws2,jdbcType=DECIMAL},
+      WS_3 = #{record.ws3,jdbcType=DECIMAL},
+      WS_4 = #{record.ws4,jdbcType=DECIMAL},
+      WS_5 = #{record.ws5,jdbcType=DECIMAL},
+      WS_6 = #{record.ws6,jdbcType=DECIMAL},
+      WS_7 = #{record.ws7,jdbcType=DECIMAL},
+      WS_8 = #{record.ws8,jdbcType=DECIMAL},
+      WS_9 = #{record.ws9,jdbcType=DECIMAL},
+      WS_10 = #{record.ws10,jdbcType=DECIMAL},
+      WS_11 = #{record.ws11,jdbcType=DECIMAL},
+      WS_12 = #{record.ws12,jdbcType=DECIMAL},
+      WS_13 = #{record.ws13,jdbcType=DECIMAL},
+      WS_14 = #{record.ws14,jdbcType=DECIMAL},
+      WS_15 = #{record.ws15,jdbcType=DECIMAL},
+      WS_16 = #{record.ws16,jdbcType=DECIMAL},
+      WS_17 = #{record.ws17,jdbcType=DECIMAL},
+      WS_18 = #{record.ws18,jdbcType=DECIMAL},
+      WS_19 = #{record.ws19,jdbcType=DECIMAL},
+      WS_20 = #{record.ws20,jdbcType=DECIMAL},
+      WS_21 = #{record.ws21,jdbcType=DECIMAL},
+      WS_22 = #{record.ws22,jdbcType=DECIMAL},
+      WS_23 = #{record.ws23,jdbcType=DECIMAL},
+      WS_24 = #{record.ws24,jdbcType=DECIMAL},
+      WS_25 = #{record.ws25,jdbcType=DECIMAL},
+      WS_26 = #{record.ws26,jdbcType=DECIMAL},
+      WS_27 = #{record.ws27,jdbcType=DECIMAL},
+      WS_28 = #{record.ws28,jdbcType=DECIMAL},
+      WS_29 = #{record.ws29,jdbcType=DECIMAL},
+      WS_30 = #{record.ws30,jdbcType=DECIMAL},
+      WS_31 = #{record.ws31,jdbcType=DECIMAL},
+      WS_32 = #{record.ws32,jdbcType=DECIMAL},
+      WS_33 = #{record.ws33,jdbcType=DECIMAL},
+      WS_34 = #{record.ws34,jdbcType=DECIMAL},
+      WS_35 = #{record.ws35,jdbcType=DECIMAL},
+      WS_36 = #{record.ws36,jdbcType=DECIMAL},
+      WS_V = #{record.wsV,jdbcType=DECIMAL},
+      WS_C = #{record.wsC,jdbcType=DECIMAL},
+      WD_1 = #{record.wd1,jdbcType=SMALLINT},
+      WD_2 = #{record.wd2,jdbcType=SMALLINT},
+      WD_3 = #{record.wd3,jdbcType=SMALLINT},
+      WD_4 = #{record.wd4,jdbcType=SMALLINT},
+      WD_5 = #{record.wd5,jdbcType=SMALLINT},
+      WD_6 = #{record.wd6,jdbcType=SMALLINT},
+      WD_7 = #{record.wd7,jdbcType=SMALLINT},
+      WD_8 = #{record.wd8,jdbcType=SMALLINT},
+      WD_9 = #{record.wd9,jdbcType=SMALLINT},
+      WD_10 = #{record.wd10,jdbcType=SMALLINT},
+      WD_11 = #{record.wd11,jdbcType=SMALLINT},
+      WD_12 = #{record.wd12,jdbcType=SMALLINT},
+      WD_13 = #{record.wd13,jdbcType=SMALLINT},
+      WD_14 = #{record.wd14,jdbcType=SMALLINT},
+      WD_15 = #{record.wd15,jdbcType=SMALLINT},
+      WD_16 = #{record.wd16,jdbcType=SMALLINT},
+      WD_17 = #{record.wd17,jdbcType=SMALLINT},
+      WD_18 = #{record.wd18,jdbcType=SMALLINT},
+      WD_19 = #{record.wd19,jdbcType=SMALLINT},
+      WD_20 = #{record.wd20,jdbcType=SMALLINT},
+      WD_21 = #{record.wd21,jdbcType=SMALLINT},
+      WD_22 = #{record.wd22,jdbcType=SMALLINT},
+      WD_23 = #{record.wd23,jdbcType=SMALLINT},
+      WD_24 = #{record.wd24,jdbcType=SMALLINT},
+      WD_25 = #{record.wd25,jdbcType=SMALLINT},
+      WD_26 = #{record.wd26,jdbcType=SMALLINT},
+      WD_27 = #{record.wd27,jdbcType=SMALLINT},
+      WD_28 = #{record.wd28,jdbcType=SMALLINT},
+      WD_29 = #{record.wd29,jdbcType=SMALLINT},
+      WD_30 = #{record.wd30,jdbcType=SMALLINT},
+      WD_31 = #{record.wd31,jdbcType=SMALLINT},
+      WD_32 = #{record.wd32,jdbcType=SMALLINT},
+      WD_33 = #{record.wd33,jdbcType=SMALLINT},
+      WD_34 = #{record.wd34,jdbcType=SMALLINT},
+      WD_35 = #{record.wd35,jdbcType=SMALLINT},
+      WD_36 = #{record.wd36,jdbcType=SMALLINT},
+      WD_V = #{record.wdV,jdbcType=SMALLINT},
+      WD_C = #{record.wdC,jdbcType=SMALLINT},
+      TB = #{record.tb,jdbcType=DECIMAL},
+      HCStat = #{record.hcstat,jdbcType=CHAR},
+      MCStat = #{record.mcstat,jdbcType=CHAR},
+      LCStat = #{record.lcstat,jdbcType=CHAR},
+      LCAmt = #{record.lcamt,jdbcType=DECIMAL},
+      SeaPresMax = #{record.seapresmax,jdbcType=DECIMAL},
+      SeaPresMaxTime = #{record.seapresmaxtime,jdbcType=TIMESTAMP},
+      SeaPresMin = #{record.seapresmin,jdbcType=DECIMAL},
+      SeaPresMinTime = #{record.seapresmintime,jdbcType=TIMESTAMP},
+      RecUpdTime = #{record.recupdtime,jdbcType=TIMESTAMP},
+      WeatherCondition = #{record.weathercondition,jdbcType=VARCHAR},
+      SunShineJ = #{record.sunshinej,jdbcType=DECIMAL},
+      uvi = #{record.uvi,jdbcType=DECIMAL},
+      uviTime = #{record.uvitime,jdbcType=TIMESTAMP}
+  </sql>
+ 
+  <select id="selectByExample" parameterType="map" resultMap="BaseResultMap">
+    select
+    <if test="example.distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    	from ${table}
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="example.orderByClause != null">
+      order by ${example.orderByClause}
+    </if>
+  </select>
+  
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ${table}
+    where Stno = #{key.stno,jdbcType=CHAR}
+      and ObsTime = #{key.obstime,jdbcType=TIMESTAMP}
+  </select> 
+  
+  <!-- insertOrUpdate is sql server's Sql syntex -->
+  <insert id="insertOrUpdate" parameterType="map">
+		UPDATE ${table}
+		SET <include refid="Base_Update_Record" />
+		WHERE Stno = #{record.stno,jdbcType=CHAR}
+			AND ObsTime = #{record.obstime,jdbcType=TIMESTAMP}
+		IF @@rowcount = 0
+		BEGIN
+			INSERT INTO ${table}
+			(<include refid="Base_Column_List" />)
+			VALUES 
+			(<include refid="Base_Insert_Record" />)
+		END
+  </insert>
+
+  <!-- below is useless -->
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  
+   
+  <delete id="deleteByPrimaryKey" parameterType="model.CwbDyKey">
+    delete from cwbdy_test
+    where Stno = #{stno,jdbcType=CHAR}
+      and ObsTime = #{obstime,jdbcType=TIMESTAMP}
+  </delete>
+  <delete id="deleteByExample" parameterType="model.CwbDyExample">
+    delete from cwbdy_test
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="model.CwbDy">
+    insert into cwbdy_test (Stno, ObsTime, StnPres, 
+      SeaPres, StnPresMax, StnPresMaxTime, 
+      StnPresMin, StnPresMinTime, Tx, 
+      Tw, TxRange, TxMaxAbs, 
+      TxMaxAbsTime, TxMinAbs, TxMinAbsTime, 
+      Td, TdMax, TdMaxTime, 
+      TdMin, TdMinTime, VprPres, 
+      VprPresMax, VprPresMaxTime, VprPresMin, 
+      VprPresMinTime, RH, RHMax, 
+      RHMaxTime, RHMin, RHMinTime, 
+      WS, WD, WindRun, WSMax, 
+      WDMax, WMaxTime, WSGust, 
+      WDGust, WGustTime, Precp, 
+      PrecpHour, PrecpMax10, PrecpMax10Time, 
+      PrecpHrMax, PrecpHrMaxTime, SunShine, 
+      SunShineRate, GloblRad, GloblRadHrMax, 
+      GloblRadHrMaxTime, VisbMean, CAmtMean, 
+      SnowDeep, StatS, StatG, 
+      StatE, StatP1, StatP2, StatF1, 
+      StatF2, StatF3, StatO1, StatO2, 
+      StatL1, StatL2, Evap20in, 
+      Evap20out, EvapA, TxGrassMin, 
+      TxSoil0cm, TxSoil5cm, TxSoil10cm, 
+      TxSoil20cm, TxSoil30cm, TxSoil50cm, 
+      TxSoil100cm, TxSoil200cm, TxSoil300cm, 
+      TxSoil500cm, WS_1, WS_2, 
+      WS_3, WS_4, WS_5, WS_6, 
+      WS_7, WS_8, WS_9, WS_10, 
+      WS_11, WS_12, WS_13, WS_14, 
+      WS_15, WS_16, WS_17, WS_18, 
+      WS_19, WS_20, WS_21, WS_22, 
+      WS_23, WS_24, WS_25, WS_26, 
+      WS_27, WS_28, WS_29, WS_30, 
+      WS_31, WS_32, WS_33, WS_34, 
+      WS_35, WS_36, WS_V, WS_C, 
+      WD_1, WD_2, WD_3, WD_4, 
+      WD_5, WD_6, WD_7, WD_8, 
+      WD_9, WD_10, WD_11, 
+      WD_12, WD_13, WD_14, 
+      WD_15, WD_16, WD_17, 
+      WD_18, WD_19, WD_20, 
+      WD_21, WD_22, WD_23, 
+      WD_24, WD_25, WD_26, 
+      WD_27, WD_28, WD_29, 
+      WD_30, WD_31, WD_32, 
+      WD_33, WD_34, WD_35, 
+      WD_36, WD_V, WD_C, 
+      TB, HCStat, MCStat, LCStat, 
+      LCAmt, SeaPresMax, SeaPresMaxTime, 
+      SeaPresMin, SeaPresMinTime, RecUpdTime, 
+      WeatherCondition, SunShineJ, uvi, 
+      uviTime)
+    values (#{stno,jdbcType=CHAR}, #{obstime,jdbcType=TIMESTAMP}, #{stnpres,jdbcType=DECIMAL}, 
+      #{seapres,jdbcType=DECIMAL}, #{stnpresmax,jdbcType=DECIMAL}, #{stnpresmaxtime,jdbcType=TIMESTAMP}, 
+      #{stnpresmin,jdbcType=DECIMAL}, #{stnpresmintime,jdbcType=TIMESTAMP}, #{tx,jdbcType=DECIMAL}, 
+      #{tw,jdbcType=DECIMAL}, #{txrange,jdbcType=DECIMAL}, #{txmaxabs,jdbcType=DECIMAL}, 
+      #{txmaxabstime,jdbcType=TIMESTAMP}, #{txminabs,jdbcType=DECIMAL}, #{txminabstime,jdbcType=TIMESTAMP}, 
+      #{td,jdbcType=DECIMAL}, #{tdmax,jdbcType=DECIMAL}, #{tdmaxtime,jdbcType=TIMESTAMP}, 
+      #{tdmin,jdbcType=DECIMAL}, #{tdmintime,jdbcType=TIMESTAMP}, #{vprpres,jdbcType=DECIMAL}, 
+      #{vprpresmax,jdbcType=DECIMAL}, #{vprpresmaxtime,jdbcType=TIMESTAMP}, #{vprpresmin,jdbcType=DECIMAL}, 
+      #{vprpresmintime,jdbcType=TIMESTAMP}, #{rh,jdbcType=SMALLINT}, #{rhmax,jdbcType=SMALLINT}, 
+      #{rhmaxtime,jdbcType=TIMESTAMP}, #{rhmin,jdbcType=SMALLINT}, #{rhmintime,jdbcType=TIMESTAMP}, 
+      #{ws,jdbcType=DECIMAL}, #{wd,jdbcType=DECIMAL}, #{windrun,jdbcType=DECIMAL}, #{wsmax,jdbcType=DECIMAL}, 
+      #{wdmax,jdbcType=DECIMAL}, #{wmaxtime,jdbcType=TIMESTAMP}, #{wsgust,jdbcType=DECIMAL}, 
+      #{wdgust,jdbcType=DECIMAL}, #{wgusttime,jdbcType=TIMESTAMP}, #{precp,jdbcType=DECIMAL}, 
+      #{precphour,jdbcType=DECIMAL}, #{precpmax10,jdbcType=DECIMAL}, #{precpmax10time,jdbcType=TIMESTAMP}, 
+      #{precphrmax,jdbcType=DECIMAL}, #{precphrmaxtime,jdbcType=TIMESTAMP}, #{sunshine,jdbcType=DECIMAL}, 
+      #{sunshinerate,jdbcType=DECIMAL}, #{globlrad,jdbcType=DECIMAL}, #{globlradhrmax,jdbcType=DECIMAL}, 
+      #{globlradhrmaxtime,jdbcType=TIMESTAMP}, #{visbmean,jdbcType=DECIMAL}, #{camtmean,jdbcType=DECIMAL}, 
+      #{snowdeep,jdbcType=SMALLINT}, #{stats,jdbcType=CHAR}, #{statg,jdbcType=CHAR}, 
+      #{state,jdbcType=CHAR}, #{statp1,jdbcType=CHAR}, #{statp2,jdbcType=CHAR}, #{statf1,jdbcType=CHAR}, 
+      #{statf2,jdbcType=CHAR}, #{statf3,jdbcType=CHAR}, #{stato1,jdbcType=CHAR}, #{stato2,jdbcType=CHAR}, 
+      #{statl1,jdbcType=CHAR}, #{statl2,jdbcType=CHAR}, #{evap20in,jdbcType=DECIMAL}, 
+      #{evap20out,jdbcType=DECIMAL}, #{evapa,jdbcType=DECIMAL}, #{txgrassmin,jdbcType=DECIMAL}, 
+      #{txsoil0cm,jdbcType=DECIMAL}, #{txsoil5cm,jdbcType=DECIMAL}, #{txsoil10cm,jdbcType=DECIMAL}, 
+      #{txsoil20cm,jdbcType=DECIMAL}, #{txsoil30cm,jdbcType=DECIMAL}, #{txsoil50cm,jdbcType=DECIMAL}, 
+      #{txsoil100cm,jdbcType=DECIMAL}, #{txsoil200cm,jdbcType=DECIMAL}, #{txsoil300cm,jdbcType=DECIMAL}, 
+      #{txsoil500cm,jdbcType=DECIMAL}, #{ws1,jdbcType=DECIMAL}, #{ws2,jdbcType=DECIMAL}, 
+      #{ws3,jdbcType=DECIMAL}, #{ws4,jdbcType=DECIMAL}, #{ws5,jdbcType=DECIMAL}, #{ws6,jdbcType=DECIMAL}, 
+      #{ws7,jdbcType=DECIMAL}, #{ws8,jdbcType=DECIMAL}, #{ws9,jdbcType=DECIMAL}, #{ws10,jdbcType=DECIMAL}, 
+      #{ws11,jdbcType=DECIMAL}, #{ws12,jdbcType=DECIMAL}, #{ws13,jdbcType=DECIMAL}, #{ws14,jdbcType=DECIMAL}, 
+      #{ws15,jdbcType=DECIMAL}, #{ws16,jdbcType=DECIMAL}, #{ws17,jdbcType=DECIMAL}, #{ws18,jdbcType=DECIMAL}, 
+      #{ws19,jdbcType=DECIMAL}, #{ws20,jdbcType=DECIMAL}, #{ws21,jdbcType=DECIMAL}, #{ws22,jdbcType=DECIMAL}, 
+      #{ws23,jdbcType=DECIMAL}, #{ws24,jdbcType=DECIMAL}, #{ws25,jdbcType=DECIMAL}, #{ws26,jdbcType=DECIMAL}, 
+      #{ws27,jdbcType=DECIMAL}, #{ws28,jdbcType=DECIMAL}, #{ws29,jdbcType=DECIMAL}, #{ws30,jdbcType=DECIMAL}, 
+      #{ws31,jdbcType=DECIMAL}, #{ws32,jdbcType=DECIMAL}, #{ws33,jdbcType=DECIMAL}, #{ws34,jdbcType=DECIMAL}, 
+      #{ws35,jdbcType=DECIMAL}, #{ws36,jdbcType=DECIMAL}, #{wsV,jdbcType=DECIMAL}, #{wsC,jdbcType=DECIMAL}, 
+      #{wd1,jdbcType=SMALLINT}, #{wd2,jdbcType=SMALLINT}, #{wd3,jdbcType=SMALLINT}, #{wd4,jdbcType=SMALLINT}, 
+      #{wd5,jdbcType=SMALLINT}, #{wd6,jdbcType=SMALLINT}, #{wd7,jdbcType=SMALLINT}, #{wd8,jdbcType=SMALLINT}, 
+      #{wd9,jdbcType=SMALLINT}, #{wd10,jdbcType=SMALLINT}, #{wd11,jdbcType=SMALLINT}, 
+      #{wd12,jdbcType=SMALLINT}, #{wd13,jdbcType=SMALLINT}, #{wd14,jdbcType=SMALLINT}, 
+      #{wd15,jdbcType=SMALLINT}, #{wd16,jdbcType=SMALLINT}, #{wd17,jdbcType=SMALLINT}, 
+      #{wd18,jdbcType=SMALLINT}, #{wd19,jdbcType=SMALLINT}, #{wd20,jdbcType=SMALLINT}, 
+      #{wd21,jdbcType=SMALLINT}, #{wd22,jdbcType=SMALLINT}, #{wd23,jdbcType=SMALLINT}, 
+      #{wd24,jdbcType=SMALLINT}, #{wd25,jdbcType=SMALLINT}, #{wd26,jdbcType=SMALLINT}, 
+      #{wd27,jdbcType=SMALLINT}, #{wd28,jdbcType=SMALLINT}, #{wd29,jdbcType=SMALLINT}, 
+      #{wd30,jdbcType=SMALLINT}, #{wd31,jdbcType=SMALLINT}, #{wd32,jdbcType=SMALLINT}, 
+      #{wd33,jdbcType=SMALLINT}, #{wd34,jdbcType=SMALLINT}, #{wd35,jdbcType=SMALLINT}, 
+      #{wd36,jdbcType=SMALLINT}, #{wdV,jdbcType=SMALLINT}, #{wdC,jdbcType=SMALLINT}, 
+      #{tb,jdbcType=DECIMAL}, #{hcstat,jdbcType=CHAR}, #{mcstat,jdbcType=CHAR}, #{lcstat,jdbcType=CHAR}, 
+      #{lcamt,jdbcType=DECIMAL}, #{seapresmax,jdbcType=DECIMAL}, #{seapresmaxtime,jdbcType=TIMESTAMP}, 
+      #{seapresmin,jdbcType=DECIMAL}, #{seapresmintime,jdbcType=TIMESTAMP}, #{recupdtime,jdbcType=TIMESTAMP}, 
+      #{weathercondition,jdbcType=VARCHAR}, #{sunshinej,jdbcType=DECIMAL}, #{uvi,jdbcType=DECIMAL}, 
+      #{uvitime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="model.CwbDy">
+    insert into cwbdy_test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stno != null">
+        Stno,
+      </if>
+      <if test="obstime != null">
+        ObsTime,
+      </if>
+      <if test="stnpres != null">
+        StnPres,
+      </if>
+      <if test="seapres != null">
+        SeaPres,
+      </if>
+      <if test="stnpresmax != null">
+        StnPresMax,
+      </if>
+      <if test="stnpresmaxtime != null">
+        StnPresMaxTime,
+      </if>
+      <if test="stnpresmin != null">
+        StnPresMin,
+      </if>
+      <if test="stnpresmintime != null">
+        StnPresMinTime,
+      </if>
+      <if test="tx != null">
+        Tx,
+      </if>
+      <if test="tw != null">
+        Tw,
+      </if>
+      <if test="txrange != null">
+        TxRange,
+      </if>
+      <if test="txmaxabs != null">
+        TxMaxAbs,
+      </if>
+      <if test="txmaxabstime != null">
+        TxMaxAbsTime,
+      </if>
+      <if test="txminabs != null">
+        TxMinAbs,
+      </if>
+      <if test="txminabstime != null">
+        TxMinAbsTime,
+      </if>
+      <if test="td != null">
+        Td,
+      </if>
+      <if test="tdmax != null">
+        TdMax,
+      </if>
+      <if test="tdmaxtime != null">
+        TdMaxTime,
+      </if>
+      <if test="tdmin != null">
+        TdMin,
+      </if>
+      <if test="tdmintime != null">
+        TdMinTime,
+      </if>
+      <if test="vprpres != null">
+        VprPres,
+      </if>
+      <if test="vprpresmax != null">
+        VprPresMax,
+      </if>
+      <if test="vprpresmaxtime != null">
+        VprPresMaxTime,
+      </if>
+      <if test="vprpresmin != null">
+        VprPresMin,
+      </if>
+      <if test="vprpresmintime != null">
+        VprPresMinTime,
+      </if>
+      <if test="rh != null">
+        RH,
+      </if>
+      <if test="rhmax != null">
+        RHMax,
+      </if>
+      <if test="rhmaxtime != null">
+        RHMaxTime,
+      </if>
+      <if test="rhmin != null">
+        RHMin,
+      </if>
+      <if test="rhmintime != null">
+        RHMinTime,
+      </if>
+      <if test="ws != null">
+        WS,
+      </if>
+      <if test="wd != null">
+        WD,
+      </if>
+      <if test="windrun != null">
+        WindRun,
+      </if>
+      <if test="wsmax != null">
+        WSMax,
+      </if>
+      <if test="wdmax != null">
+        WDMax,
+      </if>
+      <if test="wmaxtime != null">
+        WMaxTime,
+      </if>
+      <if test="wsgust != null">
+        WSGust,
+      </if>
+      <if test="wdgust != null">
+        WDGust,
+      </if>
+      <if test="wgusttime != null">
+        WGustTime,
+      </if>
+      <if test="precp != null">
+        Precp,
+      </if>
+      <if test="precphour != null">
+        PrecpHour,
+      </if>
+      <if test="precpmax10 != null">
+        PrecpMax10,
+      </if>
+      <if test="precpmax10time != null">
+        PrecpMax10Time,
+      </if>
+      <if test="precphrmax != null">
+        PrecpHrMax,
+      </if>
+      <if test="precphrmaxtime != null">
+        PrecpHrMaxTime,
+      </if>
+      <if test="sunshine != null">
+        SunShine,
+      </if>
+      <if test="sunshinerate != null">
+        SunShineRate,
+      </if>
+      <if test="globlrad != null">
+        GloblRad,
+      </if>
+      <if test="globlradhrmax != null">
+        GloblRadHrMax,
+      </if>
+      <if test="globlradhrmaxtime != null">
+        GloblRadHrMaxTime,
+      </if>
+      <if test="visbmean != null">
+        VisbMean,
+      </if>
+      <if test="camtmean != null">
+        CAmtMean,
+      </if>
+      <if test="snowdeep != null">
+        SnowDeep,
+      </if>
+      <if test="stats != null">
+        StatS,
+      </if>
+      <if test="statg != null">
+        StatG,
+      </if>
+      <if test="state != null">
+        StatE,
+      </if>
+      <if test="statp1 != null">
+        StatP1,
+      </if>
+      <if test="statp2 != null">
+        StatP2,
+      </if>
+      <if test="statf1 != null">
+        StatF1,
+      </if>
+      <if test="statf2 != null">
+        StatF2,
+      </if>
+      <if test="statf3 != null">
+        StatF3,
+      </if>
+      <if test="stato1 != null">
+        StatO1,
+      </if>
+      <if test="stato2 != null">
+        StatO2,
+      </if>
+      <if test="statl1 != null">
+        StatL1,
+      </if>
+      <if test="statl2 != null">
+        StatL2,
+      </if>
+      <if test="evap20in != null">
+        Evap20in,
+      </if>
+      <if test="evap20out != null">
+        Evap20out,
+      </if>
+      <if test="evapa != null">
+        EvapA,
+      </if>
+      <if test="txgrassmin != null">
+        TxGrassMin,
+      </if>
+      <if test="txsoil0cm != null">
+        TxSoil0cm,
+      </if>
+      <if test="txsoil5cm != null">
+        TxSoil5cm,
+      </if>
+      <if test="txsoil10cm != null">
+        TxSoil10cm,
+      </if>
+      <if test="txsoil20cm != null">
+        TxSoil20cm,
+      </if>
+      <if test="txsoil30cm != null">
+        TxSoil30cm,
+      </if>
+      <if test="txsoil50cm != null">
+        TxSoil50cm,
+      </if>
+      <if test="txsoil100cm != null">
+        TxSoil100cm,
+      </if>
+      <if test="txsoil200cm != null">
+        TxSoil200cm,
+      </if>
+      <if test="txsoil300cm != null">
+        TxSoil300cm,
+      </if>
+      <if test="txsoil500cm != null">
+        TxSoil500cm,
+      </if>
+      <if test="ws1 != null">
+        WS_1,
+      </if>
+      <if test="ws2 != null">
+        WS_2,
+      </if>
+      <if test="ws3 != null">
+        WS_3,
+      </if>
+      <if test="ws4 != null">
+        WS_4,
+      </if>
+      <if test="ws5 != null">
+        WS_5,
+      </if>
+      <if test="ws6 != null">
+        WS_6,
+      </if>
+      <if test="ws7 != null">
+        WS_7,
+      </if>
+      <if test="ws8 != null">
+        WS_8,
+      </if>
+      <if test="ws9 != null">
+        WS_9,
+      </if>
+      <if test="ws10 != null">
+        WS_10,
+      </if>
+      <if test="ws11 != null">
+        WS_11,
+      </if>
+      <if test="ws12 != null">
+        WS_12,
+      </if>
+      <if test="ws13 != null">
+        WS_13,
+      </if>
+      <if test="ws14 != null">
+        WS_14,
+      </if>
+      <if test="ws15 != null">
+        WS_15,
+      </if>
+      <if test="ws16 != null">
+        WS_16,
+      </if>
+      <if test="ws17 != null">
+        WS_17,
+      </if>
+      <if test="ws18 != null">
+        WS_18,
+      </if>
+      <if test="ws19 != null">
+        WS_19,
+      </if>
+      <if test="ws20 != null">
+        WS_20,
+      </if>
+      <if test="ws21 != null">
+        WS_21,
+      </if>
+      <if test="ws22 != null">
+        WS_22,
+      </if>
+      <if test="ws23 != null">
+        WS_23,
+      </if>
+      <if test="ws24 != null">
+        WS_24,
+      </if>
+      <if test="ws25 != null">
+        WS_25,
+      </if>
+      <if test="ws26 != null">
+        WS_26,
+      </if>
+      <if test="ws27 != null">
+        WS_27,
+      </if>
+      <if test="ws28 != null">
+        WS_28,
+      </if>
+      <if test="ws29 != null">
+        WS_29,
+      </if>
+      <if test="ws30 != null">
+        WS_30,
+      </if>
+      <if test="ws31 != null">
+        WS_31,
+      </if>
+      <if test="ws32 != null">
+        WS_32,
+      </if>
+      <if test="ws33 != null">
+        WS_33,
+      </if>
+      <if test="ws34 != null">
+        WS_34,
+      </if>
+      <if test="ws35 != null">
+        WS_35,
+      </if>
+      <if test="ws36 != null">
+        WS_36,
+      </if>
+      <if test="wsV != null">
+        WS_V,
+      </if>
+      <if test="wsC != null">
+        WS_C,
+      </if>
+      <if test="wd1 != null">
+        WD_1,
+      </if>
+      <if test="wd2 != null">
+        WD_2,
+      </if>
+      <if test="wd3 != null">
+        WD_3,
+      </if>
+      <if test="wd4 != null">
+        WD_4,
+      </if>
+      <if test="wd5 != null">
+        WD_5,
+      </if>
+      <if test="wd6 != null">
+        WD_6,
+      </if>
+      <if test="wd7 != null">
+        WD_7,
+      </if>
+      <if test="wd8 != null">
+        WD_8,
+      </if>
+      <if test="wd9 != null">
+        WD_9,
+      </if>
+      <if test="wd10 != null">
+        WD_10,
+      </if>
+      <if test="wd11 != null">
+        WD_11,
+      </if>
+      <if test="wd12 != null">
+        WD_12,
+      </if>
+      <if test="wd13 != null">
+        WD_13,
+      </if>
+      <if test="wd14 != null">
+        WD_14,
+      </if>
+      <if test="wd15 != null">
+        WD_15,
+      </if>
+      <if test="wd16 != null">
+        WD_16,
+      </if>
+      <if test="wd17 != null">
+        WD_17,
+      </if>
+      <if test="wd18 != null">
+        WD_18,
+      </if>
+      <if test="wd19 != null">
+        WD_19,
+      </if>
+      <if test="wd20 != null">
+        WD_20,
+      </if>
+      <if test="wd21 != null">
+        WD_21,
+      </if>
+      <if test="wd22 != null">
+        WD_22,
+      </if>
+      <if test="wd23 != null">
+        WD_23,
+      </if>
+      <if test="wd24 != null">
+        WD_24,
+      </if>
+      <if test="wd25 != null">
+        WD_25,
+      </if>
+      <if test="wd26 != null">
+        WD_26,
+      </if>
+      <if test="wd27 != null">
+        WD_27,
+      </if>
+      <if test="wd28 != null">
+        WD_28,
+      </if>
+      <if test="wd29 != null">
+        WD_29,
+      </if>
+      <if test="wd30 != null">
+        WD_30,
+      </if>
+      <if test="wd31 != null">
+        WD_31,
+      </if>
+      <if test="wd32 != null">
+        WD_32,
+      </if>
+      <if test="wd33 != null">
+        WD_33,
+      </if>
+      <if test="wd34 != null">
+        WD_34,
+      </if>
+      <if test="wd35 != null">
+        WD_35,
+      </if>
+      <if test="wd36 != null">
+        WD_36,
+      </if>
+      <if test="wdV != null">
+        WD_V,
+      </if>
+      <if test="wdC != null">
+        WD_C,
+      </if>
+      <if test="tb != null">
+        TB,
+      </if>
+      <if test="hcstat != null">
+        HCStat,
+      </if>
+      <if test="mcstat != null">
+        MCStat,
+      </if>
+      <if test="lcstat != null">
+        LCStat,
+      </if>
+      <if test="lcamt != null">
+        LCAmt,
+      </if>
+      <if test="seapresmax != null">
+        SeaPresMax,
+      </if>
+      <if test="seapresmaxtime != null">
+        SeaPresMaxTime,
+      </if>
+      <if test="seapresmin != null">
+        SeaPresMin,
+      </if>
+      <if test="seapresmintime != null">
+        SeaPresMinTime,
+      </if>
+      <if test="recupdtime != null">
+        RecUpdTime,
+      </if>
+      <if test="weathercondition != null">
+        WeatherCondition,
+      </if>
+      <if test="sunshinej != null">
+        SunShineJ,
+      </if>
+      <if test="uvi != null">
+        uvi,
+      </if>
+      <if test="uvitime != null">
+        uviTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stno != null">
+        #{stno,jdbcType=CHAR},
+      </if>
+      <if test="obstime != null">
+        #{obstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stnpres != null">
+        #{stnpres,jdbcType=DECIMAL},
+      </if>
+      <if test="seapres != null">
+        #{seapres,jdbcType=DECIMAL},
+      </if>
+      <if test="stnpresmax != null">
+        #{stnpresmax,jdbcType=DECIMAL},
+      </if>
+      <if test="stnpresmaxtime != null">
+        #{stnpresmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stnpresmin != null">
+        #{stnpresmin,jdbcType=DECIMAL},
+      </if>
+      <if test="stnpresmintime != null">
+        #{stnpresmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tx != null">
+        #{tx,jdbcType=DECIMAL},
+      </if>
+      <if test="tw != null">
+        #{tw,jdbcType=DECIMAL},
+      </if>
+      <if test="txrange != null">
+        #{txrange,jdbcType=DECIMAL},
+      </if>
+      <if test="txmaxabs != null">
+        #{txmaxabs,jdbcType=DECIMAL},
+      </if>
+      <if test="txmaxabstime != null">
+        #{txmaxabstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="txminabs != null">
+        #{txminabs,jdbcType=DECIMAL},
+      </if>
+      <if test="txminabstime != null">
+        #{txminabstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="td != null">
+        #{td,jdbcType=DECIMAL},
+      </if>
+      <if test="tdmax != null">
+        #{tdmax,jdbcType=DECIMAL},
+      </if>
+      <if test="tdmaxtime != null">
+        #{tdmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tdmin != null">
+        #{tdmin,jdbcType=DECIMAL},
+      </if>
+      <if test="tdmintime != null">
+        #{tdmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vprpres != null">
+        #{vprpres,jdbcType=DECIMAL},
+      </if>
+      <if test="vprpresmax != null">
+        #{vprpresmax,jdbcType=DECIMAL},
+      </if>
+      <if test="vprpresmaxtime != null">
+        #{vprpresmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vprpresmin != null">
+        #{vprpresmin,jdbcType=DECIMAL},
+      </if>
+      <if test="vprpresmintime != null">
+        #{vprpresmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rh != null">
+        #{rh,jdbcType=SMALLINT},
+      </if>
+      <if test="rhmax != null">
+        #{rhmax,jdbcType=SMALLINT},
+      </if>
+      <if test="rhmaxtime != null">
+        #{rhmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rhmin != null">
+        #{rhmin,jdbcType=SMALLINT},
+      </if>
+      <if test="rhmintime != null">
+        #{rhmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ws != null">
+        #{ws,jdbcType=DECIMAL},
+      </if>
+      <if test="wd != null">
+        #{wd,jdbcType=DECIMAL},
+      </if>
+      <if test="windrun != null">
+        #{windrun,jdbcType=DECIMAL},
+      </if>
+      <if test="wsmax != null">
+        #{wsmax,jdbcType=DECIMAL},
+      </if>
+      <if test="wdmax != null">
+        #{wdmax,jdbcType=DECIMAL},
+      </if>
+      <if test="wmaxtime != null">
+        #{wmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wsgust != null">
+        #{wsgust,jdbcType=DECIMAL},
+      </if>
+      <if test="wdgust != null">
+        #{wdgust,jdbcType=DECIMAL},
+      </if>
+      <if test="wgusttime != null">
+        #{wgusttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="precp != null">
+        #{precp,jdbcType=DECIMAL},
+      </if>
+      <if test="precphour != null">
+        #{precphour,jdbcType=DECIMAL},
+      </if>
+      <if test="precpmax10 != null">
+        #{precpmax10,jdbcType=DECIMAL},
+      </if>
+      <if test="precpmax10time != null">
+        #{precpmax10time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="precphrmax != null">
+        #{precphrmax,jdbcType=DECIMAL},
+      </if>
+      <if test="precphrmaxtime != null">
+        #{precphrmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sunshine != null">
+        #{sunshine,jdbcType=DECIMAL},
+      </if>
+      <if test="sunshinerate != null">
+        #{sunshinerate,jdbcType=DECIMAL},
+      </if>
+      <if test="globlrad != null">
+        #{globlrad,jdbcType=DECIMAL},
+      </if>
+      <if test="globlradhrmax != null">
+        #{globlradhrmax,jdbcType=DECIMAL},
+      </if>
+      <if test="globlradhrmaxtime != null">
+        #{globlradhrmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visbmean != null">
+        #{visbmean,jdbcType=DECIMAL},
+      </if>
+      <if test="camtmean != null">
+        #{camtmean,jdbcType=DECIMAL},
+      </if>
+      <if test="snowdeep != null">
+        #{snowdeep,jdbcType=SMALLINT},
+      </if>
+      <if test="stats != null">
+        #{stats,jdbcType=CHAR},
+      </if>
+      <if test="statg != null">
+        #{statg,jdbcType=CHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=CHAR},
+      </if>
+      <if test="statp1 != null">
+        #{statp1,jdbcType=CHAR},
+      </if>
+      <if test="statp2 != null">
+        #{statp2,jdbcType=CHAR},
+      </if>
+      <if test="statf1 != null">
+        #{statf1,jdbcType=CHAR},
+      </if>
+      <if test="statf2 != null">
+        #{statf2,jdbcType=CHAR},
+      </if>
+      <if test="statf3 != null">
+        #{statf3,jdbcType=CHAR},
+      </if>
+      <if test="stato1 != null">
+        #{stato1,jdbcType=CHAR},
+      </if>
+      <if test="stato2 != null">
+        #{stato2,jdbcType=CHAR},
+      </if>
+      <if test="statl1 != null">
+        #{statl1,jdbcType=CHAR},
+      </if>
+      <if test="statl2 != null">
+        #{statl2,jdbcType=CHAR},
+      </if>
+      <if test="evap20in != null">
+        #{evap20in,jdbcType=DECIMAL},
+      </if>
+      <if test="evap20out != null">
+        #{evap20out,jdbcType=DECIMAL},
+      </if>
+      <if test="evapa != null">
+        #{evapa,jdbcType=DECIMAL},
+      </if>
+      <if test="txgrassmin != null">
+        #{txgrassmin,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil0cm != null">
+        #{txsoil0cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil5cm != null">
+        #{txsoil5cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil10cm != null">
+        #{txsoil10cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil20cm != null">
+        #{txsoil20cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil30cm != null">
+        #{txsoil30cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil50cm != null">
+        #{txsoil50cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil100cm != null">
+        #{txsoil100cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil200cm != null">
+        #{txsoil200cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil300cm != null">
+        #{txsoil300cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil500cm != null">
+        #{txsoil500cm,jdbcType=DECIMAL},
+      </if>
+      <if test="ws1 != null">
+        #{ws1,jdbcType=DECIMAL},
+      </if>
+      <if test="ws2 != null">
+        #{ws2,jdbcType=DECIMAL},
+      </if>
+      <if test="ws3 != null">
+        #{ws3,jdbcType=DECIMAL},
+      </if>
+      <if test="ws4 != null">
+        #{ws4,jdbcType=DECIMAL},
+      </if>
+      <if test="ws5 != null">
+        #{ws5,jdbcType=DECIMAL},
+      </if>
+      <if test="ws6 != null">
+        #{ws6,jdbcType=DECIMAL},
+      </if>
+      <if test="ws7 != null">
+        #{ws7,jdbcType=DECIMAL},
+      </if>
+      <if test="ws8 != null">
+        #{ws8,jdbcType=DECIMAL},
+      </if>
+      <if test="ws9 != null">
+        #{ws9,jdbcType=DECIMAL},
+      </if>
+      <if test="ws10 != null">
+        #{ws10,jdbcType=DECIMAL},
+      </if>
+      <if test="ws11 != null">
+        #{ws11,jdbcType=DECIMAL},
+      </if>
+      <if test="ws12 != null">
+        #{ws12,jdbcType=DECIMAL},
+      </if>
+      <if test="ws13 != null">
+        #{ws13,jdbcType=DECIMAL},
+      </if>
+      <if test="ws14 != null">
+        #{ws14,jdbcType=DECIMAL},
+      </if>
+      <if test="ws15 != null">
+        #{ws15,jdbcType=DECIMAL},
+      </if>
+      <if test="ws16 != null">
+        #{ws16,jdbcType=DECIMAL},
+      </if>
+      <if test="ws17 != null">
+        #{ws17,jdbcType=DECIMAL},
+      </if>
+      <if test="ws18 != null">
+        #{ws18,jdbcType=DECIMAL},
+      </if>
+      <if test="ws19 != null">
+        #{ws19,jdbcType=DECIMAL},
+      </if>
+      <if test="ws20 != null">
+        #{ws20,jdbcType=DECIMAL},
+      </if>
+      <if test="ws21 != null">
+        #{ws21,jdbcType=DECIMAL},
+      </if>
+      <if test="ws22 != null">
+        #{ws22,jdbcType=DECIMAL},
+      </if>
+      <if test="ws23 != null">
+        #{ws23,jdbcType=DECIMAL},
+      </if>
+      <if test="ws24 != null">
+        #{ws24,jdbcType=DECIMAL},
+      </if>
+      <if test="ws25 != null">
+        #{ws25,jdbcType=DECIMAL},
+      </if>
+      <if test="ws26 != null">
+        #{ws26,jdbcType=DECIMAL},
+      </if>
+      <if test="ws27 != null">
+        #{ws27,jdbcType=DECIMAL},
+      </if>
+      <if test="ws28 != null">
+        #{ws28,jdbcType=DECIMAL},
+      </if>
+      <if test="ws29 != null">
+        #{ws29,jdbcType=DECIMAL},
+      </if>
+      <if test="ws30 != null">
+        #{ws30,jdbcType=DECIMAL},
+      </if>
+      <if test="ws31 != null">
+        #{ws31,jdbcType=DECIMAL},
+      </if>
+      <if test="ws32 != null">
+        #{ws32,jdbcType=DECIMAL},
+      </if>
+      <if test="ws33 != null">
+        #{ws33,jdbcType=DECIMAL},
+      </if>
+      <if test="ws34 != null">
+        #{ws34,jdbcType=DECIMAL},
+      </if>
+      <if test="ws35 != null">
+        #{ws35,jdbcType=DECIMAL},
+      </if>
+      <if test="ws36 != null">
+        #{ws36,jdbcType=DECIMAL},
+      </if>
+      <if test="wsV != null">
+        #{wsV,jdbcType=DECIMAL},
+      </if>
+      <if test="wsC != null">
+        #{wsC,jdbcType=DECIMAL},
+      </if>
+      <if test="wd1 != null">
+        #{wd1,jdbcType=SMALLINT},
+      </if>
+      <if test="wd2 != null">
+        #{wd2,jdbcType=SMALLINT},
+      </if>
+      <if test="wd3 != null">
+        #{wd3,jdbcType=SMALLINT},
+      </if>
+      <if test="wd4 != null">
+        #{wd4,jdbcType=SMALLINT},
+      </if>
+      <if test="wd5 != null">
+        #{wd5,jdbcType=SMALLINT},
+      </if>
+      <if test="wd6 != null">
+        #{wd6,jdbcType=SMALLINT},
+      </if>
+      <if test="wd7 != null">
+        #{wd7,jdbcType=SMALLINT},
+      </if>
+      <if test="wd8 != null">
+        #{wd8,jdbcType=SMALLINT},
+      </if>
+      <if test="wd9 != null">
+        #{wd9,jdbcType=SMALLINT},
+      </if>
+      <if test="wd10 != null">
+        #{wd10,jdbcType=SMALLINT},
+      </if>
+      <if test="wd11 != null">
+        #{wd11,jdbcType=SMALLINT},
+      </if>
+      <if test="wd12 != null">
+        #{wd12,jdbcType=SMALLINT},
+      </if>
+      <if test="wd13 != null">
+        #{wd13,jdbcType=SMALLINT},
+      </if>
+      <if test="wd14 != null">
+        #{wd14,jdbcType=SMALLINT},
+      </if>
+      <if test="wd15 != null">
+        #{wd15,jdbcType=SMALLINT},
+      </if>
+      <if test="wd16 != null">
+        #{wd16,jdbcType=SMALLINT},
+      </if>
+      <if test="wd17 != null">
+        #{wd17,jdbcType=SMALLINT},
+      </if>
+      <if test="wd18 != null">
+        #{wd18,jdbcType=SMALLINT},
+      </if>
+      <if test="wd19 != null">
+        #{wd19,jdbcType=SMALLINT},
+      </if>
+      <if test="wd20 != null">
+        #{wd20,jdbcType=SMALLINT},
+      </if>
+      <if test="wd21 != null">
+        #{wd21,jdbcType=SMALLINT},
+      </if>
+      <if test="wd22 != null">
+        #{wd22,jdbcType=SMALLINT},
+      </if>
+      <if test="wd23 != null">
+        #{wd23,jdbcType=SMALLINT},
+      </if>
+      <if test="wd24 != null">
+        #{wd24,jdbcType=SMALLINT},
+      </if>
+      <if test="wd25 != null">
+        #{wd25,jdbcType=SMALLINT},
+      </if>
+      <if test="wd26 != null">
+        #{wd26,jdbcType=SMALLINT},
+      </if>
+      <if test="wd27 != null">
+        #{wd27,jdbcType=SMALLINT},
+      </if>
+      <if test="wd28 != null">
+        #{wd28,jdbcType=SMALLINT},
+      </if>
+      <if test="wd29 != null">
+        #{wd29,jdbcType=SMALLINT},
+      </if>
+      <if test="wd30 != null">
+        #{wd30,jdbcType=SMALLINT},
+      </if>
+      <if test="wd31 != null">
+        #{wd31,jdbcType=SMALLINT},
+      </if>
+      <if test="wd32 != null">
+        #{wd32,jdbcType=SMALLINT},
+      </if>
+      <if test="wd33 != null">
+        #{wd33,jdbcType=SMALLINT},
+      </if>
+      <if test="wd34 != null">
+        #{wd34,jdbcType=SMALLINT},
+      </if>
+      <if test="wd35 != null">
+        #{wd35,jdbcType=SMALLINT},
+      </if>
+      <if test="wd36 != null">
+        #{wd36,jdbcType=SMALLINT},
+      </if>
+      <if test="wdV != null">
+        #{wdV,jdbcType=SMALLINT},
+      </if>
+      <if test="wdC != null">
+        #{wdC,jdbcType=SMALLINT},
+      </if>
+      <if test="tb != null">
+        #{tb,jdbcType=DECIMAL},
+      </if>
+      <if test="hcstat != null">
+        #{hcstat,jdbcType=CHAR},
+      </if>
+      <if test="mcstat != null">
+        #{mcstat,jdbcType=CHAR},
+      </if>
+      <if test="lcstat != null">
+        #{lcstat,jdbcType=CHAR},
+      </if>
+      <if test="lcamt != null">
+        #{lcamt,jdbcType=DECIMAL},
+      </if>
+      <if test="seapresmax != null">
+        #{seapresmax,jdbcType=DECIMAL},
+      </if>
+      <if test="seapresmaxtime != null">
+        #{seapresmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="seapresmin != null">
+        #{seapresmin,jdbcType=DECIMAL},
+      </if>
+      <if test="seapresmintime != null">
+        #{seapresmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recupdtime != null">
+        #{recupdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="weathercondition != null">
+        #{weathercondition,jdbcType=VARCHAR},
+      </if>
+      <if test="sunshinej != null">
+        #{sunshinej,jdbcType=DECIMAL},
+      </if>
+      <if test="uvi != null">
+        #{uvi,jdbcType=DECIMAL},
+      </if>
+      <if test="uvitime != null">
+        #{uvitime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="model.CwbDyExample" resultType="java.lang.Long">
+    select count(*) from cwbdy_test
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cwbdy_test
+    <set>
+      <if test="record.stno != null">
+        Stno = #{record.stno,jdbcType=CHAR},
+      </if>
+      <if test="record.obstime != null">
+        ObsTime = #{record.obstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.stnpres != null">
+        StnPres = #{record.stnpres,jdbcType=DECIMAL},
+      </if>
+      <if test="record.seapres != null">
+        SeaPres = #{record.seapres,jdbcType=DECIMAL},
+      </if>
+      <if test="record.stnpresmax != null">
+        StnPresMax = #{record.stnpresmax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.stnpresmaxtime != null">
+        StnPresMaxTime = #{record.stnpresmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.stnpresmin != null">
+        StnPresMin = #{record.stnpresmin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.stnpresmintime != null">
+        StnPresMinTime = #{record.stnpresmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tx != null">
+        Tx = #{record.tx,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tw != null">
+        Tw = #{record.tw,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txrange != null">
+        TxRange = #{record.txrange,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txmaxabs != null">
+        TxMaxAbs = #{record.txmaxabs,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txmaxabstime != null">
+        TxMaxAbsTime = #{record.txmaxabstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.txminabs != null">
+        TxMinAbs = #{record.txminabs,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txminabstime != null">
+        TxMinAbsTime = #{record.txminabstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.td != null">
+        Td = #{record.td,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tdmax != null">
+        TdMax = #{record.tdmax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tdmaxtime != null">
+        TdMaxTime = #{record.tdmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tdmin != null">
+        TdMin = #{record.tdmin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.tdmintime != null">
+        TdMinTime = #{record.tdmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.vprpres != null">
+        VprPres = #{record.vprpres,jdbcType=DECIMAL},
+      </if>
+      <if test="record.vprpresmax != null">
+        VprPresMax = #{record.vprpresmax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.vprpresmaxtime != null">
+        VprPresMaxTime = #{record.vprpresmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.vprpresmin != null">
+        VprPresMin = #{record.vprpresmin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.vprpresmintime != null">
+        VprPresMinTime = #{record.vprpresmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rh != null">
+        RH = #{record.rh,jdbcType=SMALLINT},
+      </if>
+      <if test="record.rhmax != null">
+        RHMax = #{record.rhmax,jdbcType=SMALLINT},
+      </if>
+      <if test="record.rhmaxtime != null">
+        RHMaxTime = #{record.rhmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rhmin != null">
+        RHMin = #{record.rhmin,jdbcType=SMALLINT},
+      </if>
+      <if test="record.rhmintime != null">
+        RHMinTime = #{record.rhmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ws != null">
+        WS = #{record.ws,jdbcType=DECIMAL},
+      </if>
+      <if test="record.wd != null">
+        WD = #{record.wd,jdbcType=DECIMAL},
+      </if>
+      <if test="record.windrun != null">
+        WindRun = #{record.windrun,jdbcType=DECIMAL},
+      </if>
+      <if test="record.wsmax != null">
+        WSMax = #{record.wsmax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.wdmax != null">
+        WDMax = #{record.wdmax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.wmaxtime != null">
+        WMaxTime = #{record.wmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.wsgust != null">
+        WSGust = #{record.wsgust,jdbcType=DECIMAL},
+      </if>
+      <if test="record.wdgust != null">
+        WDGust = #{record.wdgust,jdbcType=DECIMAL},
+      </if>
+      <if test="record.wgusttime != null">
+        WGustTime = #{record.wgusttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.precp != null">
+        Precp = #{record.precp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.precphour != null">
+        PrecpHour = #{record.precphour,jdbcType=DECIMAL},
+      </if>
+      <if test="record.precpmax10 != null">
+        PrecpMax10 = #{record.precpmax10,jdbcType=DECIMAL},
+      </if>
+      <if test="record.precpmax10time != null">
+        PrecpMax10Time = #{record.precpmax10time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.precphrmax != null">
+        PrecpHrMax = #{record.precphrmax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.precphrmaxtime != null">
+        PrecpHrMaxTime = #{record.precphrmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sunshine != null">
+        SunShine = #{record.sunshine,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sunshinerate != null">
+        SunShineRate = #{record.sunshinerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.globlrad != null">
+        GloblRad = #{record.globlrad,jdbcType=DECIMAL},
+      </if>
+      <if test="record.globlradhrmax != null">
+        GloblRadHrMax = #{record.globlradhrmax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.globlradhrmaxtime != null">
+        GloblRadHrMaxTime = #{record.globlradhrmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.visbmean != null">
+        VisbMean = #{record.visbmean,jdbcType=DECIMAL},
+      </if>
+      <if test="record.camtmean != null">
+        CAmtMean = #{record.camtmean,jdbcType=DECIMAL},
+      </if>
+      <if test="record.snowdeep != null">
+        SnowDeep = #{record.snowdeep,jdbcType=SMALLINT},
+      </if>
+      <if test="record.stats != null">
+        StatS = #{record.stats,jdbcType=CHAR},
+      </if>
+      <if test="record.statg != null">
+        StatG = #{record.statg,jdbcType=CHAR},
+      </if>
+      <if test="record.state != null">
+        StatE = #{record.state,jdbcType=CHAR},
+      </if>
+      <if test="record.statp1 != null">
+        StatP1 = #{record.statp1,jdbcType=CHAR},
+      </if>
+      <if test="record.statp2 != null">
+        StatP2 = #{record.statp2,jdbcType=CHAR},
+      </if>
+      <if test="record.statf1 != null">
+        StatF1 = #{record.statf1,jdbcType=CHAR},
+      </if>
+      <if test="record.statf2 != null">
+        StatF2 = #{record.statf2,jdbcType=CHAR},
+      </if>
+      <if test="record.statf3 != null">
+        StatF3 = #{record.statf3,jdbcType=CHAR},
+      </if>
+      <if test="record.stato1 != null">
+        StatO1 = #{record.stato1,jdbcType=CHAR},
+      </if>
+      <if test="record.stato2 != null">
+        StatO2 = #{record.stato2,jdbcType=CHAR},
+      </if>
+      <if test="record.statl1 != null">
+        StatL1 = #{record.statl1,jdbcType=CHAR},
+      </if>
+      <if test="record.statl2 != null">
+        StatL2 = #{record.statl2,jdbcType=CHAR},
+      </if>
+      <if test="record.evap20in != null">
+        Evap20in = #{record.evap20in,jdbcType=DECIMAL},
+      </if>
+      <if test="record.evap20out != null">
+        Evap20out = #{record.evap20out,jdbcType=DECIMAL},
+      </if>
+      <if test="record.evapa != null">
+        EvapA = #{record.evapa,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txgrassmin != null">
+        TxGrassMin = #{record.txgrassmin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txsoil0cm != null">
+        TxSoil0cm = #{record.txsoil0cm,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txsoil5cm != null">
+        TxSoil5cm = #{record.txsoil5cm,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txsoil10cm != null">
+        TxSoil10cm = #{record.txsoil10cm,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txsoil20cm != null">
+        TxSoil20cm = #{record.txsoil20cm,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txsoil30cm != null">
+        TxSoil30cm = #{record.txsoil30cm,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txsoil50cm != null">
+        TxSoil50cm = #{record.txsoil50cm,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txsoil100cm != null">
+        TxSoil100cm = #{record.txsoil100cm,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txsoil200cm != null">
+        TxSoil200cm = #{record.txsoil200cm,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txsoil300cm != null">
+        TxSoil300cm = #{record.txsoil300cm,jdbcType=DECIMAL},
+      </if>
+      <if test="record.txsoil500cm != null">
+        TxSoil500cm = #{record.txsoil500cm,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws1 != null">
+        WS_1 = #{record.ws1,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws2 != null">
+        WS_2 = #{record.ws2,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws3 != null">
+        WS_3 = #{record.ws3,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws4 != null">
+        WS_4 = #{record.ws4,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws5 != null">
+        WS_5 = #{record.ws5,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws6 != null">
+        WS_6 = #{record.ws6,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws7 != null">
+        WS_7 = #{record.ws7,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws8 != null">
+        WS_8 = #{record.ws8,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws9 != null">
+        WS_9 = #{record.ws9,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws10 != null">
+        WS_10 = #{record.ws10,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws11 != null">
+        WS_11 = #{record.ws11,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws12 != null">
+        WS_12 = #{record.ws12,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws13 != null">
+        WS_13 = #{record.ws13,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws14 != null">
+        WS_14 = #{record.ws14,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws15 != null">
+        WS_15 = #{record.ws15,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws16 != null">
+        WS_16 = #{record.ws16,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws17 != null">
+        WS_17 = #{record.ws17,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws18 != null">
+        WS_18 = #{record.ws18,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws19 != null">
+        WS_19 = #{record.ws19,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws20 != null">
+        WS_20 = #{record.ws20,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws21 != null">
+        WS_21 = #{record.ws21,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws22 != null">
+        WS_22 = #{record.ws22,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws23 != null">
+        WS_23 = #{record.ws23,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws24 != null">
+        WS_24 = #{record.ws24,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws25 != null">
+        WS_25 = #{record.ws25,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws26 != null">
+        WS_26 = #{record.ws26,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws27 != null">
+        WS_27 = #{record.ws27,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws28 != null">
+        WS_28 = #{record.ws28,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws29 != null">
+        WS_29 = #{record.ws29,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws30 != null">
+        WS_30 = #{record.ws30,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws31 != null">
+        WS_31 = #{record.ws31,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws32 != null">
+        WS_32 = #{record.ws32,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws33 != null">
+        WS_33 = #{record.ws33,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws34 != null">
+        WS_34 = #{record.ws34,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws35 != null">
+        WS_35 = #{record.ws35,jdbcType=DECIMAL},
+      </if>
+      <if test="record.ws36 != null">
+        WS_36 = #{record.ws36,jdbcType=DECIMAL},
+      </if>
+      <if test="record.wsV != null">
+        WS_V = #{record.wsV,jdbcType=DECIMAL},
+      </if>
+      <if test="record.wsC != null">
+        WS_C = #{record.wsC,jdbcType=DECIMAL},
+      </if>
+      <if test="record.wd1 != null">
+        WD_1 = #{record.wd1,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd2 != null">
+        WD_2 = #{record.wd2,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd3 != null">
+        WD_3 = #{record.wd3,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd4 != null">
+        WD_4 = #{record.wd4,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd5 != null">
+        WD_5 = #{record.wd5,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd6 != null">
+        WD_6 = #{record.wd6,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd7 != null">
+        WD_7 = #{record.wd7,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd8 != null">
+        WD_8 = #{record.wd8,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd9 != null">
+        WD_9 = #{record.wd9,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd10 != null">
+        WD_10 = #{record.wd10,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd11 != null">
+        WD_11 = #{record.wd11,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd12 != null">
+        WD_12 = #{record.wd12,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd13 != null">
+        WD_13 = #{record.wd13,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd14 != null">
+        WD_14 = #{record.wd14,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd15 != null">
+        WD_15 = #{record.wd15,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd16 != null">
+        WD_16 = #{record.wd16,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd17 != null">
+        WD_17 = #{record.wd17,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd18 != null">
+        WD_18 = #{record.wd18,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd19 != null">
+        WD_19 = #{record.wd19,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd20 != null">
+        WD_20 = #{record.wd20,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd21 != null">
+        WD_21 = #{record.wd21,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd22 != null">
+        WD_22 = #{record.wd22,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd23 != null">
+        WD_23 = #{record.wd23,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd24 != null">
+        WD_24 = #{record.wd24,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd25 != null">
+        WD_25 = #{record.wd25,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd26 != null">
+        WD_26 = #{record.wd26,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd27 != null">
+        WD_27 = #{record.wd27,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd28 != null">
+        WD_28 = #{record.wd28,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd29 != null">
+        WD_29 = #{record.wd29,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd30 != null">
+        WD_30 = #{record.wd30,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd31 != null">
+        WD_31 = #{record.wd31,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd32 != null">
+        WD_32 = #{record.wd32,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd33 != null">
+        WD_33 = #{record.wd33,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd34 != null">
+        WD_34 = #{record.wd34,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd35 != null">
+        WD_35 = #{record.wd35,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wd36 != null">
+        WD_36 = #{record.wd36,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wdV != null">
+        WD_V = #{record.wdV,jdbcType=SMALLINT},
+      </if>
+      <if test="record.wdC != null">
+        WD_C = #{record.wdC,jdbcType=SMALLINT},
+      </if>
+      <if test="record.tb != null">
+        TB = #{record.tb,jdbcType=DECIMAL},
+      </if>
+      <if test="record.hcstat != null">
+        HCStat = #{record.hcstat,jdbcType=CHAR},
+      </if>
+      <if test="record.mcstat != null">
+        MCStat = #{record.mcstat,jdbcType=CHAR},
+      </if>
+      <if test="record.lcstat != null">
+        LCStat = #{record.lcstat,jdbcType=CHAR},
+      </if>
+      <if test="record.lcamt != null">
+        LCAmt = #{record.lcamt,jdbcType=DECIMAL},
+      </if>
+      <if test="record.seapresmax != null">
+        SeaPresMax = #{record.seapresmax,jdbcType=DECIMAL},
+      </if>
+      <if test="record.seapresmaxtime != null">
+        SeaPresMaxTime = #{record.seapresmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.seapresmin != null">
+        SeaPresMin = #{record.seapresmin,jdbcType=DECIMAL},
+      </if>
+      <if test="record.seapresmintime != null">
+        SeaPresMinTime = #{record.seapresmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.recupdtime != null">
+        RecUpdTime = #{record.recupdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.weathercondition != null">
+        WeatherCondition = #{record.weathercondition,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sunshinej != null">
+        SunShineJ = #{record.sunshinej,jdbcType=DECIMAL},
+      </if>
+      <if test="record.uvi != null">
+        uvi = #{record.uvi,jdbcType=DECIMAL},
+      </if>
+      <if test="record.uvitime != null">
+        uviTime = #{record.uvitime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cwbdy_test
+    set Stno = #{record.stno,jdbcType=CHAR},
+      ObsTime = #{record.obstime,jdbcType=TIMESTAMP},
+      StnPres = #{record.stnpres,jdbcType=DECIMAL},
+      SeaPres = #{record.seapres,jdbcType=DECIMAL},
+      StnPresMax = #{record.stnpresmax,jdbcType=DECIMAL},
+      StnPresMaxTime = #{record.stnpresmaxtime,jdbcType=TIMESTAMP},
+      StnPresMin = #{record.stnpresmin,jdbcType=DECIMAL},
+      StnPresMinTime = #{record.stnpresmintime,jdbcType=TIMESTAMP},
+      Tx = #{record.tx,jdbcType=DECIMAL},
+      Tw = #{record.tw,jdbcType=DECIMAL},
+      TxRange = #{record.txrange,jdbcType=DECIMAL},
+      TxMaxAbs = #{record.txmaxabs,jdbcType=DECIMAL},
+      TxMaxAbsTime = #{record.txmaxabstime,jdbcType=TIMESTAMP},
+      TxMinAbs = #{record.txminabs,jdbcType=DECIMAL},
+      TxMinAbsTime = #{record.txminabstime,jdbcType=TIMESTAMP},
+      Td = #{record.td,jdbcType=DECIMAL},
+      TdMax = #{record.tdmax,jdbcType=DECIMAL},
+      TdMaxTime = #{record.tdmaxtime,jdbcType=TIMESTAMP},
+      TdMin = #{record.tdmin,jdbcType=DECIMAL},
+      TdMinTime = #{record.tdmintime,jdbcType=TIMESTAMP},
+      VprPres = #{record.vprpres,jdbcType=DECIMAL},
+      VprPresMax = #{record.vprpresmax,jdbcType=DECIMAL},
+      VprPresMaxTime = #{record.vprpresmaxtime,jdbcType=TIMESTAMP},
+      VprPresMin = #{record.vprpresmin,jdbcType=DECIMAL},
+      VprPresMinTime = #{record.vprpresmintime,jdbcType=TIMESTAMP},
+      RH = #{record.rh,jdbcType=SMALLINT},
+      RHMax = #{record.rhmax,jdbcType=SMALLINT},
+      RHMaxTime = #{record.rhmaxtime,jdbcType=TIMESTAMP},
+      RHMin = #{record.rhmin,jdbcType=SMALLINT},
+      RHMinTime = #{record.rhmintime,jdbcType=TIMESTAMP},
+      WS = #{record.ws,jdbcType=DECIMAL},
+      WD = #{record.wd,jdbcType=DECIMAL},
+      WindRun = #{record.windrun,jdbcType=DECIMAL},
+      WSMax = #{record.wsmax,jdbcType=DECIMAL},
+      WDMax = #{record.wdmax,jdbcType=DECIMAL},
+      WMaxTime = #{record.wmaxtime,jdbcType=TIMESTAMP},
+      WSGust = #{record.wsgust,jdbcType=DECIMAL},
+      WDGust = #{record.wdgust,jdbcType=DECIMAL},
+      WGustTime = #{record.wgusttime,jdbcType=TIMESTAMP},
+      Precp = #{record.precp,jdbcType=DECIMAL},
+      PrecpHour = #{record.precphour,jdbcType=DECIMAL},
+      PrecpMax10 = #{record.precpmax10,jdbcType=DECIMAL},
+      PrecpMax10Time = #{record.precpmax10time,jdbcType=TIMESTAMP},
+      PrecpHrMax = #{record.precphrmax,jdbcType=DECIMAL},
+      PrecpHrMaxTime = #{record.precphrmaxtime,jdbcType=TIMESTAMP},
+      SunShine = #{record.sunshine,jdbcType=DECIMAL},
+      SunShineRate = #{record.sunshinerate,jdbcType=DECIMAL},
+      GloblRad = #{record.globlrad,jdbcType=DECIMAL},
+      GloblRadHrMax = #{record.globlradhrmax,jdbcType=DECIMAL},
+      GloblRadHrMaxTime = #{record.globlradhrmaxtime,jdbcType=TIMESTAMP},
+      VisbMean = #{record.visbmean,jdbcType=DECIMAL},
+      CAmtMean = #{record.camtmean,jdbcType=DECIMAL},
+      SnowDeep = #{record.snowdeep,jdbcType=SMALLINT},
+      StatS = #{record.stats,jdbcType=CHAR},
+      StatG = #{record.statg,jdbcType=CHAR},
+      StatE = #{record.state,jdbcType=CHAR},
+      StatP1 = #{record.statp1,jdbcType=CHAR},
+      StatP2 = #{record.statp2,jdbcType=CHAR},
+      StatF1 = #{record.statf1,jdbcType=CHAR},
+      StatF2 = #{record.statf2,jdbcType=CHAR},
+      StatF3 = #{record.statf3,jdbcType=CHAR},
+      StatO1 = #{record.stato1,jdbcType=CHAR},
+      StatO2 = #{record.stato2,jdbcType=CHAR},
+      StatL1 = #{record.statl1,jdbcType=CHAR},
+      StatL2 = #{record.statl2,jdbcType=CHAR},
+      Evap20in = #{record.evap20in,jdbcType=DECIMAL},
+      Evap20out = #{record.evap20out,jdbcType=DECIMAL},
+      EvapA = #{record.evapa,jdbcType=DECIMAL},
+      TxGrassMin = #{record.txgrassmin,jdbcType=DECIMAL},
+      TxSoil0cm = #{record.txsoil0cm,jdbcType=DECIMAL},
+      TxSoil5cm = #{record.txsoil5cm,jdbcType=DECIMAL},
+      TxSoil10cm = #{record.txsoil10cm,jdbcType=DECIMAL},
+      TxSoil20cm = #{record.txsoil20cm,jdbcType=DECIMAL},
+      TxSoil30cm = #{record.txsoil30cm,jdbcType=DECIMAL},
+      TxSoil50cm = #{record.txsoil50cm,jdbcType=DECIMAL},
+      TxSoil100cm = #{record.txsoil100cm,jdbcType=DECIMAL},
+      TxSoil200cm = #{record.txsoil200cm,jdbcType=DECIMAL},
+      TxSoil300cm = #{record.txsoil300cm,jdbcType=DECIMAL},
+      TxSoil500cm = #{record.txsoil500cm,jdbcType=DECIMAL},
+      WS_1 = #{record.ws1,jdbcType=DECIMAL},
+      WS_2 = #{record.ws2,jdbcType=DECIMAL},
+      WS_3 = #{record.ws3,jdbcType=DECIMAL},
+      WS_4 = #{record.ws4,jdbcType=DECIMAL},
+      WS_5 = #{record.ws5,jdbcType=DECIMAL},
+      WS_6 = #{record.ws6,jdbcType=DECIMAL},
+      WS_7 = #{record.ws7,jdbcType=DECIMAL},
+      WS_8 = #{record.ws8,jdbcType=DECIMAL},
+      WS_9 = #{record.ws9,jdbcType=DECIMAL},
+      WS_10 = #{record.ws10,jdbcType=DECIMAL},
+      WS_11 = #{record.ws11,jdbcType=DECIMAL},
+      WS_12 = #{record.ws12,jdbcType=DECIMAL},
+      WS_13 = #{record.ws13,jdbcType=DECIMAL},
+      WS_14 = #{record.ws14,jdbcType=DECIMAL},
+      WS_15 = #{record.ws15,jdbcType=DECIMAL},
+      WS_16 = #{record.ws16,jdbcType=DECIMAL},
+      WS_17 = #{record.ws17,jdbcType=DECIMAL},
+      WS_18 = #{record.ws18,jdbcType=DECIMAL},
+      WS_19 = #{record.ws19,jdbcType=DECIMAL},
+      WS_20 = #{record.ws20,jdbcType=DECIMAL},
+      WS_21 = #{record.ws21,jdbcType=DECIMAL},
+      WS_22 = #{record.ws22,jdbcType=DECIMAL},
+      WS_23 = #{record.ws23,jdbcType=DECIMAL},
+      WS_24 = #{record.ws24,jdbcType=DECIMAL},
+      WS_25 = #{record.ws25,jdbcType=DECIMAL},
+      WS_26 = #{record.ws26,jdbcType=DECIMAL},
+      WS_27 = #{record.ws27,jdbcType=DECIMAL},
+      WS_28 = #{record.ws28,jdbcType=DECIMAL},
+      WS_29 = #{record.ws29,jdbcType=DECIMAL},
+      WS_30 = #{record.ws30,jdbcType=DECIMAL},
+      WS_31 = #{record.ws31,jdbcType=DECIMAL},
+      WS_32 = #{record.ws32,jdbcType=DECIMAL},
+      WS_33 = #{record.ws33,jdbcType=DECIMAL},
+      WS_34 = #{record.ws34,jdbcType=DECIMAL},
+      WS_35 = #{record.ws35,jdbcType=DECIMAL},
+      WS_36 = #{record.ws36,jdbcType=DECIMAL},
+      WS_V = #{record.wsV,jdbcType=DECIMAL},
+      WS_C = #{record.wsC,jdbcType=DECIMAL},
+      WD_1 = #{record.wd1,jdbcType=SMALLINT},
+      WD_2 = #{record.wd2,jdbcType=SMALLINT},
+      WD_3 = #{record.wd3,jdbcType=SMALLINT},
+      WD_4 = #{record.wd4,jdbcType=SMALLINT},
+      WD_5 = #{record.wd5,jdbcType=SMALLINT},
+      WD_6 = #{record.wd6,jdbcType=SMALLINT},
+      WD_7 = #{record.wd7,jdbcType=SMALLINT},
+      WD_8 = #{record.wd8,jdbcType=SMALLINT},
+      WD_9 = #{record.wd9,jdbcType=SMALLINT},
+      WD_10 = #{record.wd10,jdbcType=SMALLINT},
+      WD_11 = #{record.wd11,jdbcType=SMALLINT},
+      WD_12 = #{record.wd12,jdbcType=SMALLINT},
+      WD_13 = #{record.wd13,jdbcType=SMALLINT},
+      WD_14 = #{record.wd14,jdbcType=SMALLINT},
+      WD_15 = #{record.wd15,jdbcType=SMALLINT},
+      WD_16 = #{record.wd16,jdbcType=SMALLINT},
+      WD_17 = #{record.wd17,jdbcType=SMALLINT},
+      WD_18 = #{record.wd18,jdbcType=SMALLINT},
+      WD_19 = #{record.wd19,jdbcType=SMALLINT},
+      WD_20 = #{record.wd20,jdbcType=SMALLINT},
+      WD_21 = #{record.wd21,jdbcType=SMALLINT},
+      WD_22 = #{record.wd22,jdbcType=SMALLINT},
+      WD_23 = #{record.wd23,jdbcType=SMALLINT},
+      WD_24 = #{record.wd24,jdbcType=SMALLINT},
+      WD_25 = #{record.wd25,jdbcType=SMALLINT},
+      WD_26 = #{record.wd26,jdbcType=SMALLINT},
+      WD_27 = #{record.wd27,jdbcType=SMALLINT},
+      WD_28 = #{record.wd28,jdbcType=SMALLINT},
+      WD_29 = #{record.wd29,jdbcType=SMALLINT},
+      WD_30 = #{record.wd30,jdbcType=SMALLINT},
+      WD_31 = #{record.wd31,jdbcType=SMALLINT},
+      WD_32 = #{record.wd32,jdbcType=SMALLINT},
+      WD_33 = #{record.wd33,jdbcType=SMALLINT},
+      WD_34 = #{record.wd34,jdbcType=SMALLINT},
+      WD_35 = #{record.wd35,jdbcType=SMALLINT},
+      WD_36 = #{record.wd36,jdbcType=SMALLINT},
+      WD_V = #{record.wdV,jdbcType=SMALLINT},
+      WD_C = #{record.wdC,jdbcType=SMALLINT},
+      TB = #{record.tb,jdbcType=DECIMAL},
+      HCStat = #{record.hcstat,jdbcType=CHAR},
+      MCStat = #{record.mcstat,jdbcType=CHAR},
+      LCStat = #{record.lcstat,jdbcType=CHAR},
+      LCAmt = #{record.lcamt,jdbcType=DECIMAL},
+      SeaPresMax = #{record.seapresmax,jdbcType=DECIMAL},
+      SeaPresMaxTime = #{record.seapresmaxtime,jdbcType=TIMESTAMP},
+      SeaPresMin = #{record.seapresmin,jdbcType=DECIMAL},
+      SeaPresMinTime = #{record.seapresmintime,jdbcType=TIMESTAMP},
+      RecUpdTime = #{record.recupdtime,jdbcType=TIMESTAMP},
+      WeatherCondition = #{record.weathercondition,jdbcType=VARCHAR},
+      SunShineJ = #{record.sunshinej,jdbcType=DECIMAL},
+      uvi = #{record.uvi,jdbcType=DECIMAL},
+      uviTime = #{record.uvitime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="model.CwbDy">
+    update cwbdy_test
+    <set>
+      <if test="stnpres != null">
+        StnPres = #{stnpres,jdbcType=DECIMAL},
+      </if>
+      <if test="seapres != null">
+        SeaPres = #{seapres,jdbcType=DECIMAL},
+      </if>
+      <if test="stnpresmax != null">
+        StnPresMax = #{stnpresmax,jdbcType=DECIMAL},
+      </if>
+      <if test="stnpresmaxtime != null">
+        StnPresMaxTime = #{stnpresmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stnpresmin != null">
+        StnPresMin = #{stnpresmin,jdbcType=DECIMAL},
+      </if>
+      <if test="stnpresmintime != null">
+        StnPresMinTime = #{stnpresmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tx != null">
+        Tx = #{tx,jdbcType=DECIMAL},
+      </if>
+      <if test="tw != null">
+        Tw = #{tw,jdbcType=DECIMAL},
+      </if>
+      <if test="txrange != null">
+        TxRange = #{txrange,jdbcType=DECIMAL},
+      </if>
+      <if test="txmaxabs != null">
+        TxMaxAbs = #{txmaxabs,jdbcType=DECIMAL},
+      </if>
+      <if test="txmaxabstime != null">
+        TxMaxAbsTime = #{txmaxabstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="txminabs != null">
+        TxMinAbs = #{txminabs,jdbcType=DECIMAL},
+      </if>
+      <if test="txminabstime != null">
+        TxMinAbsTime = #{txminabstime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="td != null">
+        Td = #{td,jdbcType=DECIMAL},
+      </if>
+      <if test="tdmax != null">
+        TdMax = #{tdmax,jdbcType=DECIMAL},
+      </if>
+      <if test="tdmaxtime != null">
+        TdMaxTime = #{tdmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tdmin != null">
+        TdMin = #{tdmin,jdbcType=DECIMAL},
+      </if>
+      <if test="tdmintime != null">
+        TdMinTime = #{tdmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vprpres != null">
+        VprPres = #{vprpres,jdbcType=DECIMAL},
+      </if>
+      <if test="vprpresmax != null">
+        VprPresMax = #{vprpresmax,jdbcType=DECIMAL},
+      </if>
+      <if test="vprpresmaxtime != null">
+        VprPresMaxTime = #{vprpresmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="vprpresmin != null">
+        VprPresMin = #{vprpresmin,jdbcType=DECIMAL},
+      </if>
+      <if test="vprpresmintime != null">
+        VprPresMinTime = #{vprpresmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rh != null">
+        RH = #{rh,jdbcType=SMALLINT},
+      </if>
+      <if test="rhmax != null">
+        RHMax = #{rhmax,jdbcType=SMALLINT},
+      </if>
+      <if test="rhmaxtime != null">
+        RHMaxTime = #{rhmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rhmin != null">
+        RHMin = #{rhmin,jdbcType=SMALLINT},
+      </if>
+      <if test="rhmintime != null">
+        RHMinTime = #{rhmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ws != null">
+        WS = #{ws,jdbcType=DECIMAL},
+      </if>
+      <if test="wd != null">
+        WD = #{wd,jdbcType=DECIMAL},
+      </if>
+      <if test="windrun != null">
+        WindRun = #{windrun,jdbcType=DECIMAL},
+      </if>
+      <if test="wsmax != null">
+        WSMax = #{wsmax,jdbcType=DECIMAL},
+      </if>
+      <if test="wdmax != null">
+        WDMax = #{wdmax,jdbcType=DECIMAL},
+      </if>
+      <if test="wmaxtime != null">
+        WMaxTime = #{wmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wsgust != null">
+        WSGust = #{wsgust,jdbcType=DECIMAL},
+      </if>
+      <if test="wdgust != null">
+        WDGust = #{wdgust,jdbcType=DECIMAL},
+      </if>
+      <if test="wgusttime != null">
+        WGustTime = #{wgusttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="precp != null">
+        Precp = #{precp,jdbcType=DECIMAL},
+      </if>
+      <if test="precphour != null">
+        PrecpHour = #{precphour,jdbcType=DECIMAL},
+      </if>
+      <if test="precpmax10 != null">
+        PrecpMax10 = #{precpmax10,jdbcType=DECIMAL},
+      </if>
+      <if test="precpmax10time != null">
+        PrecpMax10Time = #{precpmax10time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="precphrmax != null">
+        PrecpHrMax = #{precphrmax,jdbcType=DECIMAL},
+      </if>
+      <if test="precphrmaxtime != null">
+        PrecpHrMaxTime = #{precphrmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sunshine != null">
+        SunShine = #{sunshine,jdbcType=DECIMAL},
+      </if>
+      <if test="sunshinerate != null">
+        SunShineRate = #{sunshinerate,jdbcType=DECIMAL},
+      </if>
+      <if test="globlrad != null">
+        GloblRad = #{globlrad,jdbcType=DECIMAL},
+      </if>
+      <if test="globlradhrmax != null">
+        GloblRadHrMax = #{globlradhrmax,jdbcType=DECIMAL},
+      </if>
+      <if test="globlradhrmaxtime != null">
+        GloblRadHrMaxTime = #{globlradhrmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="visbmean != null">
+        VisbMean = #{visbmean,jdbcType=DECIMAL},
+      </if>
+      <if test="camtmean != null">
+        CAmtMean = #{camtmean,jdbcType=DECIMAL},
+      </if>
+      <if test="snowdeep != null">
+        SnowDeep = #{snowdeep,jdbcType=SMALLINT},
+      </if>
+      <if test="stats != null">
+        StatS = #{stats,jdbcType=CHAR},
+      </if>
+      <if test="statg != null">
+        StatG = #{statg,jdbcType=CHAR},
+      </if>
+      <if test="state != null">
+        StatE = #{state,jdbcType=CHAR},
+      </if>
+      <if test="statp1 != null">
+        StatP1 = #{statp1,jdbcType=CHAR},
+      </if>
+      <if test="statp2 != null">
+        StatP2 = #{statp2,jdbcType=CHAR},
+      </if>
+      <if test="statf1 != null">
+        StatF1 = #{statf1,jdbcType=CHAR},
+      </if>
+      <if test="statf2 != null">
+        StatF2 = #{statf2,jdbcType=CHAR},
+      </if>
+      <if test="statf3 != null">
+        StatF3 = #{statf3,jdbcType=CHAR},
+      </if>
+      <if test="stato1 != null">
+        StatO1 = #{stato1,jdbcType=CHAR},
+      </if>
+      <if test="stato2 != null">
+        StatO2 = #{stato2,jdbcType=CHAR},
+      </if>
+      <if test="statl1 != null">
+        StatL1 = #{statl1,jdbcType=CHAR},
+      </if>
+      <if test="statl2 != null">
+        StatL2 = #{statl2,jdbcType=CHAR},
+      </if>
+      <if test="evap20in != null">
+        Evap20in = #{evap20in,jdbcType=DECIMAL},
+      </if>
+      <if test="evap20out != null">
+        Evap20out = #{evap20out,jdbcType=DECIMAL},
+      </if>
+      <if test="evapa != null">
+        EvapA = #{evapa,jdbcType=DECIMAL},
+      </if>
+      <if test="txgrassmin != null">
+        TxGrassMin = #{txgrassmin,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil0cm != null">
+        TxSoil0cm = #{txsoil0cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil5cm != null">
+        TxSoil5cm = #{txsoil5cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil10cm != null">
+        TxSoil10cm = #{txsoil10cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil20cm != null">
+        TxSoil20cm = #{txsoil20cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil30cm != null">
+        TxSoil30cm = #{txsoil30cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil50cm != null">
+        TxSoil50cm = #{txsoil50cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil100cm != null">
+        TxSoil100cm = #{txsoil100cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil200cm != null">
+        TxSoil200cm = #{txsoil200cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil300cm != null">
+        TxSoil300cm = #{txsoil300cm,jdbcType=DECIMAL},
+      </if>
+      <if test="txsoil500cm != null">
+        TxSoil500cm = #{txsoil500cm,jdbcType=DECIMAL},
+      </if>
+      <if test="ws1 != null">
+        WS_1 = #{ws1,jdbcType=DECIMAL},
+      </if>
+      <if test="ws2 != null">
+        WS_2 = #{ws2,jdbcType=DECIMAL},
+      </if>
+      <if test="ws3 != null">
+        WS_3 = #{ws3,jdbcType=DECIMAL},
+      </if>
+      <if test="ws4 != null">
+        WS_4 = #{ws4,jdbcType=DECIMAL},
+      </if>
+      <if test="ws5 != null">
+        WS_5 = #{ws5,jdbcType=DECIMAL},
+      </if>
+      <if test="ws6 != null">
+        WS_6 = #{ws6,jdbcType=DECIMAL},
+      </if>
+      <if test="ws7 != null">
+        WS_7 = #{ws7,jdbcType=DECIMAL},
+      </if>
+      <if test="ws8 != null">
+        WS_8 = #{ws8,jdbcType=DECIMAL},
+      </if>
+      <if test="ws9 != null">
+        WS_9 = #{ws9,jdbcType=DECIMAL},
+      </if>
+      <if test="ws10 != null">
+        WS_10 = #{ws10,jdbcType=DECIMAL},
+      </if>
+      <if test="ws11 != null">
+        WS_11 = #{ws11,jdbcType=DECIMAL},
+      </if>
+      <if test="ws12 != null">
+        WS_12 = #{ws12,jdbcType=DECIMAL},
+      </if>
+      <if test="ws13 != null">
+        WS_13 = #{ws13,jdbcType=DECIMAL},
+      </if>
+      <if test="ws14 != null">
+        WS_14 = #{ws14,jdbcType=DECIMAL},
+      </if>
+      <if test="ws15 != null">
+        WS_15 = #{ws15,jdbcType=DECIMAL},
+      </if>
+      <if test="ws16 != null">
+        WS_16 = #{ws16,jdbcType=DECIMAL},
+      </if>
+      <if test="ws17 != null">
+        WS_17 = #{ws17,jdbcType=DECIMAL},
+      </if>
+      <if test="ws18 != null">
+        WS_18 = #{ws18,jdbcType=DECIMAL},
+      </if>
+      <if test="ws19 != null">
+        WS_19 = #{ws19,jdbcType=DECIMAL},
+      </if>
+      <if test="ws20 != null">
+        WS_20 = #{ws20,jdbcType=DECIMAL},
+      </if>
+      <if test="ws21 != null">
+        WS_21 = #{ws21,jdbcType=DECIMAL},
+      </if>
+      <if test="ws22 != null">
+        WS_22 = #{ws22,jdbcType=DECIMAL},
+      </if>
+      <if test="ws23 != null">
+        WS_23 = #{ws23,jdbcType=DECIMAL},
+      </if>
+      <if test="ws24 != null">
+        WS_24 = #{ws24,jdbcType=DECIMAL},
+      </if>
+      <if test="ws25 != null">
+        WS_25 = #{ws25,jdbcType=DECIMAL},
+      </if>
+      <if test="ws26 != null">
+        WS_26 = #{ws26,jdbcType=DECIMAL},
+      </if>
+      <if test="ws27 != null">
+        WS_27 = #{ws27,jdbcType=DECIMAL},
+      </if>
+      <if test="ws28 != null">
+        WS_28 = #{ws28,jdbcType=DECIMAL},
+      </if>
+      <if test="ws29 != null">
+        WS_29 = #{ws29,jdbcType=DECIMAL},
+      </if>
+      <if test="ws30 != null">
+        WS_30 = #{ws30,jdbcType=DECIMAL},
+      </if>
+      <if test="ws31 != null">
+        WS_31 = #{ws31,jdbcType=DECIMAL},
+      </if>
+      <if test="ws32 != null">
+        WS_32 = #{ws32,jdbcType=DECIMAL},
+      </if>
+      <if test="ws33 != null">
+        WS_33 = #{ws33,jdbcType=DECIMAL},
+      </if>
+      <if test="ws34 != null">
+        WS_34 = #{ws34,jdbcType=DECIMAL},
+      </if>
+      <if test="ws35 != null">
+        WS_35 = #{ws35,jdbcType=DECIMAL},
+      </if>
+      <if test="ws36 != null">
+        WS_36 = #{ws36,jdbcType=DECIMAL},
+      </if>
+      <if test="wsV != null">
+        WS_V = #{wsV,jdbcType=DECIMAL},
+      </if>
+      <if test="wsC != null">
+        WS_C = #{wsC,jdbcType=DECIMAL},
+      </if>
+      <if test="wd1 != null">
+        WD_1 = #{wd1,jdbcType=SMALLINT},
+      </if>
+      <if test="wd2 != null">
+        WD_2 = #{wd2,jdbcType=SMALLINT},
+      </if>
+      <if test="wd3 != null">
+        WD_3 = #{wd3,jdbcType=SMALLINT},
+      </if>
+      <if test="wd4 != null">
+        WD_4 = #{wd4,jdbcType=SMALLINT},
+      </if>
+      <if test="wd5 != null">
+        WD_5 = #{wd5,jdbcType=SMALLINT},
+      </if>
+      <if test="wd6 != null">
+        WD_6 = #{wd6,jdbcType=SMALLINT},
+      </if>
+      <if test="wd7 != null">
+        WD_7 = #{wd7,jdbcType=SMALLINT},
+      </if>
+      <if test="wd8 != null">
+        WD_8 = #{wd8,jdbcType=SMALLINT},
+      </if>
+      <if test="wd9 != null">
+        WD_9 = #{wd9,jdbcType=SMALLINT},
+      </if>
+      <if test="wd10 != null">
+        WD_10 = #{wd10,jdbcType=SMALLINT},
+      </if>
+      <if test="wd11 != null">
+        WD_11 = #{wd11,jdbcType=SMALLINT},
+      </if>
+      <if test="wd12 != null">
+        WD_12 = #{wd12,jdbcType=SMALLINT},
+      </if>
+      <if test="wd13 != null">
+        WD_13 = #{wd13,jdbcType=SMALLINT},
+      </if>
+      <if test="wd14 != null">
+        WD_14 = #{wd14,jdbcType=SMALLINT},
+      </if>
+      <if test="wd15 != null">
+        WD_15 = #{wd15,jdbcType=SMALLINT},
+      </if>
+      <if test="wd16 != null">
+        WD_16 = #{wd16,jdbcType=SMALLINT},
+      </if>
+      <if test="wd17 != null">
+        WD_17 = #{wd17,jdbcType=SMALLINT},
+      </if>
+      <if test="wd18 != null">
+        WD_18 = #{wd18,jdbcType=SMALLINT},
+      </if>
+      <if test="wd19 != null">
+        WD_19 = #{wd19,jdbcType=SMALLINT},
+      </if>
+      <if test="wd20 != null">
+        WD_20 = #{wd20,jdbcType=SMALLINT},
+      </if>
+      <if test="wd21 != null">
+        WD_21 = #{wd21,jdbcType=SMALLINT},
+      </if>
+      <if test="wd22 != null">
+        WD_22 = #{wd22,jdbcType=SMALLINT},
+      </if>
+      <if test="wd23 != null">
+        WD_23 = #{wd23,jdbcType=SMALLINT},
+      </if>
+      <if test="wd24 != null">
+        WD_24 = #{wd24,jdbcType=SMALLINT},
+      </if>
+      <if test="wd25 != null">
+        WD_25 = #{wd25,jdbcType=SMALLINT},
+      </if>
+      <if test="wd26 != null">
+        WD_26 = #{wd26,jdbcType=SMALLINT},
+      </if>
+      <if test="wd27 != null">
+        WD_27 = #{wd27,jdbcType=SMALLINT},
+      </if>
+      <if test="wd28 != null">
+        WD_28 = #{wd28,jdbcType=SMALLINT},
+      </if>
+      <if test="wd29 != null">
+        WD_29 = #{wd29,jdbcType=SMALLINT},
+      </if>
+      <if test="wd30 != null">
+        WD_30 = #{wd30,jdbcType=SMALLINT},
+      </if>
+      <if test="wd31 != null">
+        WD_31 = #{wd31,jdbcType=SMALLINT},
+      </if>
+      <if test="wd32 != null">
+        WD_32 = #{wd32,jdbcType=SMALLINT},
+      </if>
+      <if test="wd33 != null">
+        WD_33 = #{wd33,jdbcType=SMALLINT},
+      </if>
+      <if test="wd34 != null">
+        WD_34 = #{wd34,jdbcType=SMALLINT},
+      </if>
+      <if test="wd35 != null">
+        WD_35 = #{wd35,jdbcType=SMALLINT},
+      </if>
+      <if test="wd36 != null">
+        WD_36 = #{wd36,jdbcType=SMALLINT},
+      </if>
+      <if test="wdV != null">
+        WD_V = #{wdV,jdbcType=SMALLINT},
+      </if>
+      <if test="wdC != null">
+        WD_C = #{wdC,jdbcType=SMALLINT},
+      </if>
+      <if test="tb != null">
+        TB = #{tb,jdbcType=DECIMAL},
+      </if>
+      <if test="hcstat != null">
+        HCStat = #{hcstat,jdbcType=CHAR},
+      </if>
+      <if test="mcstat != null">
+        MCStat = #{mcstat,jdbcType=CHAR},
+      </if>
+      <if test="lcstat != null">
+        LCStat = #{lcstat,jdbcType=CHAR},
+      </if>
+      <if test="lcamt != null">
+        LCAmt = #{lcamt,jdbcType=DECIMAL},
+      </if>
+      <if test="seapresmax != null">
+        SeaPresMax = #{seapresmax,jdbcType=DECIMAL},
+      </if>
+      <if test="seapresmaxtime != null">
+        SeaPresMaxTime = #{seapresmaxtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="seapresmin != null">
+        SeaPresMin = #{seapresmin,jdbcType=DECIMAL},
+      </if>
+      <if test="seapresmintime != null">
+        SeaPresMinTime = #{seapresmintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recupdtime != null">
+        RecUpdTime = #{recupdtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="weathercondition != null">
+        WeatherCondition = #{weathercondition,jdbcType=VARCHAR},
+      </if>
+      <if test="sunshinej != null">
+        SunShineJ = #{sunshinej,jdbcType=DECIMAL},
+      </if>
+      <if test="uvi != null">
+        uvi = #{uvi,jdbcType=DECIMAL},
+      </if>
+      <if test="uvitime != null">
+        uviTime = #{uvitime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Stno = #{stno,jdbcType=CHAR}
+      and ObsTime = #{obstime,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="model.CwbDy">
+    update cwbdy_test
+    set StnPres = #{stnpres,jdbcType=DECIMAL},
+      SeaPres = #{seapres,jdbcType=DECIMAL},
+      StnPresMax = #{stnpresmax,jdbcType=DECIMAL},
+      StnPresMaxTime = #{stnpresmaxtime,jdbcType=TIMESTAMP},
+      StnPresMin = #{stnpresmin,jdbcType=DECIMAL},
+      StnPresMinTime = #{stnpresmintime,jdbcType=TIMESTAMP},
+      Tx = #{tx,jdbcType=DECIMAL},
+      Tw = #{tw,jdbcType=DECIMAL},
+      TxRange = #{txrange,jdbcType=DECIMAL},
+      TxMaxAbs = #{txmaxabs,jdbcType=DECIMAL},
+      TxMaxAbsTime = #{txmaxabstime,jdbcType=TIMESTAMP},
+      TxMinAbs = #{txminabs,jdbcType=DECIMAL},
+      TxMinAbsTime = #{txminabstime,jdbcType=TIMESTAMP},
+      Td = #{td,jdbcType=DECIMAL},
+      TdMax = #{tdmax,jdbcType=DECIMAL},
+      TdMaxTime = #{tdmaxtime,jdbcType=TIMESTAMP},
+      TdMin = #{tdmin,jdbcType=DECIMAL},
+      TdMinTime = #{tdmintime,jdbcType=TIMESTAMP},
+      VprPres = #{vprpres,jdbcType=DECIMAL},
+      VprPresMax = #{vprpresmax,jdbcType=DECIMAL},
+      VprPresMaxTime = #{vprpresmaxtime,jdbcType=TIMESTAMP},
+      VprPresMin = #{vprpresmin,jdbcType=DECIMAL},
+      VprPresMinTime = #{vprpresmintime,jdbcType=TIMESTAMP},
+      RH = #{rh,jdbcType=SMALLINT},
+      RHMax = #{rhmax,jdbcType=SMALLINT},
+      RHMaxTime = #{rhmaxtime,jdbcType=TIMESTAMP},
+      RHMin = #{rhmin,jdbcType=SMALLINT},
+      RHMinTime = #{rhmintime,jdbcType=TIMESTAMP},
+      WS = #{ws,jdbcType=DECIMAL},
+      WD = #{wd,jdbcType=DECIMAL},
+      WindRun = #{windrun,jdbcType=DECIMAL},
+      WSMax = #{wsmax,jdbcType=DECIMAL},
+      WDMax = #{wdmax,jdbcType=DECIMAL},
+      WMaxTime = #{wmaxtime,jdbcType=TIMESTAMP},
+      WSGust = #{wsgust,jdbcType=DECIMAL},
+      WDGust = #{wdgust,jdbcType=DECIMAL},
+      WGustTime = #{wgusttime,jdbcType=TIMESTAMP},
+      Precp = #{precp,jdbcType=DECIMAL},
+      PrecpHour = #{precphour,jdbcType=DECIMAL},
+      PrecpMax10 = #{precpmax10,jdbcType=DECIMAL},
+      PrecpMax10Time = #{precpmax10time,jdbcType=TIMESTAMP},
+      PrecpHrMax = #{precphrmax,jdbcType=DECIMAL},
+      PrecpHrMaxTime = #{precphrmaxtime,jdbcType=TIMESTAMP},
+      SunShine = #{sunshine,jdbcType=DECIMAL},
+      SunShineRate = #{sunshinerate,jdbcType=DECIMAL},
+      GloblRad = #{globlrad,jdbcType=DECIMAL},
+      GloblRadHrMax = #{globlradhrmax,jdbcType=DECIMAL},
+      GloblRadHrMaxTime = #{globlradhrmaxtime,jdbcType=TIMESTAMP},
+      VisbMean = #{visbmean,jdbcType=DECIMAL},
+      CAmtMean = #{camtmean,jdbcType=DECIMAL},
+      SnowDeep = #{snowdeep,jdbcType=SMALLINT},
+      StatS = #{stats,jdbcType=CHAR},
+      StatG = #{statg,jdbcType=CHAR},
+      StatE = #{state,jdbcType=CHAR},
+      StatP1 = #{statp1,jdbcType=CHAR},
+      StatP2 = #{statp2,jdbcType=CHAR},
+      StatF1 = #{statf1,jdbcType=CHAR},
+      StatF2 = #{statf2,jdbcType=CHAR},
+      StatF3 = #{statf3,jdbcType=CHAR},
+      StatO1 = #{stato1,jdbcType=CHAR},
+      StatO2 = #{stato2,jdbcType=CHAR},
+      StatL1 = #{statl1,jdbcType=CHAR},
+      StatL2 = #{statl2,jdbcType=CHAR},
+      Evap20in = #{evap20in,jdbcType=DECIMAL},
+      Evap20out = #{evap20out,jdbcType=DECIMAL},
+      EvapA = #{evapa,jdbcType=DECIMAL},
+      TxGrassMin = #{txgrassmin,jdbcType=DECIMAL},
+      TxSoil0cm = #{txsoil0cm,jdbcType=DECIMAL},
+      TxSoil5cm = #{txsoil5cm,jdbcType=DECIMAL},
+      TxSoil10cm = #{txsoil10cm,jdbcType=DECIMAL},
+      TxSoil20cm = #{txsoil20cm,jdbcType=DECIMAL},
+      TxSoil30cm = #{txsoil30cm,jdbcType=DECIMAL},
+      TxSoil50cm = #{txsoil50cm,jdbcType=DECIMAL},
+      TxSoil100cm = #{txsoil100cm,jdbcType=DECIMAL},
+      TxSoil200cm = #{txsoil200cm,jdbcType=DECIMAL},
+      TxSoil300cm = #{txsoil300cm,jdbcType=DECIMAL},
+      TxSoil500cm = #{txsoil500cm,jdbcType=DECIMAL},
+      WS_1 = #{ws1,jdbcType=DECIMAL},
+      WS_2 = #{ws2,jdbcType=DECIMAL},
+      WS_3 = #{ws3,jdbcType=DECIMAL},
+      WS_4 = #{ws4,jdbcType=DECIMAL},
+      WS_5 = #{ws5,jdbcType=DECIMAL},
+      WS_6 = #{ws6,jdbcType=DECIMAL},
+      WS_7 = #{ws7,jdbcType=DECIMAL},
+      WS_8 = #{ws8,jdbcType=DECIMAL},
+      WS_9 = #{ws9,jdbcType=DECIMAL},
+      WS_10 = #{ws10,jdbcType=DECIMAL},
+      WS_11 = #{ws11,jdbcType=DECIMAL},
+      WS_12 = #{ws12,jdbcType=DECIMAL},
+      WS_13 = #{ws13,jdbcType=DECIMAL},
+      WS_14 = #{ws14,jdbcType=DECIMAL},
+      WS_15 = #{ws15,jdbcType=DECIMAL},
+      WS_16 = #{ws16,jdbcType=DECIMAL},
+      WS_17 = #{ws17,jdbcType=DECIMAL},
+      WS_18 = #{ws18,jdbcType=DECIMAL},
+      WS_19 = #{ws19,jdbcType=DECIMAL},
+      WS_20 = #{ws20,jdbcType=DECIMAL},
+      WS_21 = #{ws21,jdbcType=DECIMAL},
+      WS_22 = #{ws22,jdbcType=DECIMAL},
+      WS_23 = #{ws23,jdbcType=DECIMAL},
+      WS_24 = #{ws24,jdbcType=DECIMAL},
+      WS_25 = #{ws25,jdbcType=DECIMAL},
+      WS_26 = #{ws26,jdbcType=DECIMAL},
+      WS_27 = #{ws27,jdbcType=DECIMAL},
+      WS_28 = #{ws28,jdbcType=DECIMAL},
+      WS_29 = #{ws29,jdbcType=DECIMAL},
+      WS_30 = #{ws30,jdbcType=DECIMAL},
+      WS_31 = #{ws31,jdbcType=DECIMAL},
+      WS_32 = #{ws32,jdbcType=DECIMAL},
+      WS_33 = #{ws33,jdbcType=DECIMAL},
+      WS_34 = #{ws34,jdbcType=DECIMAL},
+      WS_35 = #{ws35,jdbcType=DECIMAL},
+      WS_36 = #{ws36,jdbcType=DECIMAL},
+      WS_V = #{wsV,jdbcType=DECIMAL},
+      WS_C = #{wsC,jdbcType=DECIMAL},
+      WD_1 = #{wd1,jdbcType=SMALLINT},
+      WD_2 = #{wd2,jdbcType=SMALLINT},
+      WD_3 = #{wd3,jdbcType=SMALLINT},
+      WD_4 = #{wd4,jdbcType=SMALLINT},
+      WD_5 = #{wd5,jdbcType=SMALLINT},
+      WD_6 = #{wd6,jdbcType=SMALLINT},
+      WD_7 = #{wd7,jdbcType=SMALLINT},
+      WD_8 = #{wd8,jdbcType=SMALLINT},
+      WD_9 = #{wd9,jdbcType=SMALLINT},
+      WD_10 = #{wd10,jdbcType=SMALLINT},
+      WD_11 = #{wd11,jdbcType=SMALLINT},
+      WD_12 = #{wd12,jdbcType=SMALLINT},
+      WD_13 = #{wd13,jdbcType=SMALLINT},
+      WD_14 = #{wd14,jdbcType=SMALLINT},
+      WD_15 = #{wd15,jdbcType=SMALLINT},
+      WD_16 = #{wd16,jdbcType=SMALLINT},
+      WD_17 = #{wd17,jdbcType=SMALLINT},
+      WD_18 = #{wd18,jdbcType=SMALLINT},
+      WD_19 = #{wd19,jdbcType=SMALLINT},
+      WD_20 = #{wd20,jdbcType=SMALLINT},
+      WD_21 = #{wd21,jdbcType=SMALLINT},
+      WD_22 = #{wd22,jdbcType=SMALLINT},
+      WD_23 = #{wd23,jdbcType=SMALLINT},
+      WD_24 = #{wd24,jdbcType=SMALLINT},
+      WD_25 = #{wd25,jdbcType=SMALLINT},
+      WD_26 = #{wd26,jdbcType=SMALLINT},
+      WD_27 = #{wd27,jdbcType=SMALLINT},
+      WD_28 = #{wd28,jdbcType=SMALLINT},
+      WD_29 = #{wd29,jdbcType=SMALLINT},
+      WD_30 = #{wd30,jdbcType=SMALLINT},
+      WD_31 = #{wd31,jdbcType=SMALLINT},
+      WD_32 = #{wd32,jdbcType=SMALLINT},
+      WD_33 = #{wd33,jdbcType=SMALLINT},
+      WD_34 = #{wd34,jdbcType=SMALLINT},
+      WD_35 = #{wd35,jdbcType=SMALLINT},
+      WD_36 = #{wd36,jdbcType=SMALLINT},
+      WD_V = #{wdV,jdbcType=SMALLINT},
+      WD_C = #{wdC,jdbcType=SMALLINT},
+      TB = #{tb,jdbcType=DECIMAL},
+      HCStat = #{hcstat,jdbcType=CHAR},
+      MCStat = #{mcstat,jdbcType=CHAR},
+      LCStat = #{lcstat,jdbcType=CHAR},
+      LCAmt = #{lcamt,jdbcType=DECIMAL},
+      SeaPresMax = #{seapresmax,jdbcType=DECIMAL},
+      SeaPresMaxTime = #{seapresmaxtime,jdbcType=TIMESTAMP},
+      SeaPresMin = #{seapresmin,jdbcType=DECIMAL},
+      SeaPresMinTime = #{seapresmintime,jdbcType=TIMESTAMP},
+      RecUpdTime = #{recupdtime,jdbcType=TIMESTAMP},
+      WeatherCondition = #{weathercondition,jdbcType=VARCHAR},
+      SunShineJ = #{sunshinej,jdbcType=DECIMAL},
+      uvi = #{uvi,jdbcType=DECIMAL},
+      uviTime = #{uvitime,jdbcType=TIMESTAMP}
+    where Stno = #{stno,jdbcType=CHAR}
+      and ObsTime = #{obstime,jdbcType=TIMESTAMP}
+  </update>
+</mapper>

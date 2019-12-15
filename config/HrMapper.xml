@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+						"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tw.com.cwb.cmt.movedata.dao.HrMapper">
+  
+  	<sql id="columns">
+		Stno, ObsTime, StnPres, SeaPres, Tx, Tw, Td, RH
+		, VprPres, WS, WD, WSMax, WDmax, WSGust, WDGust
+		, Precp, PrecpHour, SunShine, Visb, HCHgh, MCHgh
+		, LCHgh, HCAmt, MCAmt, LCAmt, HCStat, MCStat
+		, LCStat, Ceiling, CAmtTotal, TxSoil0cm, TxSoil5cm, TxSoil10cm
+		, TxSoil20cm, TxSoil30cm, StatS, StatG, StatE, StatP1
+		, StatP2, StatF1, StatF2, StatF3, StatO1, StatO2
+		, StatL1, StatL2, GloblRad, PresTrend, SatuVprPres, RecUpdTime
+		, SunShineJ, TxSoil50cm, TxSoil100cm, TxSoil200cm, TxSoil300cm, TxSoil500cm, uvi
+	</sql>
+  
+  	<sql id="values">
+		#{Stno,jdbcType=CHAR}
+		, #{ObsTime,jdbcType=TIMESTAMP}
+		, #{StnPres,jdbcType=DECIMAL}
+		, #{SeaPres,jdbcType=DECIMAL}
+		, #{Tx,jdbcType=DECIMAL}
+		, #{Tw,jdbcType=DECIMAL}
+		, #{Td,jdbcType=DECIMAL}
+		, #{RH,jdbcType=SMALLINT}
+		, #{VprPres,jdbcType=DECIMAL}
+		, #{WS,jdbcType=DECIMAL}
+		, #{WD,jdbcType=DECIMAL}
+		, #{WSMax,jdbcType=DECIMAL}
+		, #{WDmax,jdbcType=DECIMAL}
+		, #{WSGust,jdbcType=DECIMAL}
+		, #{WDGust,jdbcType=DECIMAL}
+		, #{Precp,jdbcType=DECIMAL}
+		, #{PrecpHour,jdbcType=DECIMAL}
+		, #{SunShine,jdbcType=DECIMAL}
+		, #{Visb,jdbcType=DECIMAL}
+		, #{HCHgh,jdbcType=DECIMAL}
+		, #{MCHgh,jdbcType=DECIMAL}
+		, #{LCHgh,jdbcType=DECIMAL}
+		, #{HCAmt,jdbcType=SMALLINT}
+		, #{MCAmt,jdbcType=SMALLINT}
+		, #{LCAmt,jdbcType=SMALLINT}
+		, #{HCStat,jdbcType=CHAR}
+		, #{MCStat,jdbcType=CHAR}
+		, #{LCStat,jdbcType=CHAR}
+		, #{Ceiling,jdbcType=DECIMAL}
+		, #{CAmtTotal,jdbcType=DECIMAL}
+		, #{TxSoil0cm,jdbcType=DECIMAL}
+		, #{TxSoil5cm,jdbcType=DECIMAL}
+		, #{TxSoil10cm,jdbcType=DECIMAL}
+		, #{TxSoil20cm,jdbcType=DECIMAL}
+		, #{TxSoil30cm,jdbcType=DECIMAL}
+		, #{StatS,jdbcType=CHAR}
+		, #{StatG,jdbcType=CHAR}
+		, #{StatE,jdbcType=CHAR}
+		, #{StatP1,jdbcType=CHAR}
+		, #{StatP2,jdbcType=CHAR}
+		, #{StatF1,jdbcType=CHAR}
+		, #{StatF2,jdbcType=CHAR}
+		, #{StatF3,jdbcType=CHAR}
+		, #{StatO1,jdbcType=CHAR}
+		, #{StatO2,jdbcType=CHAR}
+		, #{StatL1,jdbcType=CHAR}
+		, #{StatL2,jdbcType=CHAR}
+		, #{GloblRad,jdbcType=DECIMAL}
+		, #{PresTrend,jdbcType=CHAR}
+		, #{SatuVprPres,jdbcType=DECIMAL}
+		, #{RecUpdTime,jdbcType=TIMESTAMP}
+		, #{SunShineJ,jdbcType=DECIMAL}
+		, #{TxSoil50cm,jdbcType=DECIMAL}
+		, #{TxSoil100cm,jdbcType=DECIMAL}
+		, #{TxSoil200cm,jdbcType=DECIMAL}
+		, #{TxSoil300cm,jdbcType=DECIMAL}
+		, #{TxSoil500cm,jdbcType=DECIMAL}
+		, #{uvi,jdbcType=DECIMAL}
+	</sql>
+
+	<sql id="setStatement">
+		Stno = #{Stno,jdbcType=CHAR},
+		ObsTime = #{ObsTime,jdbcType=TIMESTAMP},
+		StnPres = #{StnPres,jdbcType=DECIMAL},
+		SeaPres = #{SeaPres,jdbcType=DECIMAL},
+		Tx = #{Tx,jdbcType=DECIMAL},
+		Tw = #{Tw,jdbcType=DECIMAL},
+		Td = #{Td,jdbcType=DECIMAL},
+		RH = #{RH,jdbcType=SMALLINT},
+		VprPres = #{VprPres,jdbcType=DECIMAL},
+		WS = #{WS,jdbcType=DECIMAL},
+		WD = #{WD,jdbcType=DECIMAL},
+		WSMax = #{WSMax,jdbcType=DECIMAL},
+		WDmax = #{WDmax,jdbcType=DECIMAL},
+		WSGust = #{WSGust,jdbcType=DECIMAL},
+		WDGust = #{WDGust,jdbcType=DECIMAL},
+		Precp = #{Precp,jdbcType=DECIMAL},
+		PrecpHour = #{PrecpHour,jdbcType=DECIMAL},
+		SunShine = #{SunShine,jdbcType=DECIMAL},
+		Visb = #{Visb,jdbcType=DECIMAL},
+		HCHgh = #{HCHgh,jdbcType=DECIMAL},
+		MCHgh = #{MCHgh,jdbcType=DECIMAL},
+		LCHgh = #{LCHgh,jdbcType=DECIMAL},
+		HCAmt = #{HCAmt,jdbcType=SMALLINT},
+		MCAmt = #{MCAmt,jdbcType=SMALLINT},
+		LCAmt = #{LCAmt,jdbcType=SMALLINT},
+		HCStat = #{HCStat,jdbcType=CHAR},
+		MCStat = #{MCStat,jdbcType=CHAR},
+		LCStat = #{LCStat,jdbcType=CHAR},
+		Ceiling = #{Ceiling,jdbcType=DECIMAL},
+		CAmtTotal = #{CAmtTotal,jdbcType=DECIMAL},
+		TxSoil0cm = #{TxSoil0cm,jdbcType=DECIMAL},
+		TxSoil5cm = #{TxSoil5cm,jdbcType=DECIMAL},
+		TxSoil10cm = #{TxSoil10cm,jdbcType=DECIMAL},
+		TxSoil20cm = #{TxSoil20cm,jdbcType=DECIMAL},
+		TxSoil30cm = #{TxSoil30cm,jdbcType=DECIMAL},
+		StatS = #{StatS,jdbcType=CHAR},
+		StatG = #{StatG,jdbcType=CHAR},
+		StatE = #{StatE,jdbcType=CHAR},
+		StatP1 = #{StatP1,jdbcType=CHAR},
+		StatP2 = #{StatP2,jdbcType=CHAR},
+		StatF1 = #{StatF1,jdbcType=CHAR},
+		StatF2 = #{StatF2,jdbcType=CHAR},
+		StatF3 = #{StatF3,jdbcType=CHAR},
+		StatO1 = #{StatO1,jdbcType=CHAR},
+		StatO2 = #{StatO2,jdbcType=CHAR},
+		StatL1 = #{StatL1,jdbcType=CHAR},
+		StatL2 = #{StatL2,jdbcType=CHAR},
+		GloblRad = #{GloblRad,jdbcType=DECIMAL},
+		PresTrend = #{PresTrend,jdbcType=CHAR},
+		SatuVprPres = #{SatuVprPres,jdbcType=DECIMAL},
+		RecUpdTime = #{RecUpdTime,jdbcType=TIMESTAMP},
+		SunShineJ = #{SunShineJ,jdbcType=DECIMAL},
+		TxSoil50cm = #{TxSoil50cm,jdbcType=DECIMAL},
+		TxSoil100cm = #{TxSoil100cm,jdbcType=DECIMAL},
+		TxSoil200cm = #{TxSoil200cm,jdbcType=DECIMAL},
+		TxSoil300cm = #{TxSoil300cm,jdbcType=DECIMAL},
+		TxSoil500cm = #{TxSoil500cm,jdbcType=DECIMAL},
+		uvi = #{uvi,jdbcType=DECIMAL}
+	</sql>
+
+	<!-- my sql -->
+	<select id="selectByPrimaryKey" parameterType="map" resultType="java.util.HashMap">
+    	SELECT * FROM ${table} WHERE Stno = #{Stno} AND ObsTime = #{ObsTime}
+  	</select>
+  
+  	<!-- my sql -->
+  	<select id="selectRecupdtimeGreaterThan" parameterType="map" resultType="java.util.HashMap">
+    	SELECT * FROM ${table} WHERE RecUpdTime > #{RecUpdTime}
+  	</select>
+  	
+  	<!-- my sql -->
+  	<select id="selectRecUpdTimeBetween" parameterType="map" resultType="java.util.HashMap">
+    	SELECT * FROM ${table} WHERE RecUpdTime BETWEEN #{beginTime} AND #{endTime}  
+  	</select>
+  	
+  	<!-- my sql -->
+  	<select id="countRecUpdTimeGreaterEqualThan" parameterType="map" resultType="java.lang.Integer">
+    	SELECT COUNT(*) FROM ${table} WHERE RecUpdTime >= #{RecUpdTime}  
+  	</select>
+  	
+  
+  	<!-- my sql -->
+  	<select id="selectRecUpdTimeGreaterThanWithPagination" parameterType="map" resultType="java.util.HashMap">
+    	SELECT * FROM ${table} WHERE RecUpdTime >= #{RecUpdTime} ORDER BY Stno, ObsTime LIMIT #{offset}, #{range}  
+  	</select>
+  	  	
+  	<!-- ms sql -->
+  	<select id="selectMaxRecUpdTime" parameterType="map" resultType="java.time.LocalDateTime">
+    	SELECT TOP 1 RecUpdTime FROM ${table}_test ORDER BY RecUpdTime DESC
+  	</select>
+
+	<!-- ms sql -->
+  	<insert id="insertOrUpdate" parameterType="map">
+		UPDATE ${table}_test
+		SET
+		<include refid="setStatement" />
+		WHERE Stno = #{Stno,jdbcType=CHAR}
+		AND ObsTime = #{ObsTime,jdbcType=TIMESTAMP}
+		IF @@rowcount = 0
+		BEGIN
+			INSERT INTO ${table}_test (<include refid="columns" />)
+					VALUES (<include refid="values" />)
+		END
+	</insert>
+    
+</mapper>

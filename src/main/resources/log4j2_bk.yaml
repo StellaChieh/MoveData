@@ -1,0 +1,83 @@
+Configuration:
+    status: debug
+    name: YAMLConfig
+    properties:
+        property:
+            -name: token_logPath
+             value: log/token
+            -name: token_logFile
+             value: token_record
+            -name: token_exceptionFile
+             value: token_exception  
+    appenders:
+        console:
+            name: STDOUT
+            patternLayout:
+                pattern: "%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss} %c{1} - %msg%n"
+        RollingRandomAccessFile:
+           -
+            name: token_record_appender
+            fileName: ${token_logPath}/${token_logFile}.log
+            filePattern: ${token_logPath}/${token_logFile}-%d{yyyy-MM-dd}-%i.log
+            patternLayout:
+                pattern: "%d{yyyy-MM-dd HH:mm:ss}|%m%n"
+            Policy:
+                onStartupTriggeringPolicy
+            Strategy:           
+                DefaultRolloverStrategy:
+                    fileIndex: max
+                    max: 10
+                    Delete:
+                        basePath: ${token_logPath}
+                        maxDepth: 1
+                        IfFileName:
+                            glob: ${token_logPath}/${token_logFile}-*.log
+                        IfLastModified: 
+                            age: 7d
+                        testMode: true
+           -
+            name: token_exception_appender
+            fileName: ${token_logPath}/${token_exceptionFile}.log
+            filePattern: ${token_logPath}/${token_exceptionFile}-%d{yyyy-MM-dd}-%i.log
+            patternLayout:
+                pattern: "%d{yyyy-MM-dd HH:mm:ss}|%m%n"
+            Policy:
+                onStartupTriggeringPolicy:
+                    minSize: 0
+            Strategy:           
+                DefaultRolloverStrategy:
+                    fileIndex: max
+                    max: 10
+                    Delete:
+                        basePath: ${token_logPath}
+                        maxDepth: 1
+                        IfFileName:
+                            glob: ${token_logPath}/${token_exceptionFile}-*.log
+                        IfLastModified: 
+                            age: 7d
+                        testMode: true               
+        
+        Loggers:
+            logger:
+               -
+                name: token_record_appender
+                level: debug
+                additivity: false
+                AppenderRef:
+                    ref: token_record_appender
+               -
+                name: token_exception_appender
+                level: debug
+                additivity: false
+                AppenderRef:
+                    ref: token_exception_appender
+               -
+                name: dao
+                level: trace
+                additivity: false
+                AppenderRef:
+                    ref: STDOUT 
+            Root:
+                level: info
+                AppenderRef:
+                    ref: STDOUT

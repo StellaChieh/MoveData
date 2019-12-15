@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<Configuration status="info" name="config">
+	<Properties>
+    	<Property name="token_logPath" value="log/token"/>
+    	<Property name="token_logFile" value="token_record"/>
+    	<Property name="updatetime_logPath" value="log/updatetime"/>
+    	<Property name="updatetime_logFile" value="updatetime_record"/>
+	</Properties>
+    
+	<Appenders>  
+		<Console name="console" >  
+			<PatternLayout pattern="%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss:SSS} %c{1} - %msg%n"/>  
+		</Console>
+		
+		<RollingRandomAccessFile name="token_record_appender"
+			fileName="${token_logPath}/${token_logFile}.log"
+			filePattern="${token_logPath}/${token_logFile}-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern= "%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss:SSS}| %m%n"/>
+			<OnStartupTriggeringPolicy/>
+			<DefaultRolloverStrategy fileIndex="max" max="15">
+				<Delete basePath="${token_logPath}" maxDepth="1" testMode="false">
+					<IfFileName glob="${token_logFile}-*.log"/>
+					<IfLastModified age="14d"/>
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingRandomAccessFile>
+				
+		<RollingRandomAccessFile name="updatetime_record_appender"
+			fileName="${updatetime_logPath}/${updatetime_logFile}.log"
+			filePattern="${updatetime_logPath}/${updatetime_logFile}-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern= "%highlight{[%-5level]} %d{yyyy-MM-dd HH:mm:ss:SSS}| %m%n"/>
+			<OnStartupTriggeringPolicy/>
+			<DefaultRolloverStrategy fileIndex="max" max="10">
+				<Delete basePath="${updatetime_logPath}" maxDepth="1" testMode="false">
+					<IfFileName glob="${updatetime_logFile}-*.log"/>
+					<IfLastModified age="14d"/>
+				</Delete>
+			</DefaultRolloverStrategy>
+		</RollingRandomAccessFile>
+			
+	</Appenders>  
+    
+	<Loggers>  
+		<Root level="debug">  
+			<AppenderRef ref="console"/>
+		</Root>  
+    
+		<Logger name="token_record" level="debug" additivity="true">   
+			<AppenderRef ref="token_record_appender"/>  
+		</Logger>
+		
+		<Logger name="updatetime_record" level="info" additivity="true">   
+			<AppenderRef ref="updatetime_record_appender"/>  
+		</Logger>
+		
+    	<!--給Mybatis印出dao句子。 name=mapper所在的包，level為TRACE-->
+		<Logger name="tw.com.cwb.cmt.movedata.dao" level="debug" additivity="true">  
+			<AppenderRef ref="token_record_appender"/>
+			<!--
+			<AppenderRef ref="updatetime_record_appender"/>
+			-->    
+		</Logger>
+		
+	</Loggers>  
+	
+</Configuration>  

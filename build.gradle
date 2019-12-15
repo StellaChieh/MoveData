@@ -1,0 +1,65 @@
+plugins {
+	id "java"
+	id "eclipse"
+	id "com.github.johnrengelman.shadow" version "2.0.2"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+compileJava.options.encoding = "UTF-8"
+
+
+shadowJar {
+	baseName = "moveData"
+	// version number = version.month.date
+	version =  "6.7.22"
+}
+
+task copyToArchive(type:Copy, dependsOn:clean){
+	into "${buildDir}/archive"
+	from(shadowJar)
+	from("UpdateByToken.py")
+	from("${rootDir}"){
+		include "config/**"
+	}
+	doLast{
+		mkdir "${buildDir}/archive/TokenXml"
+	}
+}
+
+task buildZip(type: Zip, dependsOn: copyToArchive){
+	from "${buildDir}/archive"
+	archiveName = "moveData.zip"
+	destinationDir = file("${buildDir}/dist")
+}
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'tw.com.cwb.cmt.movedata.application.Main'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+    
+dependencies{
+	compile group: 'org.mybatis', name: 'mybatis', version: '3.4.5'	
+	compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.46'
+	// https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
+	compile group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '6.4.0.jre8'
+	// compile group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '6.1.0.jre8'
+	// slf4j
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+	// log4j
+	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.10.0'
+  	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.10.0'
+	// SLF4J Bridge that tells system to call  log4j2 when use self4
+	// (mybatis default to use slf4j)
+	compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.10.0'
+	
+	compile group: 'javax.mail', name: 'mail', version: '1.4.7'	
+	compile group: 'com.google.guava', name: 'guava', version: '11.0.2'
+	
+}
